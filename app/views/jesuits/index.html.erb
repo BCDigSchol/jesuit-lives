@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jesuits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Jl</th>
+      <th>Title</th>
+      <th>Last name</th>
+      <th>First name abbrev</th>
+      <th>First name</th>
+      <th>Birth date</th>
+      <th>Place of birth</th>
+      <th>Entrance date</th>
+      <th>Entrance date 2</th>
+      <th>Entrance province</th>
+      <th>Entrance province 2</th>
+      <th>Status</th>
+      <th>Vow date</th>
+      <th>Death date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jesuits.each do |jesuit| %>
+      <tr>
+        <td><%= jesuit.jl_id %></td>
+        <td><%= jesuit.title_id %></td>
+        <td><%= jesuit.last_name %></td>
+        <td><%= jesuit.first_name_abbrev %></td>
+        <td><%= jesuit.first_name %></td>
+        <td><%= jesuit.birth_date_id %></td>
+        <td><%= jesuit.place_of_birth_id %></td>
+        <td><%= jesuit.entrance_date_id %></td>
+        <td><%= jesuit.entrance_date_2_id %></td>
+        <td><%= jesuit.entrance_province_id %></td>
+        <td><%= jesuit.entrance_province_2_id %></td>
+        <td><%= jesuit.status_id %></td>
+        <td><%= jesuit.vow_date_id %></td>
+        <td><%= jesuit.death_date_id %></td>
+        <td><%= link_to 'Show', jesuit %></td>
+        <td><%= link_to 'Edit', edit_jesuit_path(jesuit) %></td>
+        <td><%= link_to 'Destroy', jesuit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jesuit', new_jesuit_path %>

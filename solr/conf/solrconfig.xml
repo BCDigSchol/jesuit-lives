@@ -10,6 +10,8 @@
 
   <directoryFactory name="DirectoryFactory" class="${solr.directoryFactory:solr.StandardDirectoryFactory}"/>
 
+  <schemaFactory class="ClassicIndexSchemaFactory"/>
+
   <updateHandler class="solr.DirectUpdateHandler2">
     <updateLog>
       <str name="dir">${solr.core0.data.dir:}</str>
@@ -43,6 +45,7 @@
        -->
         <str name="qf">
           id
+          full_name
           full_title_tsim
           short_title_tsim
           alternative_title_tsim

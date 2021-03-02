@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @title.abbreviation %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @title.label %>
+</p>
+
+<p>
+  <strong>Unabridged:</strong>
+  <%= @title.unabridged %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @title.description %>
+</p>
+
+<%= link_to 'Edit', edit_title_path(@title) %> |
+<%= link_to 'Back', titles_path %>

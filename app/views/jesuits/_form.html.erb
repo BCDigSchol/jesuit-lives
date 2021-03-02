@@ -1,0 +1,87 @@
+<%= form_with(model: jesuit) do |form| %>
+  <% if jesuit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jesuit.errors.count, "error") %> prohibited this jesuit from being saved:</h2>
+
+      <ul>
+        <% jesuit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :jl_id %>
+    <%= form.text_field :jl_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title_id %>
+    <%= form.text_field :title_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name_abbrev %>
+    <%= form.text_field :first_name_abbrev %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date_id %>
+    <%= form.text_field :birth_date_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place_of_birth_id %>
+    <%= form.text_field :place_of_birth_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrance_date_id %>
+    <%= form.text_field :entrance_date_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrance_date_2_id %>
+    <%= form.text_field :entrance_date_2_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrance_province_id %>
+    <%= form.text_field :entrance_province_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :entrance_province_2_id %>
+    <%= form.text_field :entrance_province_2_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_id %>
+    <%= form.text_field :status_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vow_date_id %>
+    <%= form.text_field :vow_date_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :death_date_id %>
+    <%= form.text_field :death_date_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

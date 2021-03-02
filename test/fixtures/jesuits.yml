@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jl_id: MyString
+  title: one
+  last_name: MyString
+  first_name_abbrev: MyString
+  first_name: MyString
+  birth_date: one
+  place_of_birth: one
+  entrance_date: one
+  entrance_date_2: one
+  entrance_province: one
+  entrance_province_2: one
+  status: one
+  vow_date: one
+  death_date: one
+
+two:
+  jl_id: MyString
+  title: two
+  last_name: MyString
+  first_name_abbrev: MyString
+  first_name: MyString
+  birth_date: two
+  place_of_birth: two
+  entrance_date: two
+  entrance_date_2: two
+  entrance_province: two
+  entrance_province_2: two
+  status: two
+  vow_date: two
+  death_date: two

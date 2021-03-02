@@ -35,9 +35,6 @@ gem 'rexml'
 # Gotta have Blacklight.
 gem 'blacklight', ">= 6.1"
 
-# For solr indexing.
-gem 'sunspot_rails'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -67,7 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Gems below are all added by blacklight install
 group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
+  gem 'solr_wrapper', '>= 3.1.1'
 end
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.0'

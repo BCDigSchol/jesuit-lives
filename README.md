@@ -1,24 +1,38 @@
-# README
+# Jesuit Lives
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+Install the database and load the 
 
-* Ruby version
+```
+bundle install
+bundle exec rake db:setup
+```
 
-* System dependencies
+### Using bundled Solr
 
-* Configuration
+The `solr_wrapper` gem can install and manage solr and your core in development. Install solr, build the core, and load data:
 
-* Database creation
+```shell
+bundle exec solr_wrapper --persist
+```
 
-* Database initialization
+### Using your own Solr
 
-* How to run the test suite
+Add a new `blacklight-core` core.
 
-* Services (job queues, cache servers, search engines, etc.)
+```solr create -c blacklight-core```
 
-* Deployment instructions
+Copy the following config files to the `blacklight-core` directory.
 
-* ...
+```cp /path/to/project/jesuit-lives/solr/blacklight-core/conf/* /path/to/solr/8.8.1/server/solr/blacklight-core/conf/```
+
+Then restart solr.
+
+```solr restart```
+
+## Testing and development data
+
+Development user credentials are in *seeds.rb*. Load with rake, using the `load_jesuits` env variable to also load some test individual records
+
+``bundle exec rake:db:seed:replant load_jesuits=TRUE``

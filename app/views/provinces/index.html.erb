@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Provinces</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Abbreviation</th>
+    <th>Label</th>
+    <th>Unabridged</th>
+    <th>Description</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @provinces.each do |province| %>
+      <tr>
+        <td><%= province.abbreviation %></td>
+        <td><%= province.label %></td>
+        <td><%= province.unabridged %></td>
+        <td><%= province.description %></td>
+        <td><%= link_to 'Show', province %></td>
+        <td><%= link_to 'Edit', edit_province_path(province) %></td>
+        <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Province', new_province_path %>
