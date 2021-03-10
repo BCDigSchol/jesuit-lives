@@ -167,10 +167,16 @@
 
     <!-- Dates -->
     <field name="birth_date" type="date"/>
+    <field name="birth_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
+
     <field name="death_date" type="date"/>
+    <field name="death_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
+
     <field name="vow_date" type="date"/>
+    <field name="vow_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
+
     <field name="entrance_date" type="date"/>
-    <field name="entrance_date_2" type="date"/>
+    <field name="entrance_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
 
     <!-- Place of birth -->
     <field name="place_of_birth" type="text_general"/>
@@ -182,6 +188,13 @@
     <!-- Housekeeping stuff -->
     <field name="created_at" type="date"/>
     <field name="updated_at" type="date"/>
+
+    <!-- these fields are also used for display, so they must be stored -->
+    <field name="place_of_birth_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="entrance_province_facet" type="string" indexed="true" stored="true" multiValued="true" />
+
+    <field name="status_facet" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="title_facet" type="string" indexed="true" stored="true" multiValued="true" />
 
     <!-- NOTE:  not all possible Solr field types are represented in the dynamic fields -->
 

@@ -78,21 +78,16 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'format', label: 'Format'
-    config.add_facet_field 'pub_date_ssim', label: 'Publication Year', single: true
-    config.add_facet_field 'subject_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
-    config.add_facet_field 'language_ssim', label: 'Language', limit: true
-    config.add_facet_field 'lc_1letter_ssim', label: 'Call Number'
-    config.add_facet_field 'subject_geo_ssim', label: 'Region'
-    config.add_facet_field 'subject_era_ssim', label: 'Era'
+    config.add_facet_field 'place_of_birth_facet', label: 'Place of Birth'
+    config.add_facet_field 'entrance_province_facet', label: 'Entrance Province', limit: 20, index_range: 'A'..'Z'
 
-    config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: ['format', 'language_ssim'], collapsing: true
+    config.add_facet_field 'title_facet', label: 'Title', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'status_facet', label: 'Status', limit: 20, index_range: 'A'..'Z'
 
-    config.add_facet_field 'example_query_facet_field', label: 'Publish Date', :query => {
-       :years_5 => { label: 'within 5 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 5 } TO *]" },
-       :years_10 => { label: 'within 10 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 10 } TO *]" },
-       :years_25 => { label: 'within 25 Years', fq: "pub_date_ssim:[#{Time.zone.now.year - 25 } TO *]" }
-    }
+    config.add_facet_field 'birth_year_iti', label: 'Birth Year', range: true
+    config.add_facet_field 'death_year_iti', label: 'Birth Year', range: true
+    config.add_facet_field 'vow_year_iti', label: 'Birth Year', range: true
+    config.add_facet_field 'entrance_year_iti', label: 'Birth Year', range: true
 
 
     # Have BL send all facet field names to Solr, which has been the default

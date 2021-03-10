@@ -16,40 +16,52 @@ module SolrIndexer
       @doc[:last_name] = jesuit.last_name
       @doc[:full_name] = jesuit.last_name + ', ' + jesuit.first_name
 
-      if jesuit.title.present?
+      unless jesuit.title.nil?
         @doc[:title] = jesuit.title.label
         @doc[:title_abbrev] = jesuit.title.abbreviation
         @doc[:title_unabridged] = jesuit.title.unabridged
+        @doc[:title_facet] = jesuit.title.label
       end
 
-      if jesuit.status.present?
+      unless jesuit.status.nil?
         @doc[:status] = jesuit.status.label
         @doc[:status_abbrev] = jesuit.status.abbreviation
         @doc[:status_unabridged] = jesuit.status.unabridged
+        @doc[:status_facet] = jesuit.status.label
       end
 
-      if jesuit.birth_date.present?
+      unless jesuit.birth_date.nil?
         @doc[:birth_date] = jesuit.birth_date.solr_date
+        @doc[:birth_year_iti] = jesuit.birth_date.date.year
       end
 
-      if jesuit.death_date.present?
+      unless jesuit.death_date.nil?
         @doc[:death_date] = jesuit.death_date.solr_date
+        @doc[:death_year_iti] = jesuit.death_date.date.year
       end
 
-      if jesuit.vow_date.present?
+      unless jesuit.vow_date.nil?
         @doc[:vow_date] = jesuit.vow_date.solr_date
+        @doc[:vow_year_iti] = jesuit.vow_date.date.year
       end
 
-      if jesuit.entrance_date.present?
+      unless jesuit.entrance_date.nil?
         @doc[:entrance_date] = jesuit.entrance_date.solr_date
+        @doc[:entrance_year_iti] = jesuit.entrance_date.date.year
       end
 
-      if jesuit.entrance_date_2.present?
+      unless jesuit.entrance_date_2.nil?
         @doc[:entrance_date_2] = jesuit.entrance_date_2.solr_date
       end
 
-      if jesuit.place_of_birth.present?
+      unless jesuit.place_of_birth.nil?
         add_place 'place_of_birth', jesuit.place_of_birth
+        @doc[:place_of_birth_facet] = jesuit.place_of_birth.label
+      end
+
+      unless jesuit.entrance_province.nil?
+        @doc[:entrance_province] = jesuit.entrance_province.abbreviation
+        @doc[:entrance_province_facet] = jesuit.entrance_province.abbreviation
       end
 
     end

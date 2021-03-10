@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Install the database and load the 
+Install the database and load the
 
 ```
 bundle install
@@ -11,7 +11,8 @@ bundle exec rake db:setup
 
 ### Using bundled Solr
 
-The `solr_wrapper` gem can install and manage solr and your core in development. Install solr, build the core, and load data:
+The `solr_wrapper` gem can install and manage solr and your core in development. Install solr, build the core, and load
+data:
 
 ```shell
 bundle exec solr_wrapper --persist
@@ -21,18 +22,33 @@ bundle exec solr_wrapper --persist
 
 Add a new `blacklight-core` core.
 
-```solr create -c blacklight-core```
+```shell
+solr create -c blacklight-core
+```
 
 Copy the following config files to the `blacklight-core` directory.
 
-```cp /path/to/project/jesuit-lives/solr/blacklight-core/conf/* /path/to/solr/8.8.1/server/solr/blacklight-core/conf/```
+```shell
+cp /path/to/project/jesuit-lives/solr/blacklight-core/conf/* /path/to/solr/8.8.1/server/solr/blacklight-core/conf/
+```
 
 Then restart solr.
 
-```solr restart```
+```shell
+solr restart
+```
 
 ## Testing and development data
 
-Development user credentials are in *seeds.rb*. Load with rake, using the `load_jesuits` env variable to also load some test individual records
+Development user credentials are in *seeds.rb*. Load with rake, using the `load_jesuits` env variable to also load some
+test individual records
 
-``bundle exec rake:db:seed:replant load_jesuits=TRUE``
+```shell
+bundle exec rake db:seed:replant load_jesuits=TRUE
+```
+
+To just reload Jesuit records:
+
+```shell
+bundle exec rake db:seed:replant_jesuits
+```

@@ -1,7 +1,5 @@
 module SolrIndexer
 
-  puts 'LOADED'
-
   class Indexer
 
     # Build the Indexer
