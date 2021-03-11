@@ -84,10 +84,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'title_facet', label: 'Title', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'status_facet', label: 'Status', limit: 20, index_range: 'A'..'Z'
 
-    config.add_facet_field 'birth_year_iti', label: 'Birth Year', range: true
-    config.add_facet_field 'death_year_iti', label: 'Birth Year', range: true
-    config.add_facet_field 'vow_year_iti', label: 'Birth Year', range: true
-    config.add_facet_field 'entrance_year_iti', label: 'Birth Year', range: true
+    config.add_facet_field 'birth_year_iti', label: 'Year of Birth', range: true
+    config.add_facet_field 'death_year_iti', label: 'Year of Death', range: true
+    config.add_facet_field 'vow_year_iti', label: 'Year of Vow Taken', range: true
+    config.add_facet_field 'entrance_year_iti', label: 'Year of Entrance', range: true
 
 
     # Have BL send all facet field names to Solr, which has been the default

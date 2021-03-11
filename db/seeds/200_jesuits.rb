@@ -7,6 +7,8 @@ when "development"
   #     bundle exec rake db:seed load_jesuits=yes
   if ENV["load_jesuits"]
 
+    include DatePointFactory
+
     title_priest = Title.find_by_abbreviation('p')
 
     Jesuit.create([
@@ -18,7 +20,7 @@ when "development"
                       first_name: 'Ioachim',
                       entrance_province: Province.find_by_abbreviation('in Imp Russ'),
                       status: Status.find_by_abbreviation('nov'),
-                      death_date: DatePoint.build('17-09-1814')
+                      death_date: DatePointFactory.build('17-09-1814')
                     },
                     {
                       jl_id: '0.085',
@@ -26,12 +28,12 @@ when "development"
                       last_name: 'Castañiza',
                       first_name_abbrev: 'Ios.',
                       first_name: 'Iosephus',
-                      birth_date: DatePoint.build('23-05-1744'),
+                      birth_date: DatePointFactory.build('23-05-1744'),
                       place_of_birth: Place.find_by_label('México'),
-                      entrance_date: DatePoint.build('18-03-1761'),
+                      entrance_date: DatePointFactory.build('18-03-1761'),
                       entrance_province: Province.find_by_abbreviation('Mex'),
                       status: Status.find_by_abbreviation('p3'),
-                      death_date: DatePoint.build('24-11-1816')
+                      death_date: DatePointFactory.build('24-11-1816')
                     }
                   ])
 

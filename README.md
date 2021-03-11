@@ -4,7 +4,7 @@
 
 Install the database and load the
 
-```
+```shell
 bundle install
 bundle exec rake db:setup
 ```
