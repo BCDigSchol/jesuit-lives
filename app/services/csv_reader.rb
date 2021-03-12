@@ -1,0 +1,103 @@
+module CsvReader
+  require "csv_reader/fields"
+  require "csv_reader/preset_values"
+  require "csv"
+  require "date_point_factory"
+
+  priest =
+
+    # Read a CSV file and populate the database
+    #
+    # @param [String] file the full path to the CSV file to read
+    # @param [Boolean] show_progress show a CLI progress bar?
+    def self.read(file, show_progress: false, index_batch_size: 100)
+
+      solr_indexer = SolrIndexer::Indexer.new(batch_size: index_batch_size)
+
+      preset_values = PresetValues.new
+
+      item_count = 0
+      start = Time.now
+      total_lines = CSV.read(file, headers: true, liberal_parsing: true).length
+      puts "Total rows in import file: #{total_lines}"
+
+      bar = show_progress ? ProgressBar.new(total_lines) : NullProgressBar
+
+      CSV.foreach(file, headers: true, encoding: Encoding::UTF_8, liberal_parsing: true) do |row|
+        jesuit = build_jesuit_from_csv(row, bar, preset_values)
+        solr_indexer.add(jesuit) if jesuit
+      end
+
+      # Commit any remaining Jesuits to solr.
+      solr_indexer.commit
+
+      diff = Time.now - start
+      puts "Created #{item_count} records in #{diff} seconds\n\n"
+    end
+
+  # Build a Jesuit from a single CSV row
+  #
+  # @param [Array] row row from CSV
+  # @param [#increment!] bar a progress bar
+  # @param [PresetValues] preset_values
+  def self.build_jesuit_from_csv(row, bar, preset_values)
+
+    # Abort early if there's already a Jesuit with this ID
+    # @todo log duplicates
+    return nil if (Jesuit.exists?(:jl_id => row[Fields::JLIVES_ID]))
+
+    jesuit = Jesuit.new
+
+    jesuit.jl_id = row[Fields::JLIVES_ID]
+
+    jesuit.last_name = row[Fields::LAST_NAME]
+    jesuit.first_name_abbrev = row[Fields::FIRST_NAME_ABBREV]
+    jesuit.first_name = row[Fields::FULL_FIRST_NAME]
+
+    jesuit.birth_date = build_date(row, Fields::BIRTH_DATE)
+    jesuit.death_date = build_date(row, Fields::DEATH_DATE)
+    jesuit.vow_date = build_date(row, Fields::VOW_DATE)
+    jesuit.entrance_date = build_date(row, Fields::ENTRANCE_DATE_1)
+    jesuit.entrance_date_2 = build_date(row, Fields::ENTRANCE_DATE_2)
+
+    jesuit.place_of_birth = Place.find_or_create_by(label: row[Fields::PLACE_OF_BIRTH])
+    jesuit.entrance_province = Province.find_or_create_by(abbreviation: row[Fields::ENTRANCE_PROVINCE])
+
+    if preset_values.title(row[Fields::TITLE])
+      jesuit.title = preset_values.title(row[Fields::TITLE])
+    else
+      jesuit.title = Title.find_or_create_by(abbreviation: row[Fields::TITLE])
+    end
+
+    if preset_values.title(row[Fields::STATUS])
+      jesuit.status = preset_values.status(row[Fields::STATUS])
+    else
+      jesuit.status = Status.find_or_create_by(abbreviation: row[Fields::STATUS])
+    end
+
+    jesuit.save(validate: false)
+    bar.increment!
+    jesuit
+  end
+
+  # Build a date from a row
+  # @param [Array<String>] row
+  # @param [Integer] field
+  def self.build_date(row, field)
+    date = nil
+    begin
+      date = DatePointFactory::build(row[field]) if row[field]
+    rescue Date::Error => e
+      # @todo log bad dates
+    end
+    date
+  end
+
+  # Null class for progress bar, so we don't have to check for existence on every tick.
+  class NullProgressBar
+    def increment!
+      # No-op
+    end
+  end
+
+end

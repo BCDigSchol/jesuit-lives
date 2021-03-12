@@ -10,19 +10,27 @@ class Jesuit < ApplicationRecord
   belongs_to :vow_date, class_name: "DatePoint", foreign_key: :vow_date_id, optional: true
   belongs_to :death_date, class_name: "DatePoint", foreign_key: :death_date_id, optional: true
 
-  after_save :index_record
-  before_destroy :remove_from_index
-
-  def index_record
+  # Save then add to search index
+  def save_and_index
+    save
     indexer = SolrIndexer::Indexer.new
     indexer.add(self)
-    indexer.commit
   end
 
-  def remove_from_index
+  # Remove from search index then destroy
+  def destroy_and_index
     indexer = SolrIndexer::Indexer.new
-    indexer.delete self
+    indexer.delete(self)
     indexer.commit
+    destroy
+  end
+
+  # Get the full name
+  # @return [String]
+  def full_name
+    last_name_part = last_name.nil? ? '???' : last_name
+    first_name_part = first_name.nil? ? '???' : first_name
+    "#{last_name_part}, #{first_name_part}"
   end
 
 end

@@ -175,8 +175,8 @@
     <field name="vow_date" type="date"/>
     <field name="vow_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
 
-    <field name="entrance_date" type="date"/>
-    <field name="entrance_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
+    <field name="entrance_date" type="date"  multiValued="true" />
+    <field name="entrance_year_iti" type="tint" stored="false" indexed="true" multiValued="true"/>
 
     <!-- Place of birth -->
     <field name="place_of_birth" type="text_general"/>

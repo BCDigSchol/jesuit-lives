@@ -79,7 +79,7 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
     config.add_facet_field 'place_of_birth_facet', label: 'Place of Birth'
-    config.add_facet_field 'entrance_province_facet', label: 'Entrance Province', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'entrance_province_facet', label: 'Entrance Province'
 
     config.add_facet_field 'title_facet', label: 'Title', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'status_facet', label: 'Status', limit: 20, index_range: 'A'..'Z'
@@ -100,6 +100,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
+    config.add_show_field 'id', label: 'ID'
     config.add_show_field 'title', label: 'Title'
     config.add_show_field 'status', label: 'Status'
 

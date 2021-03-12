@@ -14,7 +14,7 @@ module SolrIndexer
       @doc[:first_name] = jesuit.first_name
       @doc[:first_name_abbrev] = jesuit.first_name_abbrev
       @doc[:last_name] = jesuit.last_name
-      @doc[:full_name] = jesuit.last_name + ', ' + jesuit.first_name
+      @doc[:full_name] = jesuit.full_name
 
       unless jesuit.title.nil?
         @doc[:title] = jesuit.title.label
@@ -30,28 +30,31 @@ module SolrIndexer
         @doc[:status_facet] = jesuit.status.label
       end
 
-      unless jesuit.birth_date.nil?
+      unless date_is_empty?(jesuit.birth_date)
         @doc[:birth_date] = jesuit.birth_date.solr_date
         @doc[:birth_year_iti] = jesuit.birth_date.date.year
       end
 
-      unless jesuit.death_date.nil?
+      unless date_is_empty?(jesuit.death_date)
         @doc[:death_date] = jesuit.death_date.solr_date
         @doc[:death_year_iti] = jesuit.death_date.date.year
       end
 
-      unless jesuit.vow_date.nil?
+      unless date_is_empty?(jesuit.vow_date)
         @doc[:vow_date] = jesuit.vow_date.solr_date
         @doc[:vow_year_iti] = jesuit.vow_date.date.year
       end
 
-      unless jesuit.entrance_date.nil?
-        @doc[:entrance_date] = jesuit.entrance_date.solr_date
-        @doc[:entrance_year_iti] = jesuit.entrance_date.date.year
+      unless date_is_empty?(jesuit.entrance_date)
+        @doc[:entrance_date] = [jesuit.entrance_date.solr_date]
+        @doc[:entrance_year_iti] = [jesuit.entrance_date.date.year]
       end
 
-      unless jesuit.entrance_date_2.nil?
-        @doc[:entrance_date_2] = jesuit.entrance_date_2.solr_date
+      unless date_is_empty?(jesuit.entrance_date_2)
+        @doc[:entrance_date] ||= []
+        @doc[:entrance_year_iti] ||= []
+        @doc[:entrance_date]  << jesuit.entrance_date_2.solr_date
+        @doc[:entrance_year_iti]  << jesuit.entrance_date_2.date.year
       end
 
       unless jesuit.place_of_birth.nil?
@@ -79,7 +82,7 @@ module SolrIndexer
 
     private
 
-    # @param [Place] place
+    # @param [#label] place
     # @param [string] prefix
     def add_place(prefix, place)
       @doc[prefix] = place.label
@@ -87,6 +90,14 @@ module SolrIndexer
       @doc[prefix + '_lat'] = place.latitude
       @doc[prefix + '_lon'] = place.longitude
       @doc[prefix + '_desc'] = place.description
+    end
+
+    # Return true if the a real date isn't present
+    #
+    # @param [#date] date_point date point to test
+    # @return [Boolean]
+    def date_is_empty?(date_point)
+      date_point.nil? || date_point.date.nil?
     end
 
   end
