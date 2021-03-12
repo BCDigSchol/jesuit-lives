@@ -1,5 +1,9 @@
 namespace :jlives do
 
+  def import_logger
+    @import_logger ||= Logger.new("#{Rails.root}/log/import_jesuits.log")
+  end
+
   desc "Import Jesuits from CSV"
   task import_jesuits: :environment do
 
@@ -9,16 +13,35 @@ namespace :jlives do
     end
   end
 
+  desc "Import Jesuits from small CSV"
+  task import_jesuits_small: :environment do
+
+    if user_prompt_interactive?
+      Rake::Task["jlives:clear_jesuits_noninteractive"].invoke
+      Rake::Task["jlives:import_jesuits_small_noninteractive"].invoke
+    end
+  end
+
   desc "Import Jesuits (non-interactive)"
   task import_jesuits_noninteractive: :environment do
     require "csv_reader"
     file = select_import_home_path + 'jesuit-lives-clean.csv'
+    import_logger.info("Starting Jesuits import - reading from file #{file}")
+    CsvReader.read(file, show_progress: true)
+  end
+
+  desc "Import Jesuits (non-interactive)"
+  task import_jesuits_small_noninteractive: :environment do
+    require "csv_reader"
+    file = select_import_home_path + 'jesuit-lives-clean-small.csv'
+    import_logger.info("Starting Jesuits import - reading from file #{file}")
     CsvReader.read(file, show_progress: true)
   end
 
   desc "Clear Jesuit records and DatePoints"
   task clear_jesuits_noninteractive: :environment do
     puts "Clearing existing Jesuit records and DatePoints"
+    import_logger.info("Clearing existing Jesuit records and DatePoints")
     bar = ProgressBar.new(2)
     Jesuit.destroy_all
     bar.increment!

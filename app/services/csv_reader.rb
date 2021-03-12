@@ -24,6 +24,8 @@ module CsvReader
       bar = show_progress ? ProgressBar.new(total_lines) : NullProgressBar
 
       CSV.foreach(file, headers: true, encoding: Encoding::UTF_8, liberal_parsing: true) do |row|
+        item_count += 1
+        import_logger.info("Parsing row ##{item_count}")
         jesuit = build_jesuit_from_csv(row, bar, preset_values)
         solr_indexer.add(jesuit) if jesuit
       end
@@ -33,6 +35,7 @@ module CsvReader
 
       diff = Time.now - start
       puts "Created #{item_count} records in #{diff} seconds\n\n"
+      import_logger.info("Created #{item_count} records in #{diff} seconds")
     end
 
   # Build a Jesuit from a single CSV row
@@ -75,7 +78,44 @@ module CsvReader
       jesuit.status = Status.find_or_create_by(abbreviation: row[Fields::STATUS])
     end
 
-    jesuit.save(validate: false)
+    begin
+      jesuit.save(validate: false)
+    rescue 
+      import_logger.info("Error saving jesuit record #{jesuit.jl_id} with name '#{jesuit.last_name}, #{jesuit.first_name}'")
+      import_logger.info("Error message: #{$!.to_s}")
+    end
+
+    import_logger.info("  Jesuit record saved")
+    import_logger.info("  jl_id: #{jesuit.jl_id}")
+    import_logger.info("  last_name: #{jesuit.last_name}")
+    import_logger.info("  first_name_abbrev: #{jesuit.first_name_abbrev}")
+    import_logger.info("  first_name: #{jesuit.first_name}")
+    import_logger.info("  full_name: #{jesuit.full_name}")
+    if jesuit.death_date
+      import_logger.info("  death_date: #{jesuit.death_date.date}")
+    end
+    if jesuit.vow_date
+      import_logger.info("  vow_date: #{jesuit.vow_date.date}")
+    end
+    if jesuit.entrance_date
+      import_logger.info("  entrance_date: #{jesuit.entrance_date.date}")
+    end
+    if jesuit.entrance_date_2
+      import_logger.info("  entrance_date_2: #{jesuit.entrance_date_2.date}")
+    end
+    if jesuit.place_of_birth
+      import_logger.info("  place_of_birth: #{jesuit.place_of_birth.label}")
+    end
+    if jesuit.entrance_province
+      import_logger.info("  entrance_province: #{jesuit.entrance_province.abbreviation}")
+    end
+    if jesuit.title
+      import_logger.info("  title: #{jesuit.title.abbreviation}")
+    end
+    if jesuit.status
+      import_logger.info("  status: #{jesuit.status.abbreviation}")
+    end
+
     bar.increment!
     jesuit
   end
