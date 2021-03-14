@@ -9,6 +9,7 @@ namespace :jlives do
 
     if user_prompt_interactive?
       Rake::Task["jlives:clear_jesuits_noninteractive"].invoke
+      Rake::Task["jlives:empty_solr_index_noninteractive"].invoke
       Rake::Task["jlives:import_jesuits_noninteractive"].invoke
     end
   end
@@ -18,8 +19,14 @@ namespace :jlives do
 
     if user_prompt_interactive?
       Rake::Task["jlives:clear_jesuits_noninteractive"].invoke
+      Rake::Task["jlives:empty_solr_index_noninteractive"].invoke
       Rake::Task["jlives:import_jesuits_small_noninteractive"].invoke
     end
+  end
+
+  desc "Delete all records in Solr index"
+  task empty_solr_index: :environment do
+    Rake::Task["jlives:empty_solr_index_noninteractive"].invoke
   end
 
   desc "Import Jesuits (non-interactive)"
@@ -40,7 +47,7 @@ namespace :jlives do
 
   desc "Clear Jesuit records and DatePoints"
   task clear_jesuits_noninteractive: :environment do
-    puts "Clearing existing Jesuit records and DatePoints"
+    puts "Clearing existing Jesuit records and DatePoints in database"
     import_logger.info("Clearing existing Jesuit records and DatePoints")
     bar = ProgressBar.new(2)
     Jesuit.destroy_all
@@ -50,6 +57,12 @@ namespace :jlives do
     puts "Task completed.\n\n"
   end
 
+  desc "Delete all records in Solr index (non-interactive)"
+  task empty_solr_index_noninteractive: :environment do
+    puts "Deleting all records in solr index"
+    import_logger.info("Deleting all records in solr index")
+    SolrIndexer::Indexer.new.delete_all
+  end
 end
 
 # look at the RAILS_ENV variable and select the appropriate import file location
