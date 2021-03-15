@@ -12,13 +12,8 @@
 class DatePoint < ApplicationRecord
   enum precisions: { day: 'day', month: 'month', year: 'year' }
 
-  def display_date
-    date_string = self.date.strftime('%d-%m-%Y')
-
-    # @todo Make just year/just month dates come out good.
-  end
-
   # Date for publishing to solr
+  # @return [String] a date string usable for solr date calculations
   def solr_date
     return nil if date.nil?
     self.date.strftime('%Y-%m-%dT00:00:01Z')

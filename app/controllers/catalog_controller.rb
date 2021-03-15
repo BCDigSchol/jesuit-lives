@@ -88,7 +88,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'birth_year_iti', label: 'Year of Birth', range: true
     config.add_facet_field 'death_year_iti', label: 'Year of Death', range: true
     config.add_facet_field 'vow_year_iti', label: 'Year of Vow Taken', range: true
-    config.add_facet_field 'entrance_year_iti', label: 'Year of Entrance', range: true
+    config.add_facet_field 'entrance_year_itim', label: 'Year of Entrance', range: true
 
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -105,13 +105,13 @@ class CatalogController < ApplicationController
     config.add_show_field 'title', label: 'Title'
     config.add_show_field 'status', label: 'Status'
 
-    config.add_show_field 'birth_date', label: 'Date of Birth'
+    config.add_show_field 'birth_date_display', label: 'Date of Birth'
     config.add_show_field 'place_of_birth', label: 'Place of Birth'
 
-    config.add_show_field 'entrance_date', label: 'Date of Entry'
+    config.add_show_field 'entrance_date_display', label: 'Date of Entry'
     config.add_show_field 'entrance_province', label: 'Place of Entry'
 
-    config.add_show_field 'death_date', label: 'Date of Death'
+    config.add_show_field 'death_date_display', label: 'Date of Death'
     config.add_show_field 'place_of_death', label: 'Place of Death'
 
     # "fielded" search configuration. Used by pulldown among other places.

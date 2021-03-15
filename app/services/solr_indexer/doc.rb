@@ -30,32 +30,11 @@ module SolrIndexer
         @doc[:status_facet] = jesuit.status.label
       end
 
-      unless date_is_empty?(jesuit.birth_date)
-        @doc[:birth_date] = jesuit.birth_date.solr_date
-        @doc[:birth_year_iti] = jesuit.birth_date.date.year
-      end
-
-      unless date_is_empty?(jesuit.death_date)
-        @doc[:death_date] = jesuit.death_date.solr_date
-        @doc[:death_year_iti] = jesuit.death_date.date.year
-      end
-
-      unless date_is_empty?(jesuit.vow_date)
-        @doc[:vow_date] = jesuit.vow_date.solr_date
-        @doc[:vow_year_iti] = jesuit.vow_date.date.year
-      end
-
-      unless date_is_empty?(jesuit.entrance_date)
-        @doc[:entrance_date] = [jesuit.entrance_date.solr_date]
-        @doc[:entrance_year_iti] = [jesuit.entrance_date.date.year]
-      end
-
-      unless date_is_empty?(jesuit.entrance_date_2)
-        @doc[:entrance_date] ||= []
-        @doc[:entrance_year_iti] ||= []
-        @doc[:entrance_date]  << jesuit.entrance_date_2.solr_date
-        @doc[:entrance_year_iti]  << jesuit.entrance_date_2.date.year
-      end
+      add_date('birth_date', jesuit.birth_date)
+      add_date('death_date', jesuit.death_date)
+      add_date('vow_date', jesuit.vow_date)
+      add_date('entrance_date', jesuit.entrance_date, multi_value: true)
+      add_date('entrance_date', jesuit.entrance_date_2, multi_value: true)
 
       unless jesuit.place_of_birth.nil?
         add_place 'place_of_birth', jesuit.place_of_birth
@@ -87,8 +66,10 @@ module SolrIndexer
 
     private
 
+    # Add all fields needed to represent a date
+    #
+    # @param [String] prefix
     # @param [#label] place
-    # @param [string] prefix
     def add_place(prefix, place)
       @doc[prefix] = place.label
       @doc[prefix + '_id'] = place.id
@@ -97,12 +78,31 @@ module SolrIndexer
       @doc[prefix + '_desc'] = place.description
     end
 
-    # Return true if the a real date isn't present
+    # Add all fields needed to represent a date
     #
-    # @param [#date] date_point date point to test
-    # @return [Boolean]
-    def date_is_empty?(date_point)
-      date_point.nil? || date_point.date.nil?
+    # @param [String] prefix
+    # @param [#label] date_point
+    def add_date(prefix, date_point, multi_value: false)
+
+      # Return early if there is no date.
+      return if date_point.nil? || date_point.date.nil?
+
+      year_key = prefix.sub('_date', '_year')
+
+      if multi_value
+        @doc[prefix] ||= []
+        @doc[prefix] << date_point.solr_date # e.g. entrance_date
+
+        @doc[prefix + '_display'] ||= []
+        @doc[prefix + '_display'] << date_point.text # e.g. entrance_date_display
+
+        @doc[year_key + '_itim'] ||= []
+        @doc[year_key + '_itim'] << date_point.date.year # e.g. entrance_year_itim
+      else
+        @doc[prefix] = date_point.solr_date
+        @doc[prefix + '_display'] = date_point.text
+        @doc[year_key + '_iti'] = date_point.date.year # e.g. birth_year_iti
+      end
     end
 
   end
