@@ -65,6 +65,7 @@ module CsvReader
 
     jesuit.place_of_birth = Place.find_or_create_by(label: row[Fields::PLACE_OF_BIRTH])
     jesuit.entrance_province = Province.find_or_create_by(abbreviation: row[Fields::ENTRANCE_PROVINCE])
+    jesuit.place_of_death = Place.find_or_create_by(label: row[Fields::PLACE_OF_DEATH])
 
     if preset_values.title(row[Fields::TITLE])
       jesuit.title = preset_values.title(row[Fields::TITLE])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_205750) do
+ActiveRecord::Schema.define(version: 2021_03_15_014350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_205750) do
     t.bigint "death_date_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "place_of_death_id"
     t.index ["birth_date_id"], name: "index_jesuits_on_birth_date_id"
     t.index ["death_date_id"], name: "index_jesuits_on_death_date_id"
     t.index ["entrance_date_2_id"], name: "index_jesuits_on_entrance_date_2_id"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_205750) do
     t.index ["jl_id"], name: "index_jesuits_on_jl_id", unique: true
     t.index ["last_name"], name: "index_jesuits_on_last_name"
     t.index ["place_of_birth_id"], name: "index_jesuits_on_place_of_birth_id"
+    t.index ["place_of_death_id"], name: "index_jesuits_on_place_of_death_id"
     t.index ["status_id"], name: "index_jesuits_on_status_id"
     t.index ["title_id"], name: "index_jesuits_on_title_id"
     t.index ["vow_date_id"], name: "index_jesuits_on_vow_date_id"
@@ -125,6 +127,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_205750) do
   add_foreign_key "jesuits", "date_points", column: "entrance_date_id"
   add_foreign_key "jesuits", "date_points", column: "vow_date_id"
   add_foreign_key "jesuits", "places", column: "place_of_birth_id"
+  add_foreign_key "jesuits", "places", column: "place_of_death_id"
   add_foreign_key "jesuits", "provinces", column: "entrance_province_2_id"
   add_foreign_key "jesuits", "provinces", column: "entrance_province_id"
   add_foreign_key "jesuits", "statuses"

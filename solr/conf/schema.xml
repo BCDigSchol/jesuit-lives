@@ -185,6 +185,13 @@
     <field name="place_of_birth_lon"  type="tdouble" multiValued="false" indexed="true"/>
     <field name="place_of_birth_description" type="text_general" indexed="false"/>
 
+    <!-- Place of death -->
+    <field name="place_of_death" type="text_general"/>
+    <field name="place_of_death_id" type="text_general" indexed="false"/>
+    <field name="place_of_death_lat"  type="tdouble" multiValued="false" indexed="true"/>
+    <field name="place_of_death_lon"  type="tdouble" multiValued="false" indexed="true"/>
+    <field name="place_of_death_description" type="text_general" indexed="false"/>
+
     <!-- Housekeeping stuff -->
     <field name="created_at" type="date"/>
     <field name="updated_at" type="date"/>

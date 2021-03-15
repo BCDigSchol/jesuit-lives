@@ -80,6 +80,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'place_of_birth_facet', label: 'Place of Birth'
     config.add_facet_field 'entrance_province_facet', label: 'Entrance Province'
+    config.add_facet_field 'place_of_death_facet', label: 'Place of Death'
 
     config.add_facet_field 'title_facet', label: 'Title', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'status_facet', label: 'Status', limit: 20, index_range: 'A'..'Z'
@@ -103,6 +104,15 @@ class CatalogController < ApplicationController
     config.add_show_field 'id', label: 'ID'
     config.add_show_field 'title', label: 'Title'
     config.add_show_field 'status', label: 'Status'
+
+    config.add_show_field 'birth_date', label: 'Date of Birth'
+    config.add_show_field 'place_of_birth', label: 'Place of Birth'
+
+    config.add_show_field 'entrance_date', label: 'Date of Entry'
+    config.add_show_field 'entrance_province', label: 'Place of Entry'
+
+    config.add_show_field 'death_date', label: 'Date of Death'
+    config.add_show_field 'place_of_death', label: 'Place of Death'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

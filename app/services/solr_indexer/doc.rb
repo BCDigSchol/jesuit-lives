@@ -62,6 +62,11 @@ module SolrIndexer
         @doc[:place_of_birth_facet] = jesuit.place_of_birth.label
       end
 
+      unless jesuit.place_of_death.nil?
+        add_place 'place_of_death', jesuit.place_of_death
+        @doc[:place_of_death_facet] = jesuit.place_of_death.label
+      end
+
       unless jesuit.entrance_province.nil?
         @doc[:entrance_province] = jesuit.entrance_province.abbreviation
         @doc[:entrance_province_facet] = jesuit.entrance_province.abbreviation
