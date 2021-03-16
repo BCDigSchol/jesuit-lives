@@ -18,3 +18,14 @@
  *= require  'blacklight_range_limit'
  *
 */
+
+a, a:visited {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: underline;
+    background-color: transparent;
+}
