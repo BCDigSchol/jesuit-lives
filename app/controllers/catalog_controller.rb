@@ -104,17 +104,17 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
     config.add_show_field SolrIndexer::Fields::JESUIT_LIVES_ID, label: 'ID'
-    config.add_show_field SolrIndexer::Fields::TITLE, label: 'Title'
-    config.add_show_field SolrIndexer::Fields::STATUS, label: 'Status'
+    config.add_show_field SolrIndexer::Fields::TITLE, label: 'Title', link_to_facet: :title_facet
+    config.add_show_field SolrIndexer::Fields::STATUS, label: 'Status', link_to_facet: :status_facet
 
     config.add_show_field SolrIndexer::Fields::BIRTH_DATE_DISPLAY, label: 'Date of Birth'
-    config.add_show_field SolrIndexer::Fields::PLACE_OF_BIRTH, label: 'Place of Birth'
+    config.add_show_field SolrIndexer::Fields::PLACE_OF_BIRTH, label: 'Place of Birth', link_to_facet: :place_of_birth_facet
 
     config.add_show_field SolrIndexer::Fields::ENTRANCE_DATE_DISPLAY, label: 'Date of Entry'
-    config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE, label: 'Place of Entry'
+    config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE, label: 'Place of Entry', link_to_facet: :entrance_province_facet
 
     config.add_show_field SolrIndexer::Fields::DEATH_DATE_DISPLAY, label: 'Date of Death'
-    config.add_show_field SolrIndexer::Fields::PLACE_OF_DEATH, label: 'Place of Death'
+    config.add_show_field SolrIndexer::Fields::PLACE_OF_DEATH, label: 'Place of Death', link_to_facet: :place_of_death_facet
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
