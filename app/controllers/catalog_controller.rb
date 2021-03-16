@@ -141,6 +141,25 @@ class CatalogController < ApplicationController
     # case for a BL "search field", which is really a dismax aggregate
     # of Solr search fields.
 
+    config.add_search_field('name') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        #'spellcheck.dictionary': 'name',
+        qf: '${name_qf}',
+        pf: '${name_pf}'
+      }
+    end
+
+    config.add_search_field('place') do |field|
+      # solr_parameters hash are sent to Solr as ordinary url query params.
+      field.solr_parameters = {
+        #'spellcheck.dictionary': 'place',
+        qf: '${place_qf}',
+        pf: '${place_pf}'
+      }
+    end
+
+=begin
     config.add_search_field('title') do |field|
       # solr_parameters hash are sent to Solr as ordinary url query params.
       field.solr_parameters = {
@@ -169,6 +188,7 @@ class CatalogController < ApplicationController
         pf: '${subject_pf}'
       }
     end
+=end
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the Solr field to sort by and

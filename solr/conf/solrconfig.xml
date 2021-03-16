@@ -58,6 +58,21 @@
           all_text_timv^10
         </str>
 
+        <str name="name_qf">
+          full_name_tsi
+        </str>
+        <str name="name_pf">
+        </str>
+
+        <str name="place_qf">
+          place_of_birth_tsi
+          place_of_death_tsi
+          <!--entrance_province_tsim-->
+        </str>
+        <str name="place_pf">
+        </str>
+
+       <!--
        <str name="author_qf">
           author_tsim
        </str>
@@ -76,7 +91,7 @@
        </str>
        <str name="subject_pf">
        </str>
-
+       -->
        <str name="fl">
          *,
          score
