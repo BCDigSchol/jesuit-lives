@@ -45,7 +45,7 @@
        -->
         <str name="qf">
           id
-          full_name
+          full_name_tsi
           full_title_tsim
           short_title_tsim
           alternative_title_tsim
