@@ -29,7 +29,7 @@ class CatalogController < ApplicationController
     #config.per_page = [10,20,50,100]
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'full_name'
+    config.index.title_field = SolrIndexer::Fields::FULL_NAME
     #config.index.display_type_field = 'format'
     #config.index.thumbnail_field = 'thumbnail_path_ss'
 
@@ -48,8 +48,8 @@ class CatalogController < ApplicationController
     config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # solr field configuration for document/show views
-    config.show.title_field = 'full_name'
-    config.show.heading = 'full_name'
+    config.show.title_field = SolrIndexer::Fields::FULL_NAME
+    config.show.heading = SolrIndexer::Fields::FULL_NAME
 
     #config.show.display_type_field = 'format'
     #config.show.thumbnail_field = 'thumbnail_path_ss'
@@ -78,17 +78,17 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'place_of_birth_facet', label: 'Place of Birth'
-    config.add_facet_field 'entrance_province_facet', label: 'Entrance Province'
-    config.add_facet_field 'place_of_death_facet', label: 'Place of Death'
+    config.add_facet_field SolrIndexer::Fields::PLACE_OF_BIRTH_FACET, label: 'Place of Birth'
+    config.add_facet_field SolrIndexer::Fields::ENTRANCE_PROVINCE_FACET, label: 'Entrance Province'
+    config.add_facet_field SolrIndexer::Fields::PLACE_OF_DEATH_FACET, label: 'Place of Death'
 
-    config.add_facet_field 'title_facet', label: 'Title', limit: 20, index_range: 'A'..'Z'
-    config.add_facet_field 'status_facet', label: 'Status', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field SolrIndexer::Fields::TITLE_FACET, label: 'Title', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field SolrIndexer::Fields::STATUS_FACET, label: 'Status', limit: 20, index_range: 'A'..'Z'
 
-    config.add_facet_field 'birth_year_iti', label: 'Year of Birth', range: true
-    config.add_facet_field 'death_year_iti', label: 'Year of Death', range: true
-    config.add_facet_field 'vow_year_iti', label: 'Year of Vow Taken', range: true
-    config.add_facet_field 'entrance_year_itim', label: 'Year of Entrance', range: true
+    config.add_facet_field SolrIndexer::Fields::BIRTH_DATE_YEAR, label: 'Year of Birth', range: true
+    config.add_facet_field SolrIndexer::Fields::DEATH_DATE_YEAR, label: 'Year of Death', range: true
+    config.add_facet_field SolrIndexer::Fields::VOW_DATE_YEAR, label: 'Year of Vow Taken', range: true
+    config.add_facet_field SolrIndexer::Fields::ENTRANCE_DATE_YEAR, label: 'Year of Entrance', range: true
 
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -101,18 +101,18 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'id', label: 'ID'
-    config.add_show_field 'title', label: 'Title'
-    config.add_show_field 'status', label: 'Status'
+    config.add_show_field SolrIndexer::Fields::JESUIT_LIVES_ID, label: 'ID'
+    config.add_show_field SolrIndexer::Fields::TITLE, label: 'Title'
+    config.add_show_field SolrIndexer::Fields::STATUS, label: 'Status'
 
-    config.add_show_field 'birth_date_display', label: 'Date of Birth'
-    config.add_show_field 'place_of_birth', label: 'Place of Birth'
+    config.add_show_field SolrIndexer::Fields::BIRTH_DATE_DISPLAY, label: 'Date of Birth'
+    config.add_show_field SolrIndexer::Fields::PLACE_OF_BIRTH, label: 'Place of Birth'
 
-    config.add_show_field 'entrance_date_display', label: 'Date of Entry'
-    config.add_show_field 'entrance_province', label: 'Place of Entry'
+    config.add_show_field SolrIndexer::Fields::ENTRANCE_DATE_DISPLAY, label: 'Date of Entry'
+    config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE, label: 'Place of Entry'
 
-    config.add_show_field 'death_date_display', label: 'Date of Death'
-    config.add_show_field 'place_of_death', label: 'Place of Death'
+    config.add_show_field SolrIndexer::Fields::DEATH_DATE_DISPLAY, label: 'Date of Death'
+    config.add_show_field SolrIndexer::Fields::PLACE_OF_DEATH, label: 'Place of Death'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

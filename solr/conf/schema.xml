@@ -141,67 +141,9 @@
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
 
-    <!-- ======== Jesuit Lives fields ======== -->
-    <!-- Jesuit Lives ID -->
-    <field name="jl_id" type="pid_text" />
-
-    <!-- Names -->
-    <field name="last_name" type="text_general"/>
-    <field name="first_name" type="text_general"/>
-    <field name="first_name_abbrev" type="text_general"/>
-    <field name="full_name" type="text_general" />
-
-    <!-- Entrance province -->
-    <field name="entrance_province" type="text_general"/>
-    <field name="entrance_province_abbrev" type="text_general"/>
-
-    <!-- Titles -->
-    <field name="title" type="text_general"/>
-    <field name="title_abbrev" type="text_general"/>
-    <field name="title_unabridged" type="text_general"/>
-
-    <!--Statuses -->
-    <field name="status" type="text_general"/>
-    <field name="status_abbrev" type="text_general"/>
-    <field name="status_unabridged" type="text_general"/>
-
-    <!-- Dates -->
-    <field name="birth_date" type="date"/>
-    <field name="birth_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
-
-    <field name="death_date" type="date"/>
-    <field name="death_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
-
-    <field name="vow_date" type="date"/>
-    <field name="vow_year_iti" type="tint" stored="false" indexed="true" multiValued="false"/>
-
-    <field name="entrance_date" type="date"  multiValued="true" />
-    <field name="entrance_year_iti" type="tint" stored="false" indexed="true" multiValued="true"/>
-
-    <!-- Place of birth -->
-    <field name="place_of_birth" type="text_general"/>
-    <field name="place_of_birth_id" type="text_general" indexed="false"/>
-    <field name="place_of_birth_lat"  type="tdouble" multiValued="false" indexed="true"/>
-    <field name="place_of_birth_lon"  type="tdouble" multiValued="false" indexed="true"/>
-    <field name="place_of_birth_description" type="text_general" indexed="false"/>
-
-    <!-- Place of death -->
-    <field name="place_of_death" type="text_general"/>
-    <field name="place_of_death_id" type="text_general" indexed="false"/>
-    <field name="place_of_death_lat"  type="tdouble" multiValued="false" indexed="true"/>
-    <field name="place_of_death_lon"  type="tdouble" multiValued="false" indexed="true"/>
-    <field name="place_of_death_description" type="text_general" indexed="false"/>
-
     <!-- Housekeeping stuff -->
     <field name="created_at" type="date"/>
     <field name="updated_at" type="date"/>
-
-    <!-- these fields are also used for display, so they must be stored -->
-    <field name="place_of_birth_facet" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="entrance_province_facet" type="string" indexed="true" stored="true" multiValued="true" />
-
-    <field name="status_facet" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="title_facet" type="string" indexed="true" stored="true" multiValued="true" />
 
     <!-- NOTE:  not all possible Solr field types are represented in the dynamic fields -->
 
