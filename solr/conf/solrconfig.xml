@@ -45,15 +45,14 @@
        -->
         <str name="qf">
           id
+          jl_id_ssi
           full_name_tsi
-          full_title_tsim
-          short_title_tsim
-          alternative_title_tsim
-          active_fedora_model_ssi
-          title_tsim
-          author_tsim
-          subject_tsim
-          all_text_timv
+          title_unabridged_tsi
+          status_tsi
+          status_abbrev_ssi
+          status_unabridged_tsi
+          place_of_death_tsi
+          entrance_province_tsim
         </str>
         <str name="pf">
           all_text_timv^10
