@@ -2,6 +2,8 @@
 class CatalogController < ApplicationController
 
   include Blacklight::Catalog
+  include BlacklightRangeLimit::ControllerOverride
+
 
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index

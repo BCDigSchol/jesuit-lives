@@ -75,3 +75,6 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
+
+# Jesuit Lives additional gems
+gem 'blacklight_range_limit'
