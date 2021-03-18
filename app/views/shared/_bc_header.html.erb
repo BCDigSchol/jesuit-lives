@@ -1,0 +1,48 @@
+<header class="header">
+  <!-- portal link container -->
+  <div class="container">
+      <div class="row">
+        <div class="top-menu col-12">
+          <span class="upper hidden-xs"><a href="https://www.jesuitportal.bc.edu" target="new" class="iajs">The Portal to Jesuit Studies</a></span>
+          <ul class="nav navbar-nav bc-top-nav ">
+            <!--
+            <% if has_user_authentication_provider? %>
+              <% if current_user %>
+                <li>
+                  <div class='nav-item user-signout'><%= link_to 'Sign out', destroy_user_session_path %></div>
+                </li>
+                <% unless current_user.to_s.blank? -%>
+                  <li>
+                    <div class='nav-item user-email'><%= link_to current_user, edit_user_registration_path %></div>
+                  </li>
+                <% end %>
+              <% else %>
+                <li>
+                  <div class='nav-item user-signin'><%= link_to 'Sign in', new_user_session_path %></div>
+                </li>
+              <% end %>
+            <% end %>
+            -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- logo continer -->
+  <div class="container-fluid brand-backgnd">
+    <div class="container">
+      <div class="brand">
+        <a class="hidden-xs row" href="/">
+          <div class="col-2">
+            <%= image_tag('bciajs_logo_transparent.png', alt:'Institute for Advanced Jesuit Studies', class: 'logo')%>
+          </div>
+          <div class="col-10">
+            <h1 class="upper header-title mt-3">Jesuit Lives Project</h1>
+            <h4 class="upper header-sub-title">Understanding the Society of Jesus and the men who served it</h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
