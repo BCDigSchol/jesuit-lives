@@ -65,8 +65,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Capistrano
+group :development do
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.3", require: false
+  gem 'rvm1-capistrano3', require: false
+end
+
 # Gems below are all added by blacklight install
-group :development, :test do
+group :development, :test, :sandbox do
   gem 'solr_wrapper', '>= 3.1.1'
 end
 gem 'rsolr', '>= 1.0', '< 3'

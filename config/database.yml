@@ -59,6 +59,13 @@ test:
   <<: *default
   database: jesuit_lives_test
 
+sandbox:
+  <<: *default
+  database: <%= Rails.application.credentials.dig(:sandbox, :db_name) %>
+  username: <%= Rails.application.credentials.dig(:sandbox, :db_user) %>
+  password: <%= Rails.application.credentials.dig(:sandbox, :db_pass) %>
+  host: <%= Rails.application.credentials.dig(:sandbox, :db_host) %>
+
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
