@@ -47,8 +47,8 @@ module CsvReader
 
     # Abort early if there's already a Jesuit with this ID
     # @todo log duplicates
-    if (Jesuit.exists?(:jl_id => row[Fields::JLIVES_ID]))
-      import_logger.info("  Found duplicate id! #{jl_id}")
+    if Jesuit.exists?(:jl_id => row[Fields::JLIVES_ID])
+      import_logger.info("  Found duplicate id! #{row[Fields::JLIVES_ID]}")
       return nil
     end
 
