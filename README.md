@@ -55,3 +55,25 @@ Jesuit records are stored in *db/import* and imported with
 ```shell
 bundle exec rake jlives:import_jesuits
 ```
+
+## Deploying
+
+Deployment stages are:
+
+* `sandbox` - non-BC staging server, running full build
+* `staging` - (as yet unprovisioned) BC staging server
+* `production` - (as yet unprovisioned) BC production server
+
+To deploy to sandbox:
+
+```shell
+ssh-add
+bundle exec cap sandbox deploy
+```
+
+To restart the sandbox Rails server:
+
+```shell
+ssh-add
+bundle exec cap sandbox deploy:restart
+```
