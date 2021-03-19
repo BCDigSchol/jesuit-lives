@@ -3,7 +3,7 @@ lock "~> 3.16.0"
 
 set :application, "jesuit-lives"
 set :repo_url, "git@github.com:BCDigSchol/jesuit-lives.git"
-set :branch, "main"
+set :branch, "capify"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

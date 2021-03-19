@@ -70,6 +70,7 @@ group :development do
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.3", require: false
   gem 'rvm1-capistrano3', require: false
+  gem 'capistrano3-puma', require: false
 end
 
 # Gems below are all added by blacklight install
