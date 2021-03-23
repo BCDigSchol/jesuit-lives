@@ -265,6 +265,25 @@
     }
   }
 
+  #search-navbar {
+    width: 100% !important;
+    margin-left: 0;
+    background-image: url(/assets/hero.jpg);
+    background-size: cover;
+    background-position: 0 50%;
+    height: 400px;
+    padding: 100px 0 0 0;
+    margin-bottom: 0;
+    background-color: inherit;
+    
+    .search-navbar-job .form-wrapper {
+      background-color: rgba(0,0,0,0.65);
+      padding: 25px;
+      padding-bottom: 20px;
+      color: white;
+      font-size: 21px;
+    }
+}
 
   /*================================================================================
   *                                  Index
