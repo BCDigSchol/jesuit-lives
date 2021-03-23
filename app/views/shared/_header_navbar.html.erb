@@ -11,8 +11,8 @@
   </div>
 </nav>
 
-<%# Select which search container to use based on if there are search parameters present %>
-<% if has_search_parameters? %>
+<%# Select which search container to use based on if there are search parameters present, or if there is a @document object %>
+<% if has_search_parameters? || @document %>
   <div class="navbar-search navbar navbar-light bg-light" role="navigation">
     <div class="<%= container_classes %>">
       <%= render_search_bar  %>
@@ -21,4 +21,3 @@
 <% else %>
   <%= render 'shared/homepage_search_box' %>
 <% end %>
-
