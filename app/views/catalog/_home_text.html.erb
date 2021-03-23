@@ -1,44 +1,22 @@
-<div class="jumbotron text-center">
-  <h1 class="jumbotron-heading"><%= t('blacklight.welcome') %></h1>
+<div id="getting-started" class="mt-4">
+    <p class="header-text">The Jesuit Lives Project is an interactive and open-access database consisting of the personal information for every man who died as a member of the Society of Jesus between 1814 and 19__. 
+Yet, instead of merely presenting biographical information for individual Jesuits, this database also captures the lives led by Jesuits as a whole. 
+It helps quantify larger trends in the lives of those men who died as Jesuits. What was the average age of entry to the Society for a particular province during a particular time period? 
+What year saw the most admissions? What <em>day</em> saw the most admissions? And how long did a man live as a Jesuit in different locations or during different times?</p>
 
-  <p class="lead">Blacklight is a multi-institutional open-source collaboration building a better discovery platform framework.</p>
+<p class="text-center mb-4"><a href="#">Learn More</a></p>
 
-  <p>
-    <%= link_to 'Read the Documentation', 'https://github.com/projectblacklight/blacklight/wiki', class: 'btn btn-primary' %>
-    <%= link_to 'See Examples', 'http://projectblacklight.org', class: 'btn btn-outline-secondary' %>
-  </p>
+<div class="pagebreak"></div>
+
+<h4 class="text-center mt-4">Visit the Institutional Partners</h4>
+
+<div class="image-row row my-5">
+    <div class="col-md-4"><a href="http://www.sjweb.info/arsi/en/archivum-romanum-societatis-iesu/"><%= image_tag('archivum_romanum_societatis_iesu_250.png', height:250, alt:'Archivum Romanum Societatus Iesu')%></a></div>
+    <div class="col-md-4"><a href="https://www.bc.edu/centers/iajs/"><%= image_tag('institute_for_advanced_jesuit_studies_250.png', height:250, alt:'Institue for Advanced Jesuit Studies')%></a></div>
+    <div class="col-md-4"><a href="https://www.library.georgetown.edu/woodstock"><%= image_tag('woodstock_theological_library_250.png', height:250, alt:'Woodstock Theological Library')%></a></div>
 </div>
 
-<div id="getting-started">
-  <h2>Here’s how to get started customizing your application:</h2>
-
-  <p>There are many ways to override specific behaviors and views in Blacklight. Because Blacklight is distributed as a Rails engine-based gem, all customization of Blacklight behavior should be done within your application by overriding Blacklight-provided behaviors with your own.</p>
-
-  <p>
-    <ol>
-      <li>To modify this text, you need to <a href="http://guides.rubyonrails.org/engines.html#improving-engine-functionality">override the Blacklight-provided view</a>.
-  You can copy this file, located in the blacklight gem: <br />
-  <%= Blacklight.root %>/app/views/catalog/_home_text.html.erb <br />
-  to your own application: <br />
-   <%= Rails.root %>/app/views/catalog/_home_text.html.erb
-      </li>
-      <li><a href="https://github.com/projectblacklight/blacklight/wiki/Indexing-your-data-into-solr">Index your own data</a> into Solr</li>
-      <li><a href="https://github.com/projectblacklight/blacklight/wiki#blacklight-configuration">Configure Blacklight</a> to match your data and user-experience needs</li>
-      <li><a href="https://github.com/projectblacklight/blacklight/wiki#support">Get in touch</a> with your comments, questions, and ideas</li>
-    </ol>
-  </p>
+<div class="image-row row mt-5">
+    <div class="col text-center"><a href="http://jesuitarchives.org/"><%= image_tag('JARC.png', height:200, alt:'Jesuit Archives & Research Center')%></a></div>
 </div>
-
-<%# This is the same panel shown in the Rails welcome template %>
-<div id="about" class="card">
-  <h2 class='card-header collapsed collapse-toggle' data-toggle="collapse" data-target="#about-content"><a href="/rails/info/properties">About your application&rsquo;s environment</a></h2>
-  <div id="about-content" class="card-body collapse"></div>
 </div>
-
-<script>
-  Blacklight.onLoad(function() {
-    $('#about .card-header').one('click', function() {
-      $($(this).data('target')).load($(this).find('a').attr('href'));
-    });
-  });
-</script>
