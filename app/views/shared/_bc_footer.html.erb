@@ -18,6 +18,22 @@
             <ul class="site-links mt-2 mb-4">
               <li>Contact the Projects' Editors</li>
               <li>Learn More</li>
+              <% if has_user_authentication_provider? %>
+              <% if current_user %>
+                <li>
+                  <div class='nav-item user-signout'><%= link_to 'Staff sign out', destroy_user_session_path %></div>
+                </li>
+                <% unless current_user.to_s.blank? -%>
+                  <li>
+                    <div class='nav-item user-email'><%= link_to current_user, edit_user_registration_path %></div>
+                  </li>
+                <% end %>
+              <% else %>
+                <li>
+                  <div class='nav-item user-signin'><%= link_to 'Staff sign in', new_user_session_path %></div>
+                </li>
+              <% end %>
+            <% end %>
             </ul>
           </div>
           <div class="col-12 copyright">

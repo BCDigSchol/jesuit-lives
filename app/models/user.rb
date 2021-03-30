@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  belongs_to :role
+
+  enum role: {admin: 0, supervisor: 1, editor: 2}
 
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User

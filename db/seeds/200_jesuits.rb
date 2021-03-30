@@ -1,12 +1,11 @@
 case Rails.env
 when "development"
-
   # Only load sample Jesuits if "load_jesuits" environmental variable is set,
   # e.g.
   #
   #     bundle exec rake db:seed load_jesuits=yes
   if ENV["load_jesuits"]
-
+=begin
     include DatePointFactory
 
     title_priest = Title.find_by_abbreviation('p')
@@ -36,7 +35,6 @@ when "development"
                       death_date: DatePointFactory.build('24-11-1816')
                     }
                   ])
-
+=end
   end
-
 end
