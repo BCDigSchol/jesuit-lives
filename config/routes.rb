@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   resources :jesuits
   resources :places

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   belongs_to :role
 
-  enum role: {admin: 0, supervisor: 1, editor: 2}
+  USER_ROLES = {admin: 1, supervisor: 2, editor: 3}.freeze
+  enum roles: USER_ROLES
 
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
@@ -15,5 +16,13 @@ class User < ApplicationRecord
   # the account.
   def to_s
     email
+  end
+
+  def admin?
+    self.is_role? "admin"
+  end
+
+  def is_role? (role_given)
+    self.role && self.role.name == role_given
   end
 end

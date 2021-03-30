@@ -86,3 +86,5 @@ gem 'devise-guests', '~> 0.6'
 
 # Jesuit Lives additional gems
 gem 'blacklight_range_limit'
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'

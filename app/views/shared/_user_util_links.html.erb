@@ -9,6 +9,9 @@
   <%= render_nav_actions do |config, action|%>
     <li class="nav-item"><%= action %></li>
   <% end %>
+  <% if can? :access, 'rails_admin' %>
+    <li class="nav-item"><%= link_to 'Admin panel', rails_admin_path, class: 'nav-link' %></li>
+  <% end %>
   <!--
   <% if has_user_authentication_provider? %>
     <% if current_user %>
