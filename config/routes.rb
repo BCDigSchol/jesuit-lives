@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/dashboard/" => "dashboard#index"
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   resources :jesuits

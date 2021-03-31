@@ -12,6 +12,18 @@ class Ability
       can :access, :rails_admin     # only allow admin users to access Rails Admin
     end
 
+    if user.is_role? "supervisor"
+      can :read, "Dashboard"
+    end
+
+    if user.is_role? "editor"
+      can :read, "Dashboard"
+    end
+
+    # leave empty since this role should not have access to any backend services
+    if user.is_role? "noaccess"
+    end
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
