@@ -14,6 +14,7 @@ class Ability
 
     if user.is_role? "supervisor"
       can :read, "Dashboard"
+      can :manage, Staticpage
     end
 
     if user.is_role? "editor"

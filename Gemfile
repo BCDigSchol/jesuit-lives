@@ -88,3 +88,6 @@ gem 'devise-guests', '~> 0.6'
 gem 'blacklight_range_limit'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+gem 'simple_form'
+gem "kaminari"
+gem 'tinymce-rails'

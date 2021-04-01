@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   belongs_to :role
 
+  has_many :editedby_staticpage, class_name: 'Staticpage', foreign_key: 'editedby_id'
+  has_many :createdby_staticpage, class_name: 'Staticpage', foreign_key: 'createdby_id'
+
   USER_ROLES = {admin: 1, supervisor: 2, editor: 3}.freeze
   enum roles: USER_ROLES
 

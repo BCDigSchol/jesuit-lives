@@ -297,6 +297,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.1)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     solr_wrapper (3.1.1)
       http
       retriable
@@ -316,6 +319,8 @@ GEM
     temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
+    tinymce-rails (5.7.1)
+      railties (>= 3.1.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -372,6 +377,7 @@ DEPENDENCIES
   devise-guests (~> 0.6)
   jbuilder (~> 2.7)
   jquery-rails
+  kaminari
   listen (~> 3.3)
   pg (~> 1.1)
   progress_bar
@@ -384,8 +390,10 @@ DEPENDENCIES
   rvm1-capistrano3
   sass-rails (>= 6)
   selenium-webdriver
+  simple_form
   solr_wrapper (>= 3.1.1)
   spring
+  tinymce-rails
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data

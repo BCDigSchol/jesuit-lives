@@ -1,0 +1,52 @@
+<% if can? :read, Staticpage %>
+  <h2 class="col-12">Static Pages index</h2>
+
+  <div class="button-group col-12 mt-3 mb-5">
+    <%= link_to 'Add New Static Page', new_staticpage_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Slug</th>
+          <th>Description</th>
+          <th>Published</th>
+          <th>Last modified by</th>
+          <th>Actions</th>
+        </tr>
+        <tbody>
+          <% @pages.each do |page| %>
+            <tr>
+              <td><%= page.title %></td>
+              <td><%= page.slug %></td>
+              <td><%= page.description %></td>
+              <td><% if page.publish %>Yes<% else %>No<% end %></td>
+              <td><%= page.modifiedby %><br/><%= page.updated_at %></td>
+              <td>
+              <% if can? :detroy, Staticpage %>
+                <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span> |
+                <span class='icon show-link'><span class='icon-link'><%= link_to 'Edit', edit_staticpage_path(page) %></span></span> |
+                <span class='icon show-link'><span class='icon-link'><%= link_to 'Delete', staticpage_path(page), method: :delete, data: { confirm: 'Are you sure?' }  %></span></span>
+              <% elsif can? :edit, Staticpage %>
+                <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span> |
+                <span class='icon show-link'><span class='icon-link'><%= link_to 'Edit', edit_staticpage_path(page) %></span></span>
+              <% else %>
+                <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span>
+              <% end %>
+              </td>
+            </td>
+          <% end %>
+        </tbody>
+      </thead>
+    </table>
+  </div>
+
+  <div class="button-group col-12 mt-4">
+    <%= link_to 'Add New Static Page', new_staticpage_path, class: 'btn btn-primary' %>
+  </div>
+
+<% else %>
+  <%= render 'shared/not_permitted' %>
+<% end %>

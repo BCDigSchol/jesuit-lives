@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   get "/dashboard/" => "dashboard#index"
 
+  resources :staticpages
+
+  namespace :pages, path: '/pages' do
+    # root goes to dedicated home page record
+    get "/" => '/staticpages#load_page', slug: :home, as: 'home_page'
+    get "/:slug" => '/staticpages#load_page', as: 'page'
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   resources :jesuits

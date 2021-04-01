@@ -1,0 +1,17 @@
+<%# backend-based validation error details %>
+<% if @page.present? and @page.errors.any? %>
+  <div class="panel panel-danger error-panel" id="error_explanation">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= pluralize(@page.errors.count, "error") %> prohibited this record from being saved:</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <% @page.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<%#= render 'bibliographies/parsley_error_messages' %>
