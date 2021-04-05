@@ -10,7 +10,7 @@
 //= require bootstrap
 //= require blacklight/blacklight
 
-//= require tinymce
+//= require tinymce-jquery
 
 
 

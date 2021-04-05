@@ -9,6 +9,7 @@
   <%= render_nav_actions do |config, action|%>
     <li class="nav-item"><%= action %></li>
   <% end %>
+  <li class="nav-item"><%= link_to 'Pages', pages_home_page_path, class: 'nav-link' %></li>
   <% if can? :read, 'Dashboard' %>
     <li class="nav-item"><%= link_to 'Dashboard', dashboard_path, class: 'nav-link' %></li>
   <% end %>

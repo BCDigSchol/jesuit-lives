@@ -46,7 +46,7 @@
                 rows: 20
                 # has id: 'staticpage_body'
             %>
-            <%= tinymce :pages, selector: "#staticpage_body" %>
+            <%= tinymce :pages, selector: "#staticpage_body", skin: 'oxide-dark', :content_css => asset_path("application", type: :stylesheet) %>
         </div>
     </div>
 

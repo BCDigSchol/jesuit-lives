@@ -20,7 +20,7 @@
           <% @pages.each do |page| %>
             <tr>
               <td><%= page.title %></td>
-              <td><%= page.slug %></td>
+              <td>pages/<%= page.slug %></td>
               <td><%= page.description %></td>
               <td><% if page.publish %>Yes<% else %>No<% end %></td>
               <td><%= page.modifiedby %><br/><%= page.updated_at %></td>
@@ -28,7 +28,11 @@
               <% if can? :detroy, Staticpage %>
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span> |
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Edit', edit_staticpage_path(page) %></span></span> |
-                <span class='icon show-link'><span class='icon-link'><%= link_to 'Delete', staticpage_path(page), method: :delete, data: { confirm: 'Are you sure?' }  %></span></span>
+                <% if page.slug != "home" %>
+                  <span class='icon show-link'><span class='icon-link'><%= link_to 'Delete', staticpage_path(page), method: :delete, data: { confirm: 'Are you sure?' }  %></span></span>
+                <% else %>
+                  Delete
+                <% end %>
               <% elsif can? :edit, Staticpage %>
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span> |
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Edit', edit_staticpage_path(page) %></span></span>

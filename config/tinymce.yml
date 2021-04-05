@@ -13,7 +13,7 @@ displaytitle:
 
 pages:
   toolbar:
-    - formatselect | bold italic strikethrough | link | alignleft aligncenter alignright alignjustify | media | image | numlist bullist outdent indent | table | removeformat | undo redo
+    - formatselect | bold italic strikethrough | link | alignleft aligncenter alignright alignjustify | media | image | numlist bullist outdent indent | table | removeformat | code visualblocks | preview | undo redo
   menubar:
     - file
   plugins:
@@ -25,12 +25,14 @@ pages:
     - advlist
     - media
     - fullscreen
+    - code
     - preview
+    - visualblocks
   image_advtab: true
   image_caption: true
   entity_encoding : "raw"
   relative_urls : false
   remove_script_host : true
-  document_base_url : "https://jesuit-lives.lontracanadensis.net/"
+  #document_base_url : "https://jesuit-lives.lontracanadensis.net/"
   block_formats:
     'Paragraph=p;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Address=address;Pre=pre'
