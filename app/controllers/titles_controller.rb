@@ -2,6 +2,8 @@ class TitlesController < ApplicationController
   before_action :set_title, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
 
+  layout 'backend'
+
   # GET /titles or /titles.json
   def index
     #@titles = Title.all

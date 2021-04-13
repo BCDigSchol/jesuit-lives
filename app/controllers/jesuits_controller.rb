@@ -1,6 +1,8 @@
 class JesuitsController < ApplicationController
   before_action :set_jesuit, only: %i[ show edit update destroy ]
 
+  layout 'backend'
+
   # GET /jesuits or /jesuits.json
   def index
     #@jesuits = Jesuit.all
