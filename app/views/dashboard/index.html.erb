@@ -33,19 +33,19 @@
                             Manage records
                         </div>
                         <div class="card-body">
-                            <% if can? :edit, Title %>
+                            <% if can? :read, Title %>
                                 <p class="card-text"><%= link_to 'Manage Titles', titles_path %></p>
                             <% end %>
 
-                            <% if can? :edit, Place %>
+                            <% if can? :read, Place %>
                                 <p class="card-text"><%= link_to 'Manage Places', places_path %></p>
                             <% end %>
 
-                            <% if can? :edit, Province %>
+                            <% if can? :read, Province %>
                                 <p class="card-text"><%= link_to 'Manage Provinces', provinces_path %></p>
                             <% end %>
 
-                            <% if can? :edit, Jesuit %>
+                            <% if can? :read, Jesuit %>
                                 <p class="card-text"><%= link_to 'Manage Jesuits', jesuits_path %></p>
                             <% end %>
                         </div>
