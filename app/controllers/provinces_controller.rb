@@ -11,6 +11,10 @@ class ProvincesController < ApplicationController
 
     #@provinces = Province.all
     @provinces = Province.order(:abbreviation).page params[:page]
+
+    @provinces_grid = ProvincesGrid.new(params[:provinces_grid]) do |scope|
+      scope.page(params[:page])
+    end
   end
 
   # GET /provinces/1 or /provinces/1.json

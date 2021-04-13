@@ -91,3 +91,4 @@ gem 'cancancan'
 gem 'simple_form'
 gem "kaminari"
 gem 'tinymce-rails'
+gem 'datagrid'

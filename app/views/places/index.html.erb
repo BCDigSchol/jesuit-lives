@@ -2,8 +2,9 @@
 
 <h1>Places</h1>
 
-<%= paginate @places %>
+<%= paginate @places_grid.assets %>
 
+<!--
 <table>
   <thead>
     <tr>
@@ -29,8 +30,18 @@
     <% end %>
   </tbody>
 </table>
+-->
 
-<%= paginate @places %>
+<div class="">
+  <div class="filter my-4 p-3 bg-light text-dark border">
+    <h2 class="pb-2">Filter</h2>
+    <%= datagrid_form_for @places_grid, url: places_path %>
+  </div>
+</div>
+
+<%= datagrid_table(@places_grid, :html => {class: 'table table-striped'}) %>
+
+<%= paginate @places_grid.assets %>
 
 <br>
 

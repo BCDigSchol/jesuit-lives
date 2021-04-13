@@ -11,6 +11,10 @@ class JesuitsController < ApplicationController
 
     #@jesuits = Jesuit.all
     @jesuits = Jesuit.order(:last_name).page params[:page]
+
+    @jesuits_grid = JesuitsGrid.new(params[:jesuits_grid]) do |scope|
+      scope.page(params[:page])
+    end
   end
 
   # GET /jesuits/1 or /jesuits/1.json

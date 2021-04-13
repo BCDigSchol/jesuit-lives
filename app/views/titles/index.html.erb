@@ -2,8 +2,9 @@
 
 <h1>Titles</h1>
 
-<%= paginate @titles %>
+<%= paginate @titles_grid.assets %>
 
+<!--
 <table>
   <thead>
     <tr>
@@ -29,8 +30,18 @@
     <% end %>
   </tbody>
 </table>
+-->
 
-<%= paginate @titles %>
+<div class="">
+  <div class="filter my-4 p-4 bg-light text-dark border">
+    <h2 class="pb-2">Filter</h2>
+    <%= datagrid_form_for @titles_grid, url: titles_path %>
+  </div>
+</div>
+
+<%= datagrid_table(@titles_grid, :html => {class: 'table table-striped'}) %>
+
+<%= paginate @titles_grid.assets %>
 
 <br>
 

@@ -11,6 +11,10 @@ class TitlesController < ApplicationController
 
     #@titles = Title.all
     @titles = Title.order(:label).page params[:page]
+
+    @titles_grid = TitlesGrid.new(params[:titles_grid]) do |scope|
+      scope.page(params[:page])
+    end
   end
 
   # GET /titles/1 or /titles/1.json

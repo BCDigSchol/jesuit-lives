@@ -11,6 +11,10 @@ class PlacesController < ApplicationController
 
     #@places = Place.all
     @places = Place.order(:label).page params[:page]
+
+    @places_grid = PlacesGrid.new(params[:places_grid]) do |scope|
+      scope.page(params[:page])
+    end
   end
 
   # GET /places/1 or /places/1.json
