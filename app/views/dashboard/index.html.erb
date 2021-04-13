@@ -12,18 +12,60 @@
         </div>
 
         <div class="contaniner">
-            <div class="">
-                <p>Here are some actions for you:</p>
-                <ul class="tasks">
-                    
-                    <% if current_user.admin? %>
-                    <li><%= link_to 'Update User accounts', rails_admin_path %></li>
+            <div class="row">
+                
+                <p class="col-12">Here are some actions for you:</p>
+
+                <div class="col-6">
+                    <% if can? :edit, Staticpage %>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Static Pages
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><%= link_to 'Manage Static pages', staticpages_path %></p>
+                        </div>
+                    </div>
                     <% end %>
 
-                    <% if can? :edit, Staticpage %>
-                    <li><%= link_to 'Manage Static pages', staticpages_path %></li>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Manage records
+                        </div>
+                        <div class="card-body">
+                            <% if can? :edit, Title %>
+                                <p class="card-text"><%= link_to 'Manage Titles', titles_path %></p>
+                            <% end %>
+
+                            <% if can? :edit, Place %>
+                                <p class="card-text"><%= link_to 'Manage Places', places_path %></p>
+                            <% end %>
+
+                            <% if can? :edit, Province %>
+                                <p class="card-text"><%= link_to 'Manage Provinces', provinces_path %></p>
+                            <% end %>
+
+                            <% if can? :edit, Jesuit %>
+                                <p class="card-text"><%= link_to 'Manage Jesuits', jesuits_path %></p>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+
+                <% if current_user.admin? %>
+                <div class="col-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Admin actions
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><%= link_to 'Manage User accounts', rails_admin_path %></p>
+                        </div>
+                    </div>
                     <% end %>
-                </ul>
+                </div>
+
+
             </div>
         </div>
     <% end %>
