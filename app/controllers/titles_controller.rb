@@ -4,7 +4,8 @@ class TitlesController < ApplicationController
 
   # GET /titles or /titles.json
   def index
-    @titles = Title.all
+    #@titles = Title.all
+    @titles = Title.order(:label).page params[:page]
   end
 
   # GET /titles/1 or /titles/1.json

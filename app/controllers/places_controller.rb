@@ -4,7 +4,8 @@ class PlacesController < ApplicationController
 
   # GET /places or /places.json
   def index
-    @places = Place.all
+    #@places = Place.all
+    @places = Place.order(:label).page params[:page]
   end
 
   # GET /places/1 or /places/1.json

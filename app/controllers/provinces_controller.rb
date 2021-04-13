@@ -4,7 +4,8 @@ class ProvincesController < ApplicationController
 
   # GET /provinces or /provinces.json
   def index
-    @provinces = Province.all
+    #@provinces = Province.all
+    @provinces = Province.order(:abbreviation).page params[:page]
   end
 
   # GET /provinces/1 or /provinces/1.json

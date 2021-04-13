@@ -3,7 +3,8 @@ class JesuitsController < ApplicationController
 
   # GET /jesuits or /jesuits.json
   def index
-    @jesuits = Jesuit.all
+    #@jesuits = Jesuit.all
+    @jesuits = Jesuit.order(:last_name).page params[:page]
   end
 
   # GET /jesuits/1 or /jesuits/1.json

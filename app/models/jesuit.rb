@@ -1,4 +1,7 @@
 class Jesuit < ApplicationRecord
+  # set to override default per page
+  #paginates_per 50
+  
   belongs_to :title, optional: true
   belongs_to :birth_date, class_name: "DatePoint", foreign_key: :birth_date_id, optional: true
   belongs_to :place_of_birth, class_name: "Place", foreign_key: :place_of_birth_id, optional: true
