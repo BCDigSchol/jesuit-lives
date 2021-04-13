@@ -22,9 +22,9 @@
         <td><%= title.label %></td>
         <td><%= title.unabridged %></td>
         <td><%= title.description %></td>
-        <td><%= link_to 'Show', title %></td>
-        <td><%= link_to 'Edit', edit_title_path(title) %></td>
-        <td><%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :read, Title %><%= link_to 'Show', title %><% end %></td>
+        <td><% if can? :edit, Title %> | <%= link_to 'Edit', edit_title_path(title) %><% end %></td>
+        <td><% if can? :delete, Title %>| <%= link_to 'Destroy', title, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Title', new_title_path %>
+<% if can? :create, Title %>
+  <%= link_to 'New Title', new_title_path %>
+<% end %>

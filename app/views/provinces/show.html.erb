@@ -1,24 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Abbreviation:</strong>
-  <%= @province.abbreviation %>
-</p>
+<% if @province.nil? %>
+    <p>This record doesn't exist.</p>
+    <%= link_to 'Go Back to Provinces index', provinces_path %>
+<% elsif can? :read, Province %>
+  <p>
+    <strong>Abbreviation:</strong>
+    <%= @province.abbreviation %>
+  </p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @province.label %>
-</p>
+  <p>
+    <strong>Label:</strong>
+    <%= @province.label %>
+  </p>
 
-<p>
-  <strong>Unabridged:</strong>
-  <%= @province.unabridged %>
-</p>
+  <p>
+    <strong>Unabridged:</strong>
+    <%= @province.unabridged %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @province.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @province.description %>
+  </p>
 
-<%= link_to 'Edit', edit_province_path(@province) %> |
-<%= link_to 'Back', provinces_path %>
+  <% if can? :edit, Province %>
+    <%= link_to 'Edit', edit_province_path(@province) %> |
+  <% end %>
+  <%= link_to 'Back', provinces_path %>
+<% else %>
+  <%= render 'shared/not_permitted' %>
+<% end %>

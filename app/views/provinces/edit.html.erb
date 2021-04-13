@@ -1,6 +1,13 @@
 <h1>Editing Province</h1>
 
-<%= render 'form', province: @province %>
+<% if @province.nil? %>
+    <p>This record doesn't exist.</p>
+    <%= link_to 'Go Back to Provinces index', provinces_path, class: 'btn btn-info' %>
+<% elsif can? :edit, Province %>
+    <%= render 'form', province: @province %>
 
-<%= link_to 'Show', @province %> |
-<%= link_to 'Back', provinces_path %>
+    <%= link_to 'Show', @province %> |
+    <%= link_to 'Back', provinces_path %>
+<% else %>
+    <%= render 'shared/not_permitted' %>
+<% end %>

@@ -1,6 +1,13 @@
 <h1>Editing Title</h1>
 
-<%= render 'form', title: @title %>
+<% if @title.nil? %>
+    <p>This record doesn't exist.</p>
+    <%= link_to 'Go Back to Titles index', titles_path, class: 'btn btn-info' %>
+<% elsif can? :edit, Title %>
+    <%= render 'form', title: @title %>
 
-<%= link_to 'Show', @title %> |
-<%= link_to 'Back', titles_path %>
+    <%= link_to 'Show', @title %> |
+    <%= link_to 'Back', titles_path %>
+<% else %>
+    <%= render 'shared/not_permitted' %>
+<% end %>

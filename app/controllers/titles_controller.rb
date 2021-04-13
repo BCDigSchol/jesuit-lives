@@ -1,11 +1,14 @@
 class TitlesController < ApplicationController
-  before_action :set_title, only: %i[ show edit update destroy ]
+  before_action :require_login
   before_action :authenticate_user!
-
+  before_action :set_title, only: %i[ show edit update destroy ]
+  
   layout 'backend'
 
   # GET /titles or /titles.json
   def index
+    authorize! :read, Title, :message => "Unable to load this page."
+
     #@titles = Title.all
     @titles = Title.order(:label).page params[:page]
   end
@@ -25,6 +28,8 @@ class TitlesController < ApplicationController
 
   # POST /titles or /titles.json
   def create
+    authorize! :create, Title, :message => "Unable to create this Title record."
+
     @title = Title.new(title_params)
 
     respond_to do |format|
@@ -40,6 +45,8 @@ class TitlesController < ApplicationController
 
   # PATCH/PUT /titles/1 or /titles/1.json
   def update
+    authorize! :update, @title, :message => "Unable to update this Title record."
+
     respond_to do |format|
       if @title.update(title_params)
         format.html { redirect_to @title, notice: "Title was successfully updated." }
@@ -53,6 +60,8 @@ class TitlesController < ApplicationController
 
   # DELETE /titles/1 or /titles/1.json
   def destroy
+    authorize! :destroy, @title, :message => "Unable to destroy this Title record."
+
     @title.destroy
     respond_to do |format|
       format.html { redirect_to titles_url, notice: "Title was successfully destroyed." }
@@ -63,7 +72,12 @@ class TitlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_title
-      @title = Title.find(params[:id])
+      begin
+        @title = Title.find(params[:id])
+        authorize! :read, @title, :message => "Unable to read this Title record."
+      rescue ActiveRecord::RecordNotFound => e
+        @title = nil
+      end
     end
 
     # Only allow a list of trusted parameters through.

@@ -22,9 +22,9 @@
         <td><%= province.label %></td>
         <td><%= province.unabridged %></td>
         <td><%= province.description %></td>
-        <td><%= link_to 'Show', province %></td>
-        <td><%= link_to 'Edit', edit_province_path(province) %></td>
-        <td><%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :read, Province %><%= link_to 'Show', province %><% end %></td>
+        <td><% if can? :edit, Province %> | <%= link_to 'Edit', edit_province_path(province) %><% end %></td>
+        <td><% if can? :delete, Province %> | <%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Province', new_province_path %>
+<% if can? :create, Province %>
+  <%= link_to 'New Province', new_province_path %>
+<% end %>

@@ -1,24 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Label:</strong>
-  <%= @place.label %>
-</p>
+<% if @place.nil? %>
+    <p>This record doesn't exist.</p>
+    <%= link_to 'Go Back to Places index', places_path %>
+<% elsif can? :read, Place %>
+  <p>
+    <strong>Label:</strong>
+    <%= @place.label %>
+  </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @place.latitude %>
-</p>
+  <p>
+    <strong>Latitude:</strong>
+    <%= @place.latitude %>
+  </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @place.longitude %>
-</p>
+  <p>
+    <strong>Longitude:</strong>
+    <%= @place.longitude %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @place.description %>
+  </p>
 
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+  <% if can? :edit, Place %>
+    <%= link_to 'Edit', edit_place_path(@place) %> |
+  <% end %>
+  <%= link_to 'Back', places_path %>
+<% else %>
+  <%= render 'shared/not_permitted' %>
+<% end %>

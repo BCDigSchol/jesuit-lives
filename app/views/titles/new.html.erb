@@ -1,5 +1,9 @@
 <h1>New Title</h1>
 
-<%= render 'form', title: @title %>
+<% if can? :create, Title %>
+    <%= render 'form', title: @title %>
 
-<%= link_to 'Back', titles_path %>
+    <%= link_to 'Back', titles_path %>
+<% else %>
+    <%= render 'shared/not_permitted' %>
+<% end %>

@@ -1,6 +1,13 @@
 <h1>Editing Jesuit</h1>
 
-<%= render 'form', jesuit: @jesuit %>
+<% if @jesuit.nil? %>
+    <p>This record doesn't exist.</p>
+    <%= link_to 'Go Back to Jesuits index', jesuits_path, class: 'btn btn-info' %>
+<% elsif can? :edit, Jesuit %>
+    <%= render 'form', jesuit: @jesuit %>
 
-<%= link_to 'Show', @jesuit %> |
-<%= link_to 'Back', jesuits_path %>
+    <%= link_to 'Show', @jesuit %> |
+    <%= link_to 'Back', jesuits_path %>
+<% else %>
+    <%= render 'shared/not_permitted' %>
+<% end %>

@@ -22,9 +22,9 @@
         <td><%= place.latitude %></td>
         <td><%= place.longitude %></td>
         <td><%= place.description %></td>
-        <td><%= link_to 'Show', place %></td>
-        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :read, Place %><%= link_to 'Show', place %><% end %></td>
+        <td><% if can? :edit, Place %> | <%= link_to 'Edit', edit_place_path(place) %><% end %></td>
+        <td><% if can? :delete, Place %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Place', new_place_path %>
+<% if can? :create, Place %>
+  <%= link_to 'New Place', new_place_path %>
+<% end %>

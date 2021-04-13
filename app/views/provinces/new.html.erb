@@ -1,5 +1,9 @@
 <h1>New Province</h1>
 
-<%= render 'form', province: @province %>
+<% if can? :create, Province %>
+    <%= render 'form', province: @province %>
 
-<%= link_to 'Back', provinces_path %>
+    <%= link_to 'Back', provinces_path %>
+<% else %>
+    <%= render 'shared/not_permitted' %>
+<% end %>

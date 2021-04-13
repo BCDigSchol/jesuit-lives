@@ -42,9 +42,9 @@
         <td><%= jesuit.status_id %></td>
         <td><%= jesuit.vow_date_id %></td>
         <td><%= jesuit.death_date_id %></td>
-        <td><%= link_to 'Show', jesuit %></td>
-        <td><%= link_to 'Edit', edit_jesuit_path(jesuit) %></td>
-        <td><%= link_to 'Destroy', jesuit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% if can? :read, Jesuit %><%= link_to 'Show', jesuit %><% end %></td>
+        <td><% if can? :edit, Jesuit %> | <%= link_to 'Edit', edit_jesuit_path(jesuit) %><% end %></td>
+        <td><% if can? :delete, Jesuit %> | <%= link_to 'Destroy', jesuit, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
       </tr>
     <% end %>
   </tbody>
@@ -54,4 +54,6 @@
 
 <br>
 
-<%= link_to 'New Jesuit', new_jesuit_path %>
+<% if can? :create, Jesuit %>
+  <%= link_to 'New Jesuit', new_jesuit_path %>
+<% end %>

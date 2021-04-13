@@ -1,5 +1,9 @@
 <h1>New Jesuit</h1>
 
-<%= render 'form', jesuit: @jesuit %>
+<% if can? :create, Jesuit %>
+    <%= render 'form', jesuit: @jesuit %>
 
-<%= link_to 'Back', jesuits_path %>
+    <%= link_to 'Back', jesuits_path %>
+<% else %>
+    <%= render 'shared/not_permitted' %>
+<% end %>
