@@ -16,4 +16,13 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  def tombstone
+    bday_display = first(:birth_date_display)
+    place_birth = first(:place_of_birth_tsi)
+    dday_display = first(:death_date_display)
+    place_death = first(:place_of_death_tsi)
+
+    "#{bday_display}; #{place_birth} -- #{dday_display}; #{place_death}"
+  end
 end
