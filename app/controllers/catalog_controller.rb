@@ -80,9 +80,9 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-    config.add_facet_field SolrIndexer::Fields::PLACE_OF_BIRTH_FACET, label: 'Place of Birth'
-    config.add_facet_field SolrIndexer::Fields::ENTRANCE_PROVINCE_FACET, label: 'Entrance Province'
-    config.add_facet_field SolrIndexer::Fields::PLACE_OF_DEATH_FACET, label: 'Place of Death'
+    config.add_facet_field SolrIndexer::Fields::PLACE_OF_BIRTH_FACET, label: 'Place of Birth', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field SolrIndexer::Fields::ENTRANCE_PROVINCE_FACET, label: 'Entrance Province', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field SolrIndexer::Fields::PLACE_OF_DEATH_FACET, label: 'Place of Death', limit: 20, index_range: 'A'..'Z'
 
     config.add_facet_field SolrIndexer::Fields::TITLE_FACET, label: 'Title', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field SolrIndexer::Fields::STATUS_FACET, label: 'Status', limit: 20, index_range: 'A'..'Z'
