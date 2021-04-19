@@ -1,44 +1,50 @@
-#case Rails.env
-#when "development"
+case Rails.env
+when "production"
+  # Don't load test users in production.
+when "staging"
+  # Don't load test users in staging.
+else
+  # Load the password from the credentials for the environment.
+  password = Rails.application.credentials[Rails.env.to_sym][:test_account_password]
 
-admin_role = Role.find_by_name('admin')
-supervisor_role = Role.find_by_name('supervisor')
-editor_role = Role.find_by_name('editor')
-noaccess_role = Role.find_by_name('noaccess')
+  admin_role = Role.find_by_name('admin')
+  supervisor_role = Role.find_by_name('supervisor')
+  editor_role = Role.find_by_name('editor')
+  noaccess_role = Role.find_by_name('noaccess')
 
-User.find_or_create_by(email: 'admin@test.com') do | user |
-  user.password = 'password'
-  user.password_confirmation = 'password'
-  user.name = 'Jimmy Admin'
-  user.role = admin_role
+  User.find_or_create_by(email: 'admin@test.com') do |user|
+    user.password = password
+    user.password_confirmation = password
+    user.name = 'Jimmy Admin'
+    user.role = admin_role
+  end
+
+  User.find_or_create_by(email: 'supervisor1@test.com') do |user|
+    user.password = password
+    user.password_confirmation = password
+    user.name = 'Jane Supervisor'
+    user.role = supervisor_role
+  end
+
+  User.find_or_create_by(email: 'supervisor2@test.com') do |user|
+    user.password = password
+    user.password_confirmation = password
+    user.name = 'Julio Supervisor'
+    user.role = supervisor_role
+  end
+
+  User.find_or_create_by(email: 'editor@test.com') do |user|
+    user.password = password
+    user.password_confirmation = password
+    user.name = 'Nancy Editor'
+    user.role = editor_role
+  end
+
+  User.find_or_create_by(email: 'noaccess@test.com') do |user|
+    user.password = password
+    user.password_confirmation = password
+    user.name = 'Noah Noaccess'
+    user.role = noaccess_role
+  end
+
 end
-
-User.find_or_create_by(email: 'supervisor1@test.com') do | user |
-  user.password = 'password'
-  user.password_confirmation = 'password'
-  user.name = 'Jane Supervisor'
-  user.role = supervisor_role
-end
-
-User.find_or_create_by(email: 'supervisor2@test.com') do | user |
-  user.password = 'password'
-  user.password_confirmation = 'password'
-  user.name = 'Julio Supervisor'
-  user.role = supervisor_role
-end
-
-User.find_or_create_by(email: 'editor@test.com') do | user |
-  user.password = 'password'
-  user.password_confirmation = 'password'
-  user.name = 'Nancy Editor'
-  user.role = editor_role
-end
-
-User.find_or_create_by(email: 'noaccess@test.com') do | user |
-  user.password = 'password'
-  user.password_confirmation = 'password'
-  user.name = 'Noah Noaccess'
-  user.role = noaccess_role
-end
-
-#end
