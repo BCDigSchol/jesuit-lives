@@ -300,7 +300,7 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    solr_wrapper (3.1.1)
+    solr_wrapper (3.1.2)
       http
       retriable
       ruby-progressbar
@@ -392,7 +392,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
-  solr_wrapper (>= 3.1.1)
+  solr_wrapper (>= 3.1.2)
   spring
   tinymce-rails
   turbolinks (~> 5)

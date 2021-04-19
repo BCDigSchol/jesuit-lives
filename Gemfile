@@ -75,7 +75,7 @@ end
 
 # Gems below are all added by blacklight install
 group :development, :test, :sandbox do
-  gem 'solr_wrapper', '>= 3.1.1'
+  gem 'solr_wrapper', '>= 3.1.2'
 end
 gem 'rsolr', '>= 1.0', '< 3'
 gem 'bootstrap', '~> 4.0'
