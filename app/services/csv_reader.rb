@@ -54,6 +54,7 @@ module CsvReader
 
     jesuit = Jesuit.new
 
+    jesuit.linking_id = row[Fields::LINKING_ID]
     jesuit.jl_id = row[Fields::JLIVES_ID]
 
     jesuit.last_name = row[Fields::LAST_NAME]

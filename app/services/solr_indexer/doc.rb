@@ -9,7 +9,7 @@ module SolrIndexer
 
       @doc = {}
 
-      @doc[Fields::ID] = jesuit.id
+      @doc[Fields::ID] = jesuit.linking_id
       @doc[Fields::JESUIT_LIVES_ID] = jesuit.jl_id
 
       @doc[Fields::FIRST_NAME] = jesuit.first_name

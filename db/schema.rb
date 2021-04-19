@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_142105) do
+ActiveRecord::Schema.define(version: 2021_04_19_180928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_142105) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "place_of_death_id"
+    t.integer "linking_id"
     t.index ["birth_date_id"], name: "index_jesuits_on_birth_date_id"
     t.index ["death_date_id"], name: "index_jesuits_on_death_date_id"
     t.index ["entrance_date_2_id"], name: "index_jesuits_on_entrance_date_2_id"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_142105) do
     t.index ["entrance_province_id"], name: "index_jesuits_on_entrance_province_id"
     t.index ["jl_id"], name: "index_jesuits_on_jl_id", unique: true
     t.index ["last_name"], name: "index_jesuits_on_last_name"
+    t.index ["linking_id"], name: "index_jesuits_on_linking_id", unique: true
     t.index ["place_of_birth_id"], name: "index_jesuits_on_place_of_birth_id"
     t.index ["place_of_death_id"], name: "index_jesuits_on_place_of_death_id"
     t.index ["status_id"], name: "index_jesuits_on_status_id"
