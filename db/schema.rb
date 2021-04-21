@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_180928) do
+ActiveRecord::Schema.define(version: 2021_04_21_144226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,35 @@ ActiveRecord::Schema.define(version: 2021_04_19_180928) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "place_of_death_id"
     t.integer "linking_id"
+    t.bigint "ordination_date_id"
+    t.string "alt_last_name"
+    t.text "add_last_name_info"
+    t.string "alt_first_name"
+    t.text "add_first_name_info"
+    t.bigint "alt_birth_date_id"
+    t.text "add_birth_date_info"
+    t.bigint "alt_place_of_birth_id"
+    t.text "add_place_of_birth_info"
+    t.bigint "alt_entrance_date_i1_id"
+    t.text "add_entrance_date_i1_info"
+    t.bigint "alt_entrance_date_i2_id"
+    t.text "add_entrance_date_i2_info"
+    t.text "add_entrance_place_info_i1"
+    t.text "add_entrance_place_info_i2"
+    t.bigint "alt_final_vow_date_id"
+    t.text "add_final_vow_date_info"
+    t.text "add_status_info"
+    t.bigint "alt_death_date_id"
+    t.text "add_death_date_info"
+    t.bigint "alt_place_of_death_id"
+    t.text "add_place_of_death_info"
+    t.index ["alt_birth_date_id"], name: "index_jesuits_on_alt_birth_date_id"
+    t.index ["alt_death_date_id"], name: "index_jesuits_on_alt_death_date_id"
+    t.index ["alt_entrance_date_i1_id"], name: "index_jesuits_on_alt_entrance_date_i1_id"
+    t.index ["alt_entrance_date_i2_id"], name: "index_jesuits_on_alt_entrance_date_i2_id"
+    t.index ["alt_final_vow_date_id"], name: "index_jesuits_on_alt_final_vow_date_id"
+    t.index ["alt_place_of_birth_id"], name: "index_jesuits_on_alt_place_of_birth_id"
+    t.index ["alt_place_of_death_id"], name: "index_jesuits_on_alt_place_of_death_id"
     t.index ["birth_date_id"], name: "index_jesuits_on_birth_date_id"
     t.index ["death_date_id"], name: "index_jesuits_on_death_date_id"
     t.index ["entrance_date_2_id"], name: "index_jesuits_on_entrance_date_2_id"
@@ -58,6 +87,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_180928) do
     t.index ["jl_id"], name: "index_jesuits_on_jl_id", unique: true
     t.index ["last_name"], name: "index_jesuits_on_last_name"
     t.index ["linking_id"], name: "index_jesuits_on_linking_id", unique: true
+    t.index ["ordination_date_id"], name: "index_jesuits_on_ordination_date_id"
     t.index ["place_of_birth_id"], name: "index_jesuits_on_place_of_birth_id"
     t.index ["place_of_death_id"], name: "index_jesuits_on_place_of_death_id"
     t.index ["status_id"], name: "index_jesuits_on_status_id"
@@ -149,11 +179,19 @@ ActiveRecord::Schema.define(version: 2021_04_19_180928) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "jesuits", "date_points", column: "alt_birth_date_id"
+  add_foreign_key "jesuits", "date_points", column: "alt_death_date_id"
+  add_foreign_key "jesuits", "date_points", column: "alt_entrance_date_i1_id"
+  add_foreign_key "jesuits", "date_points", column: "alt_entrance_date_i2_id"
+  add_foreign_key "jesuits", "date_points", column: "alt_final_vow_date_id"
   add_foreign_key "jesuits", "date_points", column: "birth_date_id"
   add_foreign_key "jesuits", "date_points", column: "death_date_id"
   add_foreign_key "jesuits", "date_points", column: "entrance_date_2_id"
   add_foreign_key "jesuits", "date_points", column: "entrance_date_id"
+  add_foreign_key "jesuits", "date_points", column: "ordination_date_id"
   add_foreign_key "jesuits", "date_points", column: "vow_date_id"
+  add_foreign_key "jesuits", "places", column: "alt_place_of_birth_id"
+  add_foreign_key "jesuits", "places", column: "alt_place_of_death_id"
   add_foreign_key "jesuits", "places", column: "place_of_birth_id"
   add_foreign_key "jesuits", "places", column: "place_of_death_id"
   add_foreign_key "jesuits", "provinces", column: "entrance_province_2_id"

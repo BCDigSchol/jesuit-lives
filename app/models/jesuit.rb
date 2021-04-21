@@ -13,6 +13,14 @@ class Jesuit < ApplicationRecord
   belongs_to :status, optional: true
   belongs_to :vow_date, class_name: "DatePoint", foreign_key: :vow_date_id, optional: true
   belongs_to :death_date, class_name: "DatePoint", foreign_key: :death_date_id, optional: true
+  belongs_to :ordination_date, class_name: "DatePoint", foreign_key: :ordination_date_id, optional: true
+  belongs_to :alt_birth_date, class_name: "DatePoint", foreign_key: :alt_birth_date_id, optional: true
+  belongs_to :alt_place_of_birth, class_name: "Place", foreign_key: :alt_place_of_birth_id, optional: true
+  belongs_to :alt_entrance_date_i1, class_name: "DatePoint", foreign_key: :alt_entrance_date_i1_id, optional: true
+  belongs_to :alt_entrance_date_i2, class_name: "DatePoint", foreign_key: :alt_entrance_date_i2_id, optional: true
+  belongs_to :alt_final_vow_date, class_name: "DatePoint", foreign_key: :alt_final_vow_date_id, optional: true
+  belongs_to :alt_death_date, class_name: "DatePoint", foreign_key: :alt_death_date_id, optional: true
+  belongs_to :alt_place_of_death, class_name: "Place", foreign_key: :alt_place_of_death_id, optional: true
 
   # Save then add to search index
   def save_and_index
