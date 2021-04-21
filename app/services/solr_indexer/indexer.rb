@@ -5,7 +5,7 @@ module SolrIndexer
     # Build the Indexer
     # @todo get configuration values from blacklight.yml
     #
-    # @param [Integer] batch_size number of records to hold before commiting
+    # @param [Integer] batch_size number of records to hold before committing
     def initialize(batch_size: 1)
       @batch_size = batch_size
       # @type [RSolr::Client] @rsolr

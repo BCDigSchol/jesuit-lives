@@ -16,7 +16,9 @@
 
   <p>
     <strong>Title:</strong>
-    <%= @jesuit.title.label %>
+    <% if @jesuit.title %>
+      <%= @jesuit.title.label %>
+    <% end %>
   </p>
 
   <p>
@@ -36,49 +38,67 @@
 
   <p>
     <strong>Birth date:</strong>
-    <%= @jesuit.birth_date.text %>
+    <% if @jesuit.birth_date %>
+      <%= @jesuit.birth_date.text %>
+    <% end %>
   </p>
 
   <p>
     <strong>Place of birth:</strong>
-    <%= @jesuit.place_of_birth.label %>
+    <% if @jesuit.place_of_birth %>
+      <%= @jesuit.place_of_birth.label %>
+    <% end %>
   </p>
 
   <p>
     <strong>Entrance date:</strong>
-    <%= @jesuit.entrance_date.text %>
+    <% if @jesuit.entrance_date %>
+      <%= @jesuit.entrance_date.text %>
+    <% end %>
   </p>
 
   <p>
     <strong>Entrance date 2:</strong>
-    <%= @jesuit.entrance_date_2.text %>
+    <% if @jesuit.entrance_date_2 %>
+      <%= @jesuit.entrance_date_2.text %>
+    <% end %>
   </p>
 
   <p>
     <strong>Entrance province:</strong>
-    <%= @jesuit.entrance_province.label %>
+    <% if @jesuit.entrance_province %>
+      <%= @jesuit.entrance_province.label %>
+    <% end %>
   </p>
 
   <% if @jesuit.entrance_province_2 %>
     <p>
       <strong>Entrance province 2:</strong>
-      <%= @jesuit.entrance_province_2.label %>
+      <% if @jesuit.entrance_province_2 %>
+        <%= @jesuit.entrance_province_2.label %>
+      <% end %>
     </p>
   <% end %>
 
   <p>
     <strong>Status:</strong>
-    <%= @jesuit.status.label %>
+    <% if @jesuit.status %>
+      <%= @jesuit.status.label %>
+    <% end %>
   </p>
 
   <p>
     <strong>Vow date:</strong>
-    <%= @jesuit.vow_date.text %>
+    <% if @jesuit.vow_date %>
+      <%= @jesuit.vow_date.text %>
+    <% end %>
   </p>
 
   <p>
     <strong>Death date:</strong>
-    <%= @jesuit.death_date.text %>
+    <% if @jesuit.death_date %>
+      <%= @jesuit.death_date.text %>
+    <% end %>
   </p>
 
   <% if can? :edit, Jesuit %>
