@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <% if @jesuit.nil? %>
-    <p>This record doesn't exist.</p>
-    <%= link_to 'Go Back to Jesuits index', jesuits_path %>
+  <p>This record doesn't exist.</p>
+  <%= link_to 'Go Back to Jesuits index', jesuits_path %>
 <% elsif can? :read, Jesuit %>
   <p>
-    <strong>Jl:</strong>
+    <strong>ID:</strong>
     <%= @jesuit.jl_id %>
   </p>
 
   <p>
+    <strong>Linking ID:</strong>
+    <%= @jesuit.linking_id %>
+  </p>
+
+  <p>
     <strong>Title:</strong>
-    <%= @jesuit.title_id %>
+    <%= @jesuit.title.label %>
   </p>
 
   <p>
@@ -31,47 +36,49 @@
 
   <p>
     <strong>Birth date:</strong>
-    <%= @jesuit.birth_date_id %>
+    <%= @jesuit.birth_date.text %>
   </p>
 
   <p>
     <strong>Place of birth:</strong>
-    <%= @jesuit.place_of_birth_id %>
+    <%= @jesuit.place_of_birth.label %>
   </p>
 
   <p>
     <strong>Entrance date:</strong>
-    <%= @jesuit.entrance_date_id %>
+    <%= @jesuit.entrance_date.text %>
   </p>
 
   <p>
     <strong>Entrance date 2:</strong>
-    <%= @jesuit.entrance_date_2_id %>
+    <%= @jesuit.entrance_date_2.text %>
   </p>
 
   <p>
     <strong>Entrance province:</strong>
-    <%= @jesuit.entrance_province_id %>
+    <%= @jesuit.entrance_province.label %>
   </p>
 
-  <p>
-    <strong>Entrance province 2:</strong>
-    <%= @jesuit.entrance_province_2_id %>
-  </p>
+  <% if @jesuit.entrance_province_2 %>
+    <p>
+      <strong>Entrance province 2:</strong>
+      <%= @jesuit.entrance_province_2.label %>
+    </p>
+  <% end %>
 
   <p>
     <strong>Status:</strong>
-    <%= @jesuit.status_id %>
+    <%= @jesuit.status.label %>
   </p>
 
   <p>
     <strong>Vow date:</strong>
-    <%= @jesuit.vow_date_id %>
+    <%= @jesuit.vow_date.text %>
   </p>
 
   <p>
     <strong>Death date:</strong>
-    <%= @jesuit.death_date_id %>
+    <%= @jesuit.death_date.text %>
   </p>
 
   <% if can? :edit, Jesuit %>

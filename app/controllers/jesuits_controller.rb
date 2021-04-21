@@ -19,6 +19,10 @@ class JesuitsController < ApplicationController
 
   # GET /jesuits/1 or /jesuits/1.json
   def show
+    respond_to do |format|
+      format.html { authorize! :read, Jesuit, :message => "Unable to load this page." }
+      format.json { render :json => @jesuit }
+    end
   end
 
   # GET /jesuits/new
@@ -87,7 +91,45 @@ class JesuitsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def jesuit_params
-    params.require(:jesuit).permit(:jl_id, :title_id, :last_name, :first_name_abbrev, :first_name, :birth_date_id, :place_of_birth_id, :entrance_date_id, :entrance_date_2_id, :entrance_province_id, :entrance_province_2_id, :status_id, :vow_date_id, :death_date_id)
+    params.require(:jesuit).permit(
+      :add_birth_date_info,
+      :add_death_date_info,
+      :add_entrance_date_i1_info,
+      :add_entrance_date_i2_info,
+      :add_entrance_place_info_i1,
+      :add_entrance_place_info_i2,
+      :add_final_vow_date_info,
+      :add_first_name_info,
+      :add_last_name_info,
+      :add_place_of_birth_info,
+      :add_place_of_death_info,
+      :add_status_info,
+      :alt_birth_date_id,
+      :alt_death_date_id,
+      :alt_entrance_date_i1_id,
+      :alt_entrance_date_i2_id,
+      :alt_final_vow_date_id,
+      :alt_first_name,
+      :alt_last_name,
+      :alt_place_of_birth_id,
+      :alt_place_of_death_id,
+      :birth_date_id,
+      :death_date_id,
+      :entrance_date_2_id,
+      :entrance_date_id,
+      :entrance_province_2_id,
+      :entrance_province_id,
+      :first_name,
+      :first_name_abbrev,
+      :jl_id,
+      :last_name,
+      :linking_id,
+      :ordination_date_id,
+      :place_of_birth_id,
+      :status_id,
+      :title_id,
+      :vow_date_id,
+    )
   end
 
 end
