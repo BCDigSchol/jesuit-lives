@@ -14,7 +14,13 @@ module SolrIndexer
 
       @doc[Fields::FIRST_NAME] = jesuit.first_name
       @doc[Fields::FIRST_NAME_ABBREV] = jesuit.first_name_abbrev
+      @doc[Fields::ALT_FIRST_NAME] = jesuit.alt_first_name
+      @doc[Fields::ADD_FIRST_NAME_INFO] = jesuit.add_first_name_info
+
       @doc[Fields::LAST_NAME] = jesuit.last_name
+      @doc[Fields::ALT_LAST_NAME] = jesuit.alt_last_name
+      @doc[Fields::ADD_LAST_NAME_INFO] = jesuit.add_last_name_info
+
       @doc[Fields::FULL_NAME] = jesuit.full_name
 
       unless jesuit.title.nil?
@@ -31,22 +37,72 @@ module SolrIndexer
         @doc[Fields::STATUS_FACET] = jesuit.status.label
       end
 
+      @doc[Fields::ADD_STATUS_INFO] = jesuit.add_status_info
+
       add_date('BIRTH_DATE', jesuit.birth_date)
+      add_date('ALT_BIRTH_DATE', jesuit.alt_birth_date)
+      add_date('ALL_BIRTH_DATES', jesuit.birth_date, multi_value: true)
+      add_date('ALL_BIRTH_DATES', jesuit.alt_birth_date, multi_value: true)
+
+      @doc[Fields::ADD_BIRTH_DATE_INFO] = jesuit.add_birth_date_info
+
       add_date('DEATH_DATE', jesuit.death_date)
+      add_date('ALT_DEATH_DATE', jesuit.alt_death_date)
+      add_date('ALL_DEATH_DATES', jesuit.death_date, multi_value: true)
+      add_date('ALL_DEATH_DATES', jesuit.alt_death_date, multi_value: true)
+
+      @doc[Fields::ADD_DEATH_DATE_INFO] = jesuit.add_death_date_info
+
       add_date('VOW_DATE', jesuit.vow_date)
-      add_date('ENTRANCE_DATE', jesuit.entrance_date, multi_value: true)
-      add_date('ENTRANCE_DATE', jesuit.entrance_date_2, multi_value: true)
+      add_date('ALT_VOW_DATE', jesuit.alt_final_vow_date)
+      add_date('ALL_VOW_DATES', jesuit.vow_date, multi_value: true )
+      add_date('ALL_VOW_DATES', jesuit.alt_final_vow_date, multi_value: true)
+
+      @doc[Fields::ADD_VOW_DATE_INFO] = jesuit.add_final_vow_date_info
+
+      add_date('ORDINATION_DATE', jesuit.ordination_date)
+
+      add_date('ENTRANCE_DATE', jesuit.entrance_date)
+      add_date('ENTRANCE_DATE_2', jesuit.entrance_date_2)
+      add_date('ALT_ENTRANCE_DATE_I1', jesuit.alt_entrance_date_i1)
+      add_date('ALT_ENTRANCE_DATE_I2', jesuit.alt_entrance_date_i2)
+
+      add_date('ALL_ENTRANCE_DATES', jesuit.entrance_date, multi_value: true)
+      add_date('ALL_ENTRANCE_DATES', jesuit.entrance_date_2, multi_value: true)
+      add_date('ALL_ENTRANCE_DATES', jesuit.alt_entrance_date_i1, multi_value: true)
+      add_date('ALL_ENTRANCE_DATES', jesuit.alt_entrance_date_i2, multi_value: true)
+
+      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I1] = jesuit.add_entrance_date_i1_info
+      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I2] = jesuit.add_entrance_date_i2_info
 
       add_place('PLACE_OF_BIRTH', jesuit.place_of_birth)
+      add_place('ALT_PLACE_OF_BIRTH', jesuit.alt_place_of_birth)
+
+      @doc[Fields::ADD_PLACE_OF_BIRTH_INFO] = jesuit.add_place_of_birth_info
+
       add_place('PLACE_OF_DEATH', jesuit.place_of_death)
+      add_place('ALT_PLACE_OF_DEATH', jesuit.alt_place_of_death)
+
+      @doc[Fields::ADD_PLACE_OF_DEATH_INFO] = jesuit.add_place_of_death_info
 
       unless jesuit.entrance_province.nil?
         @doc[Fields::ENTRANCE_PROVINCE] = []
         @doc[Fields::ENTRANCE_PROVINCE] << jesuit.entrance_province.abbreviation
 
-        @doc[:entrance_province_facet] = []
-        @doc[:entrance_province_facet] << jesuit.entrance_province.abbreviation
+        @doc[Fields::ENTRANCE_PROVINCE_FACET] = []
+        @doc[Fields::ENTRANCE_PROVINCE_FACET] << jesuit.entrance_province.abbreviation
       end
+
+      unless jesuit.entrance_province_2.nil?
+        @doc[Fields::ENTRANCE_PROVINCE_2] = []
+        @doc[Fields::ENTRANCE_PROVINCE_2] << jesuit.entrance_province_2.abbreviation
+
+        @doc[Fields::ENTRANCE_PROVINCE_2_FACET] = []
+        @doc[Fields::ENTRANCE_PROVINCE_2_FACET] << jesuit.entrance_province_2.abbreviation
+      end
+
+      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I1] = jesuit.add_entrance_place_info_i1
+      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I2] = jesuit.add_entrance_place_info_i2
 
     end
 
