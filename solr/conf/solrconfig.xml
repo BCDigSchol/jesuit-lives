@@ -47,12 +47,19 @@
           id
           jl_id_ssi
           full_name_tsi
+          alt_first_name_tsi
+          alt_last_name_tsi
           title_unabridged_tsi
           status_tsi
+          title_tsi
           status_abbrev_ssi
           status_unabridged_tsi
+          place_of_birth_tsi
+          alt_place_of_birth_tsi
           place_of_death_tsi
-          entrance_province_tsim
+          alt_place_of_death_tsi
+          entrance_province_tsi
+          entrance_province_2_tsi
         </str>
         <str name="pf">
           all_text_timv^10
@@ -60,6 +67,8 @@
 
         <str name="name_qf">
           full_name_tsi
+          alt_first_name_tsi
+          alt_last_name_tsi
         </str>
         <str name="name_pf">
         </str>
@@ -67,7 +76,7 @@
         <str name="place_qf">
           place_of_birth_tsi
           place_of_death_tsi
-          <!--entrance_province_tsim-->
+          entrance_province_tsi
         </str>
         <str name="place_pf">
         </str>
