@@ -118,6 +118,9 @@ module SolrIndexer::Fields
   ALL_ENTRANCE_PROVINCE = "all_entrance_province_#{TEXT_STORED_INDEXED_MULTI}"
   ALL_ENTRANCE_PROVINCE_FACET = "all_entrance_province_#{FACET}"
 
+  ADD_ENTRANCE_PLACE_INFO_I1 = "add_entrance_place_info_i1_#{TEXT_STORED_INDEXED}"
+  ADD_ENTRANCE_PLACE_INFO_I2 = "add_entrance_place_info_i2_#{TEXT_STORED_INDEXED}"
+
   # Date fields
   BIRTH_DATE = "birth_date_#{DATE_INDEXED}"
   BIRTH_DATE_DISPLAY = "birth_date_#{DISPLAY}"
@@ -181,8 +184,8 @@ module SolrIndexer::Fields
   ALL_ENTRANCE_DATES_DISPLAY = "all_entrance_dates_#{DISPLAY}"
   ALL_ENTRANCE_DATES_YEAR = "all_entrance_years_#{INTEGER_POINT_MULTI}"
   
-  ADD_ENTRANCE_PLACE_INFO_I1 = "add_entrance_place_info_i1_#{TEXT_STORED_INDEXED}"
-  ADD_ENTRANCE_PLACE_INFO_I2 = "add_entrance_place_info_i2_#{TEXT_STORED_INDEXED}"
+  ADD_ENTRANCE_DATE_I1_INFO = "add_entrance_date_i1_info_#{TEXT_STORED_INDEXED}"
+  ADD_ENTRANCE_DATE_I2_INFO = "add_entrance_date_i2_info_#{TEXT_STORED_INDEXED}"
 
   ORDINATION_DATE = "ordination_date_#{DATE_INDEXED}"
   ORDINATION_DATE_DISPLAY = "ordination_date_#{DISPLAY}"
