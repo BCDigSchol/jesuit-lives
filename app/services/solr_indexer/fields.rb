@@ -125,10 +125,12 @@ module SolrIndexer::Fields
   BIRTH_DATE = "birth_date_#{DATE_INDEXED}"
   BIRTH_DATE_DISPLAY = "birth_date_#{DISPLAY}"
   BIRTH_DATE_YEAR = "birth_year_#{INTEGER_POINT}"
+  BIRTH_DATE_YEAR_DISPLAY = "birth_year_#{DISPLAY}"
 
   ALT_BIRTH_DATE = "alt_birth_date_#{DATE_INDEXED}"
   ALT_BIRTH_DATE_DISPLAY = "alt_birth_date_#{DISPLAY}"
   ALT_BIRTH_DATE_YEAR = "alt_birth_year_#{INTEGER_POINT}"
+  ALT_BIRTH_DATE_YEAR_DISPLAY = "alt_birth_year_#{DISPLAY}"
 
   ALL_BIRTH_DATES = "all_birth_dates_#{DATE_INDEXED_MULTI}"
   ALL_BIRTH_DATES_DISPLAY = "all_birth_dates_#{DISPLAY}"
@@ -139,10 +141,12 @@ module SolrIndexer::Fields
   DEATH_DATE = "death_date_#{DATE_INDEXED}"
   DEATH_DATE_DISPLAY = "death_date_#{DISPLAY}"
   DEATH_DATE_YEAR = "death_year_#{INTEGER_POINT}"
+  DEATH_DATE_YEAR_DISPLAY = "death_year_#{DISPLAY}"
 
   ALT_DEATH_DATE = "alt_death_date_#{DATE_INDEXED}"
   ALT_DEATH_DATE_DISPLAY = "alt_death_date_#{DISPLAY}"
   ALT_DEATH_DATE_YEAR = "alt_death_year_#{INTEGER_POINT}"
+  ALT_DEATH_DATE_YEAR_DISPLAY = "alt_death_year_#{DISPLAY}"
 
   ALL_DEATH_DATES = "all_death_dates_#{DATE_INDEXED_MULTI}"
   ALL_DEATH_DATES_DISPLAY = "all_death_dates_#{DISPLAY}"
@@ -153,10 +157,12 @@ module SolrIndexer::Fields
   VOW_DATE = "vow_date_#{DATE_INDEXED}"
   VOW_DATE_DISPLAY = "vow_date_#{DISPLAY}"
   VOW_DATE_YEAR = "vow_year_#{INTEGER_POINT}"
+  VOW_DATE_YEAR_DISPLAY = "vow_year_#{DISPLAY}"
 
   ALT_VOW_DATE = "alt_vow_date_#{DATE_INDEXED}"
   ALT_VOW_DATE_DISPLAY = "alt_vow_date_#{DISPLAY}"
   ALT_VOW_DATE_YEAR = "alt_vow_year_#{INTEGER_POINT}"
+  ALT_VOW_DATE_YEAR_DISPLAY = "alt_vow_year_#{DISPLAY}"
 
   ALL_VOW_DATES = "all_vow_dates_#{DATE_INDEXED_MULTI}"
   ALL_VOW_DATES_DISPLAY = "all_vow_dates_#{DISPLAY}"
@@ -167,18 +173,22 @@ module SolrIndexer::Fields
   ENTRANCE_DATE = "entrance_date_#{DATE_INDEXED}"
   ENTRANCE_DATE_DISPLAY = "entrance_date_#{DISPLAY}"
   ENTRANCE_DATE_YEAR = "entrance_year_#{INTEGER_POINT}"
+  ENTRANCE_DATE_YEAR_DISPLAY = "entrance_year_#{DISPLAY}"
 
   ENTRANCE_DATE_2 = "entrance_date_2_#{DATE_INDEXED}"
   ENTRANCE_DATE_2_DISPLAY = "entrance_date_2_#{DISPLAY}"
   ENTRANCE_DATE_2_YEAR = "entrance_year_2_#{INTEGER_POINT}"
+  ENTRANCE_DATE_2_YEAR_DISPLAY = "entrance_year_2_#{DISPLAY}"
 
   ALT_ENTRANCE_DATE_I1 = "alt_entrance_date_i1_#{DATE_INDEXED}"
   ALT_ENTRANCE_DATE_I1_DISPLAY = "alt_entrance_date_i1_#{DISPLAY}"
   ALT_ENTRANCE_DATE_I1_YEAR = "entrance_year_i1_#{INTEGER_POINT}"
+  ALT_ENTRANCE_DATE_I1_YEAR_DISPLAY = "entrance_year_i1_#{DISPLAY}"
 
   ALT_ENTRANCE_DATE_I2 = "alt_entrance_date_i2_#{DATE_INDEXED}"
   ALT_ENTRANCE_DATE_I2_DISPLAY = "alt_entrance_date_i2_#{DISPLAY}"
   ALT_ENTRANCE_DATE_I2_YEAR = "entrance_year_i2_#{INTEGER_POINT}"
+  ALT_ENTRANCE_DATE_I2_YEAR_DISPLAY = "entrance_year_i2_#{DISPLAY}"
 
   ALL_ENTRANCE_DATES = "all_entrance_dates_#{DATE_INDEXED_MULTI}"
   ALL_ENTRANCE_DATES_DISPLAY = "all_entrance_dates_#{DISPLAY}"
@@ -190,5 +200,6 @@ module SolrIndexer::Fields
   ORDINATION_DATE = "ordination_date_#{DATE_INDEXED}"
   ORDINATION_DATE_DISPLAY = "ordination_date_#{DISPLAY}"
   ORDINATION_DATE_YEAR = "ordination_year_#{INTEGER_POINT}"
+  ORDINATION_DATE_YEAR_DISPLAY = "ordination_year_#{DISPLAY}"
 
 end

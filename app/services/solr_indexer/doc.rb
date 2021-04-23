@@ -160,6 +160,7 @@ module SolrIndexer
       @doc[Fields::const_get("#{prefix}")] = date_point.solr_date
       @doc[Fields::const_get("#{prefix}_DISPLAY")] = date_point.text
       @doc[Fields::const_get("#{prefix}_YEAR")] = date_point.date.year
+      @doc[Fields::const_get("#{prefix}_YEAR_DISPLAY")] = date_point.date.year
     end
 
     # Add a date to a field that allows multiple values
@@ -178,6 +179,10 @@ module SolrIndexer
       year_field = Fields::const_get("#{prefix}_YEAR")
       @doc[year_field] ||= []
       @doc[year_field] << date_point.date.year
+
+      year_display_field = Fields::const_get("#{prefix}_YEAR")
+      @doc[year_display_field] ||= []
+      @doc[year_display_field] << date_point.date.year
     end
 
   end
