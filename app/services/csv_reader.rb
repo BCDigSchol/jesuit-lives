@@ -189,7 +189,17 @@ module CsvReader
     # Don't build a province if there is nothing to build.
     return nil unless row[field]
 
-    Province.find_or_create_by(label: row[field])
+    # Strip out punctuation and space from abbreviations.
+    abbreviation = row[field]
+    abbreviation.gsub!(/[.,\- ]/, '')
+
+    # Downcase search to remove capitalization typos.
+    province = Province.where('lower(abbreviation) = ?', abbreviation.downcase).first
+    if province
+       province
+    else
+      Province.create(abbreviation: abbreviation)
+    end
   end
 
   # Null class for progress bar, so we don't have to check for existence on every tick.

@@ -87,18 +87,18 @@ module SolrIndexer
 
       unless jesuit.entrance_province.nil?
         @doc[Fields::ENTRANCE_PROVINCE] = []
-        @doc[Fields::ENTRANCE_PROVINCE] << jesuit.entrance_province.abbreviation
+        @doc[Fields::ENTRANCE_PROVINCE] << jesuit.entrance_province.label
 
         @doc[Fields::ENTRANCE_PROVINCE_FACET] = []
-        @doc[Fields::ENTRANCE_PROVINCE_FACET] << jesuit.entrance_province.abbreviation
+        @doc[Fields::ENTRANCE_PROVINCE_FACET] << jesuit.entrance_province.label
       end
 
       unless jesuit.entrance_province_2.nil?
         @doc[Fields::ENTRANCE_PROVINCE_2] = []
-        @doc[Fields::ENTRANCE_PROVINCE_2] << jesuit.entrance_province_2.abbreviation
+        @doc[Fields::ENTRANCE_PROVINCE_2] << jesuit.entrance_province_2.label
 
         @doc[Fields::ENTRANCE_PROVINCE_2_FACET] = []
-        @doc[Fields::ENTRANCE_PROVINCE_2_FACET] << jesuit.entrance_province_2.abbreviation
+        @doc[Fields::ENTRANCE_PROVINCE_2_FACET] << jesuit.entrance_province_2.label
       end
 
       @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I1] = jesuit.add_entrance_place_info_i1
