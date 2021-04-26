@@ -1,0 +1,27 @@
+<%= content_tag @component,
+                id: @id,
+                data: {
+                  'document-id': @document.id.to_s.parameterize,
+                  'document-counter': @counter,
+                },
+                itemscope: true,
+                itemtype: @document.itemtype,
+                class: classes.flatten.join(' ') do %>
+  <%= header %>
+  <% if body.present? %>
+    <%= body %>
+  <% else %>
+    <div class="document-main-section">
+      <%= title %>
+      <%= embed %>
+      <%= content %>
+      <div class="tombstone">
+        <span class="tombstone__birth"><%= tombstone_birth %></span>
+        <span class="tombstone__connector">–</span>
+        <span class="tombstone__death"><%= tombstone_death %></span>
+      </div>
+    </div>
+    <%= thumbnail %>
+  <% end %>
+  <%= footer %>
+<% end %>
