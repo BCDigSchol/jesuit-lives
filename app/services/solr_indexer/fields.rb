@@ -202,4 +202,8 @@ module SolrIndexer::Fields
   ORDINATION_DATE_YEAR = "ordination_year_#{INTEGER_POINT}"
   ORDINATION_DATE_YEAR_DISPLAY = "ordination_year_#{DISPLAY}"
 
+  PORTAL_URL = "portal_url_#{DISPLAY}"
+  GEORGETOWN_URL = "georgetown_url_#{DISPLAY}"
+  WEB_RESOURCES = "web_resources_#{DISPLAY}"
+
 end

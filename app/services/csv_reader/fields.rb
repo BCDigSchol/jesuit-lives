@@ -40,5 +40,8 @@ module CsvReader
     ADD_DEATH_DATE_INFO = 35
     ALT_PLACE_OF_DEATH = 36
     ADD_PLACE_OF_DEATH_INFO = 37
+    PORTAL_URL = 38
+    GEORGETOWN_URL = 39
+    WEB_RESOURCES = 40
   end
 end

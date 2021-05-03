@@ -9,56 +9,56 @@ module SolrIndexer
 
       @doc = {}
 
-      @doc[Fields::ID] = jesuit.linking_id
-      @doc[Fields::JESUIT_LIVES_ID] = jesuit.jl_id
+      add_field(Fields::ID, jesuit.linking_id)
+      add_field(Fields::JESUIT_LIVES_ID, jesuit.jl_id)
 
-      @doc[Fields::FIRST_NAME] = jesuit.first_name
-      @doc[Fields::FIRST_NAME_ABBREV] = jesuit.first_name_abbrev
-      @doc[Fields::ALT_FIRST_NAME] = jesuit.alt_first_name
-      @doc[Fields::ADD_FIRST_NAME_INFO] = jesuit.add_first_name_info
+      add_field(Fields::FIRST_NAME, jesuit.first_name)
+      add_field(Fields::FIRST_NAME_ABBREV, jesuit.first_name_abbrev)
+      add_field(Fields::ALT_FIRST_NAME, jesuit.alt_first_name)
+      add_field(Fields::ADD_FIRST_NAME_INFO, jesuit.add_first_name_info)
 
-      @doc[Fields::LAST_NAME] = jesuit.last_name
-      @doc[Fields::ALT_LAST_NAME] = jesuit.alt_last_name
-      @doc[Fields::ADD_LAST_NAME_INFO] = jesuit.add_last_name_info
+      add_field(Fields::LAST_NAME, jesuit.last_name)
+      add_field(Fields::ALT_LAST_NAME, jesuit.alt_last_name)
+      add_field(Fields::ADD_LAST_NAME_INFO, jesuit.add_last_name_info)
 
-      @doc[Fields::FULL_NAME] = jesuit.full_name
+      add_field(Fields::FULL_NAME, jesuit.full_name)
 
       unless jesuit.title.nil?
-        @doc[Fields::TITLE] = jesuit.title.label
-        @doc[Fields::TITLE_ABBREV] = jesuit.title.abbreviation
-        @doc[Fields::TITLE_UNABRIDGED] = jesuit.title.unabridged
-        @doc[Fields::TITLE_FACET] = jesuit.title.label
+        add_field(Fields::TITLE, jesuit.title.label)
+        add_field(Fields::TITLE_ABBREV, jesuit.title.abbreviation)
+        add_field(Fields::TITLE_UNABRIDGED, jesuit.title.unabridged)
+        add_field(Fields::TITLE_FACET, jesuit.title.label)
       end
 
       unless jesuit.status.nil?
-        @doc[Fields::STATUS] = jesuit.status.label
-        @doc[Fields::STATUS_ABBREV] = jesuit.status.abbreviation
-        @doc[Fields::STATUS_UNABRIDGED] = jesuit.status.unabridged
-        @doc[Fields::STATUS_FACET] = jesuit.status.label
+        add_field(Fields::STATUS, jesuit.status.label)
+        add_field(Fields::STATUS_ABBREV, jesuit.status.abbreviation)
+        add_field(Fields::STATUS_UNABRIDGED, jesuit.status.unabridged)
+        add_field(Fields::STATUS_FACET, jesuit.status.label)
       end
 
-      @doc[Fields::ADD_STATUS_INFO] = jesuit.add_status_info
+      add_field(Fields::ADD_STATUS_INFO, jesuit.add_status_info)
 
       add_date('BIRTH_DATE', jesuit.birth_date)
       add_date('ALT_BIRTH_DATE', jesuit.alt_birth_date)
       add_date('ALL_BIRTH_DATES', jesuit.birth_date, multi_value: true)
       add_date('ALL_BIRTH_DATES', jesuit.alt_birth_date, multi_value: true)
 
-      @doc[Fields::ADD_BIRTH_DATE_INFO] = jesuit.add_birth_date_info
+      add_field(Fields::ADD_BIRTH_DATE_INFO, jesuit.add_birth_date_info)
 
       add_date('DEATH_DATE', jesuit.death_date)
       add_date('ALT_DEATH_DATE', jesuit.alt_death_date)
       add_date('ALL_DEATH_DATES', jesuit.death_date, multi_value: true)
       add_date('ALL_DEATH_DATES', jesuit.alt_death_date, multi_value: true)
 
-      @doc[Fields::ADD_DEATH_DATE_INFO] = jesuit.add_death_date_info
+      add_field(Fields::ADD_DEATH_DATE_INFO, jesuit.add_death_date_info)
 
       add_date('VOW_DATE', jesuit.vow_date)
       add_date('ALT_VOW_DATE', jesuit.alt_final_vow_date)
       add_date('ALL_VOW_DATES', jesuit.vow_date, multi_value: true )
       add_date('ALL_VOW_DATES', jesuit.alt_final_vow_date, multi_value: true)
 
-      @doc[Fields::ADD_VOW_DATE_INFO] = jesuit.add_final_vow_date_info
+      add_field(Fields::ADD_VOW_DATE_INFO, jesuit.add_final_vow_date_info)
 
       add_date('ORDINATION_DATE', jesuit.ordination_date)
 
@@ -72,18 +72,18 @@ module SolrIndexer
       add_date('ALL_ENTRANCE_DATES', jesuit.alt_entrance_date_i1, multi_value: true)
       add_date('ALL_ENTRANCE_DATES', jesuit.alt_entrance_date_i2, multi_value: true)
 
-      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I1] = jesuit.add_entrance_date_i1_info
-      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I2] = jesuit.add_entrance_date_i2_info
+      add_field(Fields::ADD_ENTRANCE_PLACE_INFO_I1, jesuit.add_entrance_date_i1_info)
+      add_field(Fields::ADD_ENTRANCE_PLACE_INFO_I2, jesuit.add_entrance_date_i2_info)
 
       add_place('PLACE_OF_BIRTH', jesuit.place_of_birth)
       add_place('ALT_PLACE_OF_BIRTH', jesuit.alt_place_of_birth)
 
-      @doc[Fields::ADD_PLACE_OF_BIRTH_INFO] = jesuit.add_place_of_birth_info
+      add_field(Fields::ADD_PLACE_OF_BIRTH_INFO, jesuit.add_place_of_birth_info)
 
       add_place('PLACE_OF_DEATH', jesuit.place_of_death)
       add_place('ALT_PLACE_OF_DEATH', jesuit.alt_place_of_death)
 
-      @doc[Fields::ADD_PLACE_OF_DEATH_INFO] = jesuit.add_place_of_death_info
+      add_field(Fields::ADD_PLACE_OF_DEATH_INFO, jesuit.add_place_of_death_info)
 
       unless jesuit.entrance_province.nil?
         @doc[Fields::ENTRANCE_PROVINCE] = []
@@ -101,8 +101,12 @@ module SolrIndexer
         @doc[Fields::ENTRANCE_PROVINCE_2_FACET] << jesuit.entrance_province_2.label
       end
 
-      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I1] = jesuit.add_entrance_place_info_i1
-      @doc[Fields::ADD_ENTRANCE_PLACE_INFO_I2] = jesuit.add_entrance_place_info_i2
+      add_field(Fields::ADD_ENTRANCE_PLACE_INFO_I1, jesuit.add_entrance_place_info_i1)
+      add_field(Fields::ADD_ENTRANCE_PLACE_INFO_I2, jesuit.add_entrance_place_info_i2)
+
+      add_field(Fields::PORTAL_URL, jesuit.portal_url)
+      add_field(Fields::GEORGETOWN_URL, jesuit.georgetown_url)
+      add_field(Fields::WEB_RESOURCES, jesuit.web_resources)
 
     end
 
@@ -183,6 +187,15 @@ module SolrIndexer
       year_display_field = Fields::const_get("#{prefix}_YEAR")
       @doc[year_display_field] ||= []
       @doc[year_display_field] << date_point.date.year
+    end
+
+
+    # Add a field unless it's blank or nil
+    #
+    # @param [String] field_name Solr field to index
+    # @param [Object] value to index
+    def add_field(field_name, value)
+      @doc[field_name] = value unless value.to_s.empty?
     end
 
   end

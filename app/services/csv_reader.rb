@@ -98,6 +98,10 @@ module CsvReader
     jesuit.entrance_province_2 = build_province(row, Fields::ENTRANCE_PROVINCE_2)
     jesuit.add_entrance_place_info_i2 = row[Fields::ADD_ENTRANCE_PLACE_INFO_I2]
 
+    jesuit.portal_url = row[Fields::PORTAL_URL]
+    jesuit.georgetown_url = row[Fields::GEORGETOWN_URL]
+    jesuit.web_resources = row[Fields::WEB_RESOURCES]
+
     if preset_values.title(row[Fields::TITLE])
       jesuit.title = preset_values.title(row[Fields::TITLE])
     else

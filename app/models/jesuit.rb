@@ -29,6 +29,11 @@ class Jesuit < ApplicationRecord
     indexer.add(self)
   end
 
+  def index
+    indexer = SolrIndexer::Indexer.new
+    indexer.add(self)
+  end
+
   # Remove from search index then destroy
   def destroy_and_index
     indexer = SolrIndexer::Indexer.new

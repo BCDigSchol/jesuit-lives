@@ -42,6 +42,7 @@ class JesuitsController < ApplicationController
 
     respond_to do |format|
       if @jesuit.save
+        @jesuit.index
         format.html { redirect_to @jesuit, notice: "Jesuit was successfully created." }
         format.json { render :show, status: :created, location: @jesuit }
       else
@@ -57,6 +58,7 @@ class JesuitsController < ApplicationController
 
     respond_to do |format|
       if @jesuit.update(jesuit_params)
+        @jesuit.index
         format.html { redirect_to @jesuit, notice: "Jesuit was successfully updated." }
         format.json { render :show, status: :ok, location: @jesuit }
       else
@@ -70,7 +72,7 @@ class JesuitsController < ApplicationController
   def destroy
     authorize! :destroy, @jesuit, :message => "Unable to destroy this Jesuit record."
 
-    @jesuit.destroy
+    @jesuit.destroy_and_index
     respond_to do |format|
       format.html { redirect_to jesuits_url, notice: "Jesuit was successfully destroyed." }
       format.json { head :no_content }
@@ -129,6 +131,9 @@ class JesuitsController < ApplicationController
       :status_id,
       :title_id,
       :vow_date_id,
+      :portal_url,
+      :georgetown_url,
+      :web_resources
     )
   end
 
