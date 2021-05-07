@@ -49,6 +49,11 @@ module BlacklightConfiguration
       config.add_show_field SolrIndexer::Fields::PLACE_OF_DEATH, label: 'Place of death', link_to_facet: :place_of_death_facet
       config.add_show_field SolrIndexer::Fields::ALT_PLACE_OF_DEATH, label: 'Alternate place of death', link_to_facet: :place_of_death_facet
       config.add_show_field SolrIndexer::Fields::ADD_PLACE_OF_DEATH_INFO, label: 'Additional information about place of death'
+
+      config.add_show_field SolrIndexer::Fields::PORTAL_URL, label: 'The portal URL is'
+      config.add_show_field SolrIndexer::Fields::GEORGETOWN_URL, label: 'The Georgetown URL is'
+      config.add_show_field SolrIndexer::Fields::WEB_RESOURCES, label: 'Other stuff'
+
     end
   end
 end

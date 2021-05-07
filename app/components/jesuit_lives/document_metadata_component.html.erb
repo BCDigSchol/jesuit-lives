@@ -1,0 +1,56 @@
+<div class="show-metadata__death-fields show-metadata__id-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::JESUIT_LIVES_ID)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::TITLE)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::STATUS)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_STATUS_INFO)) %>
+</div>
+
+<div class="show-metadata__name-fields show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_LAST_NAME)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_FIRST_NAME)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_LAST_NAME_INFO)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_FIRST_NAME_INFO)) %>
+</div>
+
+<div class="show-metadata__birth-fields show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::BIRTH_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_BIRTH_DATE_INFO)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_BIRTH_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::PLACE_OF_BIRTH)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_PLACE_OF_BIRTH)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_PLACE_OF_BIRTH_INFO)) %>
+</div>
+
+
+<div class="show-metadata__entrance-fields show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::ENTRANCE_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ENTRANCE_DATE_2_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_ENTRANCE_DATE_I1_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_ENTRANCE_DATE_I1_INFO)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_ENTRANCE_DATE_I2_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_ENTRANCE_DATE_I2_INFO)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ENTRANCE_PROVINCE)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_ENTRANCE_PLACE_INFO_I1)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ENTRANCE_PROVINCE_2)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_ENTRANCE_PLACE_INFO_I2)) %>
+</div>
+
+<div class="show-metadata__ordination-fields show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::ORDINATION_DATE_DISPLAY)) %>
+</div>
+
+<div class="show-metadata__vow-fields show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::VOW_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_VOW_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_VOW_DATE_INFO)) %>
+</div>
+
+<div class="show-metadata__death-fields show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::DEATH_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_DEATH_DATE_DISPLAY)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_DEATH_DATE_INFO)) %>
+
+  <%= render(hashed_field_component(SolrIndexer::Fields::PLACE_OF_DEATH)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ALT_PLACE_OF_DEATH)) %>
+  <%= render(hashed_field_component(SolrIndexer::Fields::ADD_PLACE_OF_DEATH_INFO)) %>
+</div>
