@@ -1,0 +1,25 @@
+<div class="show-metadata__links show-metadata__field-group row">
+  <div class="blacklight-place_of_death_tsi col-md-3 show-metadata__field-label">
+    Other resources:
+  </div>
+  <div class="col-md-9">
+    <% if link_present?(SolrIndexer::Fields::PORTAL_URL) %>
+      <div class="show-metadata__link">
+        Search in the <a href="<%= link_for(SolrIndexer::Fields::PORTAL_URL) %>">Portal to Jesuit Studies</a>.
+      </div>
+    <% end %>
+
+    <% if link_present?(SolrIndexer::Fields::GEORGETOWN_URL) %>
+      <div class="show-metadata__link">
+        See resources at <a href="<%= link_for(SolrIndexer::Fields::GEORGETOWN_URL) %>">Georgetown University</a>.
+      </div>
+    <% end %>
+
+    <% if link_present?(SolrIndexer::Fields::WEB_RESOURCES) %>
+      <div class="show-metadata__link">
+        <%= link_for(SolrIndexer::Fields::WEB_RESOURCES).html_safe %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

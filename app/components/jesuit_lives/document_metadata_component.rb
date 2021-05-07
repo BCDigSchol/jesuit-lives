@@ -15,5 +15,9 @@ module JesuitLives
       JesuitLives::HashedDocumentFieldComponent.new(field: @field_hash[key])
     end
 
+    def link_fields_component
+      JesuitLives::LinkFieldsComponent.new(field_hash: @field_hash)
+    end
+
   end
 end
