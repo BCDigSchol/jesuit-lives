@@ -16,9 +16,9 @@
       <%= embed %>
       <%= content %>
       <div class="tombstone">
-        <span class="tombstone__birth"><%= tombstone_birth %></span>
-        <span class="tombstone__connector">–</span>
-        <span class="tombstone__death"><%= tombstone_death %></span>
+        <span class="tombstone__birth"><%= tombstone.birth %></span>
+        <span class="tombstone__connector"><%= tombstone.separator %></span>
+        <span class="tombstone__death"><%= tombstone.death %></span>
       </div>
     </div>
     <%= thumbnail %>

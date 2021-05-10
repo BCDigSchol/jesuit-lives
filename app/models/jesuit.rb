@@ -1,7 +1,7 @@
 class Jesuit < ApplicationRecord
   # set to override default per page
   #paginates_per 50
-  
+
   belongs_to :title, optional: true
   belongs_to :birth_date, class_name: "DatePoint", foreign_key: :birth_date_id, optional: true
   belongs_to :place_of_birth, class_name: "Place", foreign_key: :place_of_birth_id, optional: true
@@ -48,6 +48,10 @@ class Jesuit < ApplicationRecord
     last_name_part = last_name.nil? ? '???' : last_name
     first_name_part = first_name.nil? ? '???' : first_name
     "#{last_name_part}, #{first_name_part}"
+  end
+
+  def tombstone
+    JesuitLives::TombstonePresenter.new(birth_date.year, place_of_birth.label, death_date.year, place_of_death.label)
   end
 
 end

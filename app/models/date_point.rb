@@ -18,4 +18,8 @@ class DatePoint < ApplicationRecord
     return nil if date.nil?
     self.date.strftime('%Y-%m-%dT00:00:01Z')
   end
+
+  def year
+    self.date.year
+  end
 end
