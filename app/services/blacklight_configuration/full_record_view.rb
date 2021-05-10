@@ -16,7 +16,7 @@ module BlacklightConfiguration
       config.add_show_field SolrIndexer::Fields::STATUS, label: 'Status', link_to_facet: :status_facet
       config.add_show_field SolrIndexer::Fields::ADD_STATUS_INFO, label: 'Additional information about status'
 
-      config.add_show_field SolrIndexer::Fields::BIRTH_DATE_DISPLAY, label: 'Date of birth'
+      config.add_show_field SolrIndexer::Fields::BIRTH_DATE_DISPLAY, label: 'Date of birth', helper_method: 'link_to_year_search'
       config.add_show_field SolrIndexer::Fields::ADD_BIRTH_DATE_INFO, label: 'Additional information about date of birth'
       config.add_show_field SolrIndexer::Fields::ALT_BIRTH_DATE_DISPLAY, label: 'Alternate date of birth'
 
@@ -24,7 +24,7 @@ module BlacklightConfiguration
       config.add_show_field SolrIndexer::Fields::ALT_PLACE_OF_BIRTH, label: 'Alternate place of birth', link_to_facet: :place_of_birth_facet
       config.add_show_field SolrIndexer::Fields::ADD_PLACE_OF_BIRTH_INFO, label: 'Additional information about place of birth'
 
-      config.add_show_field SolrIndexer::Fields::ENTRANCE_DATE_DISPLAY, label: 'Date of entry'
+      config.add_show_field SolrIndexer::Fields::ENTRANCE_DATE_DISPLAY, label: 'Date of entry', helper_method: 'link_to_year_search'
       config.add_show_field SolrIndexer::Fields::ENTRANCE_DATE_2_DISPLAY, label: 'Second date of entry'
       config.add_show_field SolrIndexer::Fields::ALT_ENTRANCE_DATE_I1_DISPLAY, label: 'Alternate date of entry'
       config.add_show_field SolrIndexer::Fields::ADD_ENTRANCE_DATE_I1_INFO, label: 'Additional information about alternate date of entry'
@@ -36,13 +36,13 @@ module BlacklightConfiguration
       config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE_2, label: 'Second place of entry', link_to_facet: :entrance_province_facet
       config.add_show_field SolrIndexer::Fields::ADD_ENTRANCE_PLACE_INFO_I2, label: 'Additional information about place of entry'
 
-      config.add_show_field SolrIndexer::Fields::ORDINATION_DATE_DISPLAY, label: 'Date of ordination'
+      config.add_show_field SolrIndexer::Fields::ORDINATION_DATE_DISPLAY, label: 'Date of ordination', helper_method: 'link_to_year_search'
 
-      config.add_show_field SolrIndexer::Fields::VOW_DATE_DISPLAY, label: 'Date of final vow'
+      config.add_show_field SolrIndexer::Fields::VOW_DATE_DISPLAY, label: 'Date of final vow', helper_method: 'link_to_year_search'
       config.add_show_field SolrIndexer::Fields::ALT_VOW_DATE_DISPLAY, label: 'Alternate date of final vow'
       config.add_show_field SolrIndexer::Fields::ADD_VOW_DATE_INFO, label: 'Additional information about date of final vow'
 
-      config.add_show_field SolrIndexer::Fields::DEATH_DATE_DISPLAY, label: 'Date of death'
+      config.add_show_field SolrIndexer::Fields::DEATH_DATE_DISPLAY, label: 'Date of death', helper_method: 'link_to_year_search'
       config.add_show_field SolrIndexer::Fields::ALT_DEATH_DATE_DISPLAY, label: 'Alternate date of death'
       config.add_show_field SolrIndexer::Fields::ADD_DEATH_DATE_INFO, label: 'Additional information about date of death'
 
