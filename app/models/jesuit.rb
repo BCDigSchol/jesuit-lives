@@ -54,4 +54,9 @@ class Jesuit < ApplicationRecord
     JesuitLives::TombstonePresenter.new(birth_date.year, place_of_birth.label, death_date.year, place_of_death.label)
   end
 
+  def generated_portal_url
+    params = {:s => last_name}
+    "https://jesuitportal.bc.edu/?#{params.to_query}"
+  end
+
 end
