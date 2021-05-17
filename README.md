@@ -1,4 +1,4 @@
-# Jesuit Lives
+# Jesuit Online Necrology
 
 ## Getting started
 

@@ -6,62 +6,62 @@
     src: asset-url('opensans-bold.ttf'), asset-url('OpenSans-Bold.eot') format('embedded-opentype');
     font-weight: bold;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-bolditalic.ttf'), asset-url('OpenSans-BoldItalic.eot') format('embedded-opentype');
     font-style: italic;
     font-weight: bold;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-extrabold.ttf'), asset-url('OpenSans-Extrabold.eot') format('embedded-opentype');
     font-weight: 800;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-extrabolditalic.ttf'), asset-url('OpenSans-ExtraboldItalic.eot') format('embedded-opentype');
     font-style: italic;
     font-weight: 800;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-italic.ttf'), asset-url('OpenSans-Italic.eot') format('embedded-opentype');
     font-style: italic;
     font-weight: normal;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-light.ttf'), asset-url('OpenSans-Light.eot') format('embedded-opentype');
     font-weight: 300;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-lightitalic.ttf'), asset-url('OpenSansLight-Italic.eot?#iefix') format('embedded-opentype');
     font-style: italic;
     font-weight: 300;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-regular.ttf'), asset-url('OpenSans.eot') format('embedded-opentype');
     font-style: normal;
     font-weight: normal;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-semibold.ttf'), asset-url('OpenSans-Semibold.eot') format('embedded-opentype');
     font-weight: 600;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: OpenSans;
     src: asset-url('opensans-semibolditalic.ttf'), asset-url('OpenSans-SemiboldItalic.eot') format('embedded-opentype');
@@ -69,14 +69,14 @@
     font-style: italic;
   }
   /*================================================================================
-  *                                  Body 
+  *                                  Body
   ==================================================================================*/
-  
+
   * {
-    margin: 0; 
+    margin: 0;
     outline: none;
   }
-  
+
   html>body {
     margin: 0;
     color: #333;
@@ -91,19 +91,19 @@
     float: none!important;
     margin: 0 auto;
   }
-  
+
   .break {
-    border: 1px solid #bc9b6a;  
+    border: 1px solid #bc9b6a;
     margin: 35px 0px 30px 0px;
   }
   .space{
     border: 0;
   }
-  
+
   .gold-border {
     border: 1px solid #bc9b6a;
   }
-  
+
   .vertical-center {
     min-height: 100%;
     /* Fallback for browsers do NOT support vh unit */
@@ -112,19 +112,19 @@
     display: flex;
     align-items: center;
   }
-  
+
   .light {
     font-weight: 300;
   }
-  
+
   .bold {
     font-weight: bold;
   }
-  
+
   .content {
     margin-top: 12px;
   }
-  
+
   .selected {
     border-bottom: 2px solid black;
     color: #333;
@@ -138,15 +138,15 @@
   /*================================================================================
   *                                  Text
   ==================================================================================*/
-  
+
   .upper {
     text-transform: uppercase;
   }
-  
+
   .burgundy {
     color: #872334;
   }
-  
+
   .gold {
     color: #bc9b6a;
   }
@@ -161,9 +161,9 @@
   }
 
   /*================================================================================
-  *                                  Header 
+  *                                  Header
   ==================================================================================*/
-  
+
   .top-menu {
     color: #4D2911;
     font-size: 15px;
@@ -176,36 +176,36 @@
     font-weight: bold;
     color: #333;
   }
-  
+
   /*================================================================================
   *                                  Navigation
   ==================================================================================*/
-  
+
   /*.navigation {
-    background-color: rgb(140, 138, 137); 
+    background-color: rgb(140, 138, 137);
     font-size: 14px;
   }
-  
+
   .mobile-logo {
     margin-top: 4px;
   }*/
-  
+
   body .header a {
     text-transform: uppercase;
     /*TODO: Change Font Size to be based off of percentages*/
   }
-  
+
   /*.nav-bcjs a {
     color: #eee;
   }*/
-  
+
   /*.nav-bcjs>li>a:hover,
   .nav-bcjs>li>a:focus {
     background-color: #514242 !important;
     color: rgb(255, 255, 255);
     text-decoration: none;
   }
-  
+
   .icon-bar {
     background: #eee;
   }
@@ -214,11 +214,13 @@
   }*/
   .brand-backgnd {
     background: #bc9b6a;
-    position: relative;  
+    position: relative;
   }
-  /*.navbar-header {
-    background-color: #bc9b6a;
-  }*/
+
+  .site-header__link, .site-header__link:hover {
+    text-decoration: none;
+  }
+
   .header-title, .header-sub-title {
     color: white;
     letter-spacing: 4.5px;
@@ -279,7 +281,7 @@
     padding: 100px 0 0 0;
     margin-bottom: 0;
     background-color: inherit;
-    
+
     .search-navbar-job .form-wrapper {
       background-color: rgba(0,0,0,0.65);
       padding: 25px;
@@ -305,7 +307,7 @@
   /*================================================================================
   *                                  Index
   ==================================================================================*/
-  
+
   .body-container {
     max-width: 1150px;
     margin: 0 auto;
@@ -315,11 +317,11 @@
     color: #eee;
     text-transform: uppercase;
   }
-  
+
   .bc-red {
     background: #872334;
   }
-  
+
   .center-headers {
       font-weight: 100;
       color: grey;
@@ -337,14 +339,14 @@
     }
     .row-eq-height > [class*="col-"] {
       float: none;
-      display: table-cell;         
+      display: table-cell;
     }
   }
   .explore-box-txt {
     position: absolute;
     bottom: 0px;
     left: 10px;
-    color: white;  
+    color: white;
     font-size: 22px;
     text-shadow: 2px 2px 4px black;
   }
@@ -401,4 +403,4 @@
     }
 }
 
-  @import "search_results";
+@import "search_results";

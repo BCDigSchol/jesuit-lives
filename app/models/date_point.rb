@@ -1,6 +1,6 @@
 # Represents a date at various levels of precisions
 #
-# Dates in Jesuit Lives can have different levels of precision:
+# Dates in the Jesuit Online Necrology can have different levels of precision:
 #
 #    05-03-1807 - an exact day
 #    dd-03-1807 - a month, day unknown

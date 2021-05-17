@@ -8,7 +8,7 @@
 
   <fields>
 
-    <!-- Jesuit Lives required dynamicFields for Blacklight -->
+    <!-- Jesuit Online Necrology required dynamicFields for Blacklight -->
     <dynamicField name="ignored_*" type="ignored" multiValued="true"/>
     <dynamicField name="attr_*" type="text_general" indexed="true" stored="true" multiValued="true"/>
     <dynamicField name="*_display" type="string" indexed="false" stored="true" multiValued="true" />

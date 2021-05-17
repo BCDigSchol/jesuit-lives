@@ -12,14 +12,14 @@ Staticpage.find_or_create_by(slug: 'home') do | page |
     page.createdby = current_user
     page.modifiedby = current_user
     page.body = <<~PAGE_BODY
-    <p>Hello, this is the landing page for the Jesuit Lives project data viz stuff.</p>
+    <p>Hello, this is the landing page for the Jesuit Online Necrology data viz stuff.</p>
     <p>Here are some links to our wonderful and amazing work:</p>
     <p><a title="Map by date" href="/pages/map_by_date">Map by date</a></p>
     PAGE_BODY
 end
 
 Staticpage.find_or_create_by(slug: 'map_by_date') do | page |
-    page.title = "Jesuit Lives: Where was Jesuit X on Y date? ~29000 Jesuits with birth, death, and province entrance spatial data"
+    page.title = "Jesuit Online Necrology: Where was Jesuit X on Y date? ~29000 Jesuits with birth, death, and province entrance spatial data"
     page.description = 'Here is a demo map page two columns and embedded media.'
     page.blurb = "This is a test page and here we will see a few data visualizations."
     page.rank = 200
