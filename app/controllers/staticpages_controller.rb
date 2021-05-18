@@ -19,7 +19,13 @@ class StaticpagesController < ApplicationController
             @page = Staticpage.find_by!(slug: params[:slug])
         rescue ActiveRecord::RecordNotFound => e
             @page = nil
-            render :file => "#{Rails.root}/public/404", layout: 'blacklight', status: 404
+            render layout: 'blacklight', status: 404
+            return false
+        end
+
+        if @page.publish? == false
+            @page = nil
+            render layout: 'blacklight', status: 404
             return false
         end
         @page

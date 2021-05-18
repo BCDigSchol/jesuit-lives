@@ -1,5 +1,5 @@
 <div class="staticpage-container container">
-    <% if @page.nil? %>
+    <% if @page.nil? or @page.publish? == false %>
         <p>This page doesn't exist.</p>
     <% else %>
         <div class="heading-container mt-4"><h2><%= @page.title %></h2></div>
