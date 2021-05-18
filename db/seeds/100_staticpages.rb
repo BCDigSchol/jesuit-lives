@@ -199,19 +199,6 @@ Staticpage.find_or_create_by(slug: 'names') do | page |
     PAGE_BODY
 end
 
-Staticpage.find_or_create_by(slug: 'browse-database') do | page |
-    page.title = "Browse the Database"
-    page.description = 'Explore DB -> Browse'
-    page.blurb = "Browse the database"
-    page.rank = 100
-    page.publish = true
-    page.createdby = current_user
-    page.modifiedby = current_user
-    page.body = <<~PAGE_BODY
-    <p>Browse the Database.</p>
-    PAGE_BODY
-end
-
 Staticpage.find_or_create_by(slug: 'tips') do | page |
     page.title = "Searching Tips/ FAQ"
     page.description = 'Explore DB -> Searching Tips/ FAQ'

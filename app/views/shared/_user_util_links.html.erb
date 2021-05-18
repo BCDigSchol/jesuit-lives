@@ -12,7 +12,7 @@
   <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore the Database</a>
       <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
-        <li><%= link_to 'Browse the Database', pages_page_path('browse-database'), class: "dropdown-item" %></li>
+        <li><%= link_to 'Browse the Database', "/?search_field=all_fields&q=", class: "dropdown-item" %></li>
         <li><%= link_to 'Searching Tips/ FAQ', pages_page_path('tips'), class: "dropdown-item" %></li>
       </ul>
   </li>
