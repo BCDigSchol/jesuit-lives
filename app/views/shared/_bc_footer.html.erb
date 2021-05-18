@@ -11,13 +11,13 @@
             the Jesuit Archives and Research Center in Missouri, and the Woodstock Theological Library at Georgetown University.</p>
             <div class="row my-4">
               <div class="col-sm-12 col-md-3"><%= image_tag('bc_library_logo_300.png', width:175, alt:'Boston College Libraries')%></div>
-              <p class="col-sm-12 col-md-9" id="lib-blurb">The Jesuit Online Necrology was developed by the Boston College Libraries. Learn more about the development team and process.</p>
+              <p class="col-sm-12 col-md-9" id="lib-blurb">The Jesuit Online Necrology was developed by the Boston College Libraries. Learn more about the <%= link_to 'development team', pages_page_path('team') %> and process.</p>
             </div>
           </div>
           <div class="col-12 footer-links">
             <ul class="site-links mt-2 mb-4">
-              <li>Contact the Projects' Editors</li>
-              <li>Learn More</li>
+              <li><%= link_to "Contact the Projects' Editors", pages_page_path('contact') %></li>
+              <li><%= link_to 'Learn More', pages_page_path('project') %></li>
               <% if has_user_authentication_provider? %>
               <% if current_user %>
                 <li>
