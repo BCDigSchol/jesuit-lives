@@ -23,6 +23,8 @@ class PlacesController < ApplicationController
 
   # GET /places/new
   def new
+    authorize! :read, @place, :message => "Unable to read this Place record."
+    
     @place = Place.new
   end
 
@@ -76,9 +78,10 @@ class PlacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
+      authorize! :read, @place, :message => "Unable to read this Place record."
+
       begin
         @place = Place.find(params[:id])
-        authorize! :read, @place, :message => "Unable to read this Place record."
       rescue ActiveRecord::RecordNotFound => e
         @place = nil
       end

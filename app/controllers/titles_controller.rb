@@ -23,6 +23,8 @@ class TitlesController < ApplicationController
 
   # GET /titles/new
   def new
+    authorize! :read, @title, :message => "Unable to read this Title record."
+    
     @title = Title.new
   end
 
@@ -76,9 +78,10 @@ class TitlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_title
+      authorize! :read, @title, :message => "Unable to read this Title record."
+
       begin
         @title = Title.find(params[:id])
-        authorize! :read, @title, :message => "Unable to read this Title record."
       rescue ActiveRecord::RecordNotFound => e
         @title = nil
       end

@@ -27,6 +27,8 @@ class JesuitsController < ApplicationController
 
   # GET /jesuits/new
   def new
+    authorize! :read, @jesuit, :message => "Unable to read this Jesuit record."
+    
     @jesuit = Jesuit.new
   end
 
@@ -83,9 +85,10 @@ class JesuitsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_jesuit
+    authorize! :read, @jesuit, :message => "Unable to read this Jesuit record."
+
     begin
       @jesuit = Jesuit.find(params[:id])
-      authorize! :read, @jesuit, :message => "Unable to read this Jesuit record."
     rescue ActiveRecord::RecordNotFound => e
       @jesuit = nil
     end

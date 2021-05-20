@@ -1,4 +1,6 @@
 class StaticpagesController < ApplicationController
+    before_action :require_login
+    before_action :authenticate_user!
     protect_from_forgery with: :exception
 
     before_action :set_staticpage, only: [:show, :edit, :update, :destroy]
@@ -32,6 +34,8 @@ class StaticpagesController < ApplicationController
     end
 
     def new
+        authorize! :read, Staticpage, :message => "Unable to create this Page record."
+
         @page = Staticpage.new
     end
 
@@ -39,9 +43,9 @@ class StaticpagesController < ApplicationController
     end
 
     def create
-        @page = Staticpage.new(page_params)
-
         authorize! :create, @page, :message => "Unable to create this Page record."
+
+        @page = Staticpage.new(page_params)
 
         @page.createdby = current_user
         @page.modifiedby = current_user
@@ -94,9 +98,10 @@ class StaticpagesController < ApplicationController
     private
         # Use callbacks to share common setup or constraints between actions.
         def set_staticpage
+            authorize! :read, @page, :message => "Unable to read this Page record."
+
             begin
                 @page = Staticpage.find(params[:id])
-                authorize! :read, @page, :message => "Unable to read this Page record."
             rescue ActiveRecord::RecordNotFound => e
                 @page = nil
             end

@@ -23,6 +23,8 @@ class ProvincesController < ApplicationController
 
   # GET /provinces/new
   def new
+    authorize! :read, @province, :message => "Unable to read this Province record."
+    
     @province = Province.new
   end
 
@@ -33,6 +35,7 @@ class ProvincesController < ApplicationController
   # POST /provinces or /provinces.json
   def create
     authorize! :create, Province, :message => "Unable to create this Province record."
+
     @province = Province.new(province_params)
 
     respond_to do |format|
@@ -75,9 +78,10 @@ class ProvincesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_province
+      authorize! :read, @province, :message => "Unable to read this Province record."
+
       begin
         @province = Province.find(params[:id])
-        authorize! :read, @province, :message => "Unable to read this Province record."
       rescue ActiveRecord::RecordNotFound => e
         @province = nil
       end

@@ -1,6 +1,8 @@
-<h1>New Jesuit</h1>
-
 <% if can? :create, Jesuit %>
+    <h1>Add New Jesuit</h1>
+
+    <%= render 'error_messages' %>
+
     <%= render 'form', jesuit: @jesuit %>
 
     <%= link_to 'Back', jesuits_path %>

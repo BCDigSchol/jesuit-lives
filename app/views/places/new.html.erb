@@ -1,6 +1,8 @@
-<h1>New Place</h1>
-
 <% if can? :create, Place %>
+    <h1>Add New Place</h1>
+
+    <%= render 'error_messages' %>
+
     <%= render 'form', place: @place %>
 
     <%= link_to 'Back', places_path %>
