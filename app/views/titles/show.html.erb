@@ -24,10 +24,12 @@
     <%= @title.description %>
   </p>
 
-  <% if can? :update, Title %>
-    <%= link_to 'Edit', edit_title_path(@title) %> |
-  <% end %>
-  <%= link_to 'Back', titles_path %>
+  <div class="button-group mt-4">
+    <% if can? :update, Title %>
+      <%= link_to 'Edit', edit_title_path(@title), class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Back', titles_path, class: 'btn btn-info' %>
+  </div>
 <% else %>
   <%= render 'shared/not_permitted' %>
 <% end %>

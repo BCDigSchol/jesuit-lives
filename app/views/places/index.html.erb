@@ -1,50 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="col-12">
+  <p id="notice"><%= notice %></p>
 
-<h1>Places</h1>
+  <h1>Places</h1>
 
-<%= paginate @places_grid.assets %>
-
-<!--
-<table>
-  <thead>
-    <tr>
-      <th>Label</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @places.each do |place| %>
-      <tr>
-        <td><%= place.label %></td>
-        <td><%= place.latitude %></td>
-        <td><%= place.longitude %></td>
-        <td><%= place.description %></td>
-        <td><% if can? :read, Place %><%= link_to 'Show', place %><% end %></td>
-        <td><% if can? :edit, Place %> | <%= link_to 'Edit', edit_place_path(place) %><% end %></td>
-        <td><% if can? :delete, Place %> | <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
--->
-
-<div class="">
   <div class="filter my-4 p-3 bg-light text-dark border">
     <h2 class="pb-2">Filter</h2>
     <%= datagrid_form_for @places_grid, url: places_path %>
   </div>
+
+  <%= paginate @places_grid.assets %>
+
+  <%= datagrid_table(@places_grid, :html => {class: 'table table-striped'}) %>
+
+  <%= paginate @places_grid.assets %>
 </div>
 
-<%= datagrid_table(@places_grid, :html => {class: 'table table-striped'}) %>
-
-<%= paginate @places_grid.assets %>
-
-<br>
-
 <% if can? :create, Place %>
-  <%= link_to 'New Place', new_place_path %>
+  <div class="button-group col-12 mt-5">
+    <%= link_to 'Add New Place', new_place_path, class: 'btn btn-primary' %>
+  </div>
 <% end %>

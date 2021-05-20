@@ -1,49 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="col-12">
+  <p id="notice"><%= notice %></p>
 
-<h1>Provinces</h1>
+  <h1>Provinces</h1>
 
-<%= paginate @provinces_grid.assets %>
-
-<!--
-<table>
-  <thead>
-  <tr>
-    <th>Abbreviation</th>
-    <th>Label</th>
-    <th>Unabridged</th>
-    <th>Description</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-    <% @provinces.each do |province| %>
-      <tr>
-        <td><%= province.abbreviation %></td>
-        <td><%= province.label %></td>
-        <td><%= province.unabridged %></td>
-        <td><%= province.description %></td>
-        <td><% if can? :read, Province %><%= link_to 'Show', province %><% end %></td>
-        <td><% if can? :edit, Province %> | <%= link_to 'Edit', edit_province_path(province) %><% end %></td>
-        <td><% if can? :delete, Province %> | <%= link_to 'Destroy', province, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table-->
-
-<div class="">
   <div class="filter my-4 p-4 bg-light text-dark border">
     <h2 class="pb-2">Filter</h2>
     <%= datagrid_form_for @provinces_grid, url: provinces_path %>
   </div>
+
+  <%= paginate @provinces_grid.assets %>
+
+  <%= datagrid_table(@provinces_grid, :html => {class: 'table table-striped'}) %>
+
+  <%= paginate @provinces_grid.assets %>
 </div>
 
-<%= datagrid_table(@provinces_grid, :html => {class: 'table table-striped'}) %>
-
-<%= paginate @provinces_grid.assets %>
-
-<br>
-
 <% if can? :create, Province %>
-  <%= link_to 'New Province', new_province_path %>
+  <div class="button-group col-12 mt-5"> 
+    <%= link_to 'New Province', new_province_path, class: 'btn btn-primary' %>
+  </div>
 <% end %>

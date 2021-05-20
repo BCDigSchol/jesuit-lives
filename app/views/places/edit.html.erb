@@ -1,13 +1,15 @@
-<h1>Editing Place</h1>
-
 <% if @place.nil? %>
     <p>This record doesn't exist.</p>
     <%= link_to 'Go Back to Places index', places_path, class: 'btn btn-info' %>
-<% elsif can? :edit, Place %>
+<% elsif can? :update, Place %>
+    <h2 class="edit-label mb-4"><span class="header-label">Editing Place:</span> <%= @place.label.present? ? @place.label : @place.id %></h2>
+    
     <%= render 'form', place: @place %>
 
-    <%= link_to 'Show', @place %> |
-    <%= link_to 'Back', places_path %>
+    <div class="button-group mt-4">
+        <%= link_to 'Cancel', @place, class: 'btn btn-info' %>
+        <%= link_to 'Back', places_path, class: 'btn btn-secondary' %>
+    </div>
 <% else %>
     <%= render 'shared/not_permitted' %>
 <% end %>

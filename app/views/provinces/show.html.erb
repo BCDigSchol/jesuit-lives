@@ -24,10 +24,12 @@
     <%= @province.description %>
   </p>
 
-  <% if can? :update, Province %>
-    <%= link_to 'Edit', edit_province_path(@province) %> |
-  <% end %>
-  <%= link_to 'Back', provinces_path %>
+  <div class="button-group mt-4">
+    <% if can? :update, Province %>
+      <%= link_to 'Edit', edit_province_path(@province), class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Back', provinces_path, class: 'btn btn-info' %>
+  </div>
 <% else %>
   <%= render 'shared/not_permitted' %>
 <% end %>

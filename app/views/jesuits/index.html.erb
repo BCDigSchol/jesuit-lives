@@ -1,22 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="col-12">
+  <p id="notice"><%= notice %></p>
 
-<h1>Jesuits</h1>
+  <h1>Jesuits</h1>
 
-<div class="">
   <div class="filter my-4 p-4 bg-light text-dark border">
     <h2 class="pb-2">Filter</h2>
     <%= datagrid_form_for @jesuits_grid, url: jesuits_path %>
   </div>
+
+  <%= paginate @jesuits_grid.assets %>
+
+  <%= datagrid_table(@jesuits_grid, :html => {class: 'table table-striped'}) %>
+
+  <%= paginate @jesuits_grid.assets %>
 </div>
 
-<%= paginate @jesuits %>
-
-<%= datagrid_table(@jesuits_grid, :html => {class: 'table table-striped'}) %>
-
-<%= paginate @jesuits_grid.assets %>
-
-<br>
-
 <% if can? :create, Jesuit %>
-  <%= link_to 'New Jesuit', new_jesuit_path %>
+  <div class="button-group col-12 mt-5">  
+    <%= link_to 'Add New Jesuit', new_jesuit_path, class: 'btn btn-primary' %>
+  </div>
 <% end %>

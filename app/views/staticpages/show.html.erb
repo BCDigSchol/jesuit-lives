@@ -20,9 +20,9 @@
         <hr/>
 
         <div class="button-group">
-        <% if can? :update, Staticpage %>
-            <%= link_to 'Edit this Page', edit_staticpage_path(@page), class: 'btn btn-primary' %>
-        <% end %>
+            <% if can? :update, Staticpage %>
+                <%= link_to 'Edit this Page', edit_staticpage_path(@page), class: 'btn btn-primary' %>
+            <% end %>
             <%= link_to 'See public page', pages_page_path(@page.slug), class: 'btn btn-secondary' %>
             <%= link_to 'Go Back to Static Pages index', staticpages_path, class: 'btn btn-info' %>
         </div>

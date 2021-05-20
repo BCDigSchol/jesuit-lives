@@ -24,10 +24,12 @@
     <%= @place.description %>
   </p>
 
-  <% if can? :update, Place %>
-    <%= link_to 'Edit', edit_place_path(@place) %> |
-  <% end %>
-  <%= link_to 'Back', places_path %>
+  <div class="button-group mt-4">
+    <% if can? :update, Place %>
+      <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Back', places_path, class: 'btn btn-info' %>
+  </div>
 <% else %>
   <%= render 'shared/not_permitted' %>
 <% end %>

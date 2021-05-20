@@ -1,13 +1,15 @@
-<h1>Editing Title</h1>
-
 <% if @title.nil? %>
     <p>This record doesn't exist.</p>
     <%= link_to 'Go Back to Titles index', titles_path, class: 'btn btn-info' %>
-<% elsif can? :edit, Title %>
+<% elsif can? :update, Title %>
+    <h2 class="edit-label mb-4"><span class="header-label">Editing Title:</span> <%= @title.label.present? ? @title.label : @title.id %></h2>
+
     <%= render 'form', title: @title %>
 
-    <%= link_to 'Show', @title %> |
-    <%= link_to 'Back', titles_path %>
+    <div class="button-group mt-4">
+        <%= link_to 'Cancel', @title, class: 'btn btn-info' %>
+        <%= link_to 'Back', provinces_path, class: 'btn btn-secondary' %>
+    </div>
 <% else %>
     <%= render 'shared/not_permitted' %>
 <% end %>

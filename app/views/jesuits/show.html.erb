@@ -101,10 +101,12 @@
     <% end %>
   </p>
 
-  <% if can? :update, Jesuit %>
-    <%= link_to 'Edit', edit_jesuit_path(@jesuit) %> |
-  <% end %>
-  <%= link_to 'Back', jesuits_path %>
+  <div class="button-group mt-4">
+    <% if can? :update, Jesuit %>
+      <%= link_to 'Edit', edit_jesuit_path(@jesuit), class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Back', jesuits_path, class: 'btn btn-info' %>
+  </div>
 <% else %>
   <%= render 'shared/not_permitted' %>
 <% end %>

@@ -1,13 +1,15 @@
-<h1>Editing Province</h1>
-
 <% if @province.nil? %>
     <p>This record doesn't exist.</p>
     <%= link_to 'Go Back to Provinces index', provinces_path, class: 'btn btn-info' %>
-<% elsif can? :edit, Province %>
+<% elsif can? :update, Province %>
+    <h2 class="edit-label mb-4"><span class="header-label">Editing Province:</span> <%= @province.label.present? ? @province.label : @province.abbreviation %></h2>
+    
     <%= render 'form', province: @province %>
 
-    <%= link_to 'Show', @province %> |
-    <%= link_to 'Back', provinces_path %>
+    <div class="button-group mt-4">
+        <%= link_to 'Cancel', @province, class: 'btn btn-info' %>
+        <%= link_to 'Back', provinces_path, class: 'btn btn-secondary' %>
+    </div>
 <% else %>
     <%= render 'shared/not_permitted' %>
 <% end %>

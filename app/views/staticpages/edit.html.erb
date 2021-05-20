@@ -1,8 +1,8 @@
 <% if @page.nil? %>
     <p>This record doesn't exist.</p>
     <%= link_to 'Go Back to Static Pages index', staticpages_path, class: 'btn btn-info' %>
-<% elsif can? :edit, Staticpage %>
-    <h2 class="edit-label"><span class="header-label">Editing Page:</span> <%= @page.title.present? ? @page.title : @page.id %></h2>
+<% elsif can? :update, Staticpage %>
+    <h2 class="edit-label mb-4"><span class="header-label">Editing Page:</span> <%= @page.title.present? ? @page.title : @page.id %></h2>
 
     <%= render 'error_messages' %>
 
