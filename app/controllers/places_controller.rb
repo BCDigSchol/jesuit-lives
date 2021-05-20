@@ -23,19 +23,18 @@ class PlacesController < ApplicationController
 
   # GET /places/new
   def new
-    authorize! :read, @place, :message => "Unable to read this Place record."
-    
+    authorize! :create, Place, :message => "Unable to create a Place record."
     @place = Place.new
   end
 
   # GET /places/1/edit
   def edit
+    authorize! :update, Place, :message => "Unable to update this Place record."
   end
 
   # POST /places or /places.json
   def create
     authorize! :create, Place, :message => "Unable to create this Place record."
-
     @place = Place.new(place_params)
 
     respond_to do |format|
@@ -51,7 +50,7 @@ class PlacesController < ApplicationController
 
   # PATCH/PUT /places/1 or /places/1.json
   def update
-    authorize! :update, @place, :message => "Unable to update this Place record."
+    authorize! :update, Place, :message => "Unable to update this Place record."
 
     respond_to do |format|
       if @place.update(place_params)
@@ -66,9 +65,9 @@ class PlacesController < ApplicationController
 
   # DELETE /places/1 or /places/1.json
   def destroy
-    authorize! :destroy, @place, :message => "Unable to destroy this Place record."
-
+    authorize! :destroy, Place, :message => "Unable to destroy this Place record."
     @place.destroy
+  
     respond_to do |format|
       format.html { redirect_to places_url, notice: "Place was successfully destroyed." }
       format.json { head :no_content }
@@ -78,7 +77,7 @@ class PlacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
-      authorize! :read, @place, :message => "Unable to read this Place record."
+      authorize! :read, Place, :message => "Unable to read this Place record."
 
       begin
         @place = Place.find(params[:id])

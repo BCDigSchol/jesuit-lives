@@ -27,19 +27,18 @@ class JesuitsController < ApplicationController
 
   # GET /jesuits/new
   def new
-    authorize! :read, @jesuit, :message => "Unable to read this Jesuit record."
-    
+    authorize! :create, Jesuit, :message => "Unable to create a Jesuit record."
     @jesuit = Jesuit.new
   end
 
   # GET /jesuits/1/edit
   def edit
+    authorize! :update, Jesuit, :message => "Unable to update this Jesuit record."
   end
 
   # POST /jesuits or /jesuits.json
   def create
     authorize! :create, Jesuit, :message => "Unable to create this Jesuit record."
-
     @jesuit = Jesuit.new(jesuit_params)
 
     respond_to do |format|
@@ -56,7 +55,7 @@ class JesuitsController < ApplicationController
 
   # PATCH/PUT /jesuits/1 or /jesuits/1.json
   def update
-    authorize! :update, @jesuit, :message => "Unable to update this Jesuit record."
+    authorize! :update, Jesuit, :message => "Unable to update this Jesuit record."
 
     respond_to do |format|
       if @jesuit.update(jesuit_params)
@@ -72,9 +71,9 @@ class JesuitsController < ApplicationController
 
   # DELETE /jesuits/1 or /jesuits/1.json
   def destroy
-    authorize! :destroy, @jesuit, :message => "Unable to destroy this Jesuit record."
-
+    authorize! :destroy, Jesuit, :message => "Unable to destroy this Jesuit record."
     @jesuit.destroy_and_index
+
     respond_to do |format|
       format.html { redirect_to jesuits_url, notice: "Jesuit was successfully destroyed." }
       format.json { head :no_content }
@@ -85,7 +84,7 @@ class JesuitsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_jesuit
-    authorize! :read, @jesuit, :message => "Unable to read this Jesuit record."
+    authorize! :read, Jesuit, :message => "Unable to read this Jesuit record."
 
     begin
       @jesuit = Jesuit.find(params[:id])

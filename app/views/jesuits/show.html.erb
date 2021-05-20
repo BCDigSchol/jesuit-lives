@@ -101,7 +101,7 @@
     <% end %>
   </p>
 
-  <% if can? :edit, Jesuit %>
+  <% if can? :update, Jesuit %>
     <%= link_to 'Edit', edit_jesuit_path(@jesuit) %> |
   <% end %>
   <%= link_to 'Back', jesuits_path %>

@@ -14,19 +14,19 @@ class Ability
 
     if user.is_role? "supervisor"
       can :read, "Dashboard"
-      can :manage, Staticpage
-      can :manage, Title
-      can :manage, Jesuit
-      can :manage, Province
-      can :manage, Place
+      can [:read, :create, :update, :destroy], Staticpage
+      can [:read, :create, :update, :destroy], Title
+      can [:read, :create, :update, :destroy], Jesuit
+      can [:read, :create, :update, :destroy], Province
+      can [:read, :create, :update, :destroy], Place
     end
 
     if user.is_role? "editor"
       can :read, "Dashboard"
-      can [:read, :edit, :create, :update], Title
-      can [:read, :edit, :create, :update], Jesuit
-      can [:read, :edit, :create, :update], Province
-      can [:read, :edit, :create, :update], Place
+      can [:read, :create, :update], Title
+      can [:read, :create, :update], Jesuit
+      can [:read, :create, :update], Province
+      can [:read, :create, :update], Place
     end
 
     # leave empty since this role should not have access to any backend services

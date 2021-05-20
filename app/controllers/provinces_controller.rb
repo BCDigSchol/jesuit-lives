@@ -23,19 +23,18 @@ class ProvincesController < ApplicationController
 
   # GET /provinces/new
   def new
-    authorize! :read, @province, :message => "Unable to read this Province record."
-    
+    authorize! :create, Province, :message => "Unable to read this Province record."
     @province = Province.new
   end
 
   # GET /provinces/1/edit
   def edit
+    authorize! :update, Province, :message => "Unable to update this Province record."
   end
 
   # POST /provinces or /provinces.json
   def create
     authorize! :create, Province, :message => "Unable to create this Province record."
-
     @province = Province.new(province_params)
 
     respond_to do |format|
@@ -51,7 +50,7 @@ class ProvincesController < ApplicationController
 
   # PATCH/PUT /provinces/1 or /provinces/1.json
   def update
-    authorize! :update, @province, :message => "Unable to update this Province record."
+    authorize! :update, Province, :message => "Unable to update this Province record."
 
     respond_to do |format|
       if @province.update(province_params)
@@ -66,9 +65,9 @@ class ProvincesController < ApplicationController
 
   # DELETE /provinces/1 or /provinces/1.json
   def destroy
-    authorize! :destroy, @province, :message => "Unable to destroy this Province record."
-
+    authorize! :destroy, Province, :message => "Unable to destroy this Province record."
     @province.destroy
+
     respond_to do |format|
       format.html { redirect_to provinces_url, notice: "Province was successfully destroyed." }
       format.json { head :no_content }
@@ -78,7 +77,7 @@ class ProvincesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_province
-      authorize! :read, @province, :message => "Unable to read this Province record."
+      authorize! :read, Province, :message => "Unable to read this Province record."
 
       begin
         @province = Province.find(params[:id])

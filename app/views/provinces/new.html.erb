@@ -1,8 +1,6 @@
 <% if can? :create, Province %>
     <h1>Add New Province</h1>
 
-    <%= render 'error_messages' %>
-
     <%= render 'form', province: @province %>
 
     <%= link_to 'Back', provinces_path %>

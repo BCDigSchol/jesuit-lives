@@ -24,7 +24,7 @@
     <%= @province.description %>
   </p>
 
-  <% if can? :edit, Province %>
+  <% if can? :update, Province %>
     <%= link_to 'Edit', edit_province_path(@province) %> |
   <% end %>
   <%= link_to 'Back', provinces_path %>

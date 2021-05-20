@@ -1,9 +1,11 @@
 <% if can? :read, Staticpage %>
   <h2 class="col-12">Static Pages index</h2>
 
-  <div class="button-group col-12 mt-3 mb-5">
+  <% if can? :create, Staticpage %>
+  <div class="button-group col-12 my-4">
     <%= link_to 'Add New Static Page', new_staticpage_path, class: 'btn btn-primary' %>
   </div>
+  <% end %>
 
   <div class="col-12">
     <table class="table">
@@ -25,7 +27,7 @@
               <td><% if page.publish %>Yes<% else %>No<% end %></td>
               <td><%= page.modifiedby %><br/><%= page.updated_at %></td>
               <td>
-              <% if can? :detroy, Staticpage %>
+              <% if can? :destroy, Staticpage %>
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span> |
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Edit', edit_staticpage_path(page) %></span></span> |
                 <% if page.slug != "home" %>
@@ -33,7 +35,7 @@
                 <% else %>
                   Delete
                 <% end %>
-              <% elsif can? :edit, Staticpage %>
+              <% elsif can? :update, Staticpage %>
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Show', staticpage_path(page) %></span></span> |
                 <span class='icon show-link'><span class='icon-link'><%= link_to 'Edit', edit_staticpage_path(page) %></span></span>
               <% else %>
@@ -47,9 +49,11 @@
     </table>
   </div>
 
+  <% if can? :create, Staticpage %>
   <div class="button-group col-12 mt-4">
     <%= link_to 'Add New Static Page', new_staticpage_path, class: 'btn btn-primary' %>
   </div>
+  <% end %>
 
 <% else %>
   <%= render 'shared/not_permitted' %>

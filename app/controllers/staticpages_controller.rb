@@ -9,7 +9,6 @@ class StaticpagesController < ApplicationController
 
     def index
         authorize! :read, Staticpage, :message => "Unable to load this page."
-
         @pages = Staticpage.all
     end
 
@@ -34,17 +33,16 @@ class StaticpagesController < ApplicationController
     end
 
     def new
-        authorize! :read, Staticpage, :message => "Unable to create this Page record."
-
+        authorize! :create, Staticpage, :message => "Unable to create a Page record."
         @page = Staticpage.new
     end
 
     def edit
+        authorize! :update, Staticpage, :message => "Unable to update this Page record."
     end
 
     def create
-        authorize! :create, @page, :message => "Unable to create this Page record."
-
+        authorize! :create, Staticpage, :message => "Unable to create a Page record."
         @page = Staticpage.new(page_params)
 
         @page.createdby = current_user
@@ -64,7 +62,7 @@ class StaticpagesController < ApplicationController
     end
 
     def update
-        authorize! :update, @page, :message => "Unable to update this Page record."
+        authorize! :update, Staticpage, :message => "Unable to update this Page record."
 
         # copy over subject_params into period_attributes so we can alter it
         page_attributes = page_params
@@ -72,13 +70,11 @@ class StaticpagesController < ApplicationController
         # update modified_by
         page_attributes[:modifiedby] = current_user
 
-        if @page.update(page_attributes)
-            respond_to do |format|
+        respond_to do |format|
+            if @page.update(page_attributes)
                 format.html { redirect_to staticpage_path(@page), notice: 'Page was successfully updated.' }
                 format.json { render :show, status: :ok, location: @page }
-            end
-        else
-            respond_to do |format|
+            else
                 format.html { render :edit }
                 format.json { render json: @page.errors, status: :unprocessable_staticpage }
             end
@@ -86,9 +82,9 @@ class StaticpagesController < ApplicationController
     end
 
     def destroy
-        authorize! :destroy, @page, :message => "Unable to destroy this Page record."
-
+        authorize! :destroy, Staticpage, :message => "Unable to destroy this Page record."
         @page.destroy
+
         respond_to do |format|
             format.html { redirect_to staticpages_path, notice: 'Page was successfully destroyed.' }
             format.json { head :no_content }
@@ -98,7 +94,7 @@ class StaticpagesController < ApplicationController
     private
         # Use callbacks to share common setup or constraints between actions.
         def set_staticpage
-            authorize! :read, @page, :message => "Unable to read this Page record."
+            authorize! :read, Staticpage, :message => "Unable to read this Page record."
 
             begin
                 @page = Staticpage.find(params[:id])

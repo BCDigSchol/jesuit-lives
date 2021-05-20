@@ -23,19 +23,18 @@ class TitlesController < ApplicationController
 
   # GET /titles/new
   def new
-    authorize! :read, @title, :message => "Unable to read this Title record."
-    
+    authorize! :create, Title, :message => "Unable to create a Title record."
     @title = Title.new
   end
 
   # GET /titles/1/edit
   def edit
+    authorize! :update, Title, :message => "Unable to edit this Title record."
   end
 
   # POST /titles or /titles.json
   def create
     authorize! :create, Title, :message => "Unable to create this Title record."
-
     @title = Title.new(title_params)
 
     respond_to do |format|
@@ -51,7 +50,7 @@ class TitlesController < ApplicationController
 
   # PATCH/PUT /titles/1 or /titles/1.json
   def update
-    authorize! :update, @title, :message => "Unable to update this Title record."
+    authorize! :update, Title, :message => "Unable to update this Title record."
 
     respond_to do |format|
       if @title.update(title_params)
@@ -66,9 +65,9 @@ class TitlesController < ApplicationController
 
   # DELETE /titles/1 or /titles/1.json
   def destroy
-    authorize! :destroy, @title, :message => "Unable to destroy this Title record."
-
+    authorize! :destroy, Title, :message => "Unable to destroy this Title record."
     @title.destroy
+
     respond_to do |format|
       format.html { redirect_to titles_url, notice: "Title was successfully destroyed." }
       format.json { head :no_content }
@@ -78,7 +77,7 @@ class TitlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_title
-      authorize! :read, @title, :message => "Unable to read this Title record."
+      authorize! :read, Title, :message => "Unable to read this Title record."
 
       begin
         @title = Title.find(params[:id])
