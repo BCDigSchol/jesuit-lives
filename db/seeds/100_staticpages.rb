@@ -238,19 +238,6 @@ Staticpage.find_or_create_by(slug: 'tableau') do | page |
     PAGE_BODY
 end
 
-Staticpage.find_or_create_by(slug: 'bibliography') do | page |
-    page.title = "Bibliography"
-    page.description = 'Bibliography'
-    page.blurb = "Bibliography"
-    page.rank = 100
-    page.publish = true
-    page.createdby = current_user
-    page.modifiedby = current_user
-    page.body = <<~PAGE_BODY
-    <p>Bibliography.</p>
-    PAGE_BODY
-end
-
 Staticpage.find_or_create_by(slug: 'team') do | page |
     page.title = "Team Members"
     page.description = 'Project Team -> Team Members'
