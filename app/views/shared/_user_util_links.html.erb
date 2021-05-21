@@ -1,7 +1,7 @@
 <ul class="navbar-nav">
-  <li class="nav-item"><%= link_to 'Home', '/', class: 'nav-link' %></li>
+  <li class="nav-item"><%= link_to 'Home', '/', class: 'nav-link text-uppercase' %></li>
   <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+      <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
       <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
         <li><%= link_to 'The Project', pages_page_path('project'), class: "dropdown-item" %></li>
         <li><%= link_to 'The Source', pages_page_path('source'), class: "dropdown-item" %></li>
@@ -10,21 +10,21 @@
       </ul>
   </li>
   <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore the Database</a>
+      <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore the Database</a>
       <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
         <li><%= link_to 'Browse the Database', "/?search_field=all_fields&q=", class: "dropdown-item" %></li>
         <li><%= link_to 'Searching Tips/ FAQ', pages_page_path('tips'), class: "dropdown-item" %></li>
       </ul>
   </li>
   <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Visualizations</a>
+      <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Data Visualizations</a>
       <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
         <li><%= link_to 'Mapping the Necrologies', pages_page_path('mapping'), class: "dropdown-item" %></li>
         <li><%= link_to 'Visualizing the Necrology', pages_page_path('tableau'), class: "dropdown-item" %></li>
       </ul>
   </li>
   <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Project Team</a>
+      <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarAboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Project Team</a>
       <ul class="dropdown-menu" aria-labelledby="navbarAboutDropdown">
         <li><%= link_to 'Project Team', pages_page_path('team'), class: "dropdown-item" %></li>
         <li><%= link_to 'Praxis', pages_page_path('praxis'), class: "dropdown-item" %></li>
@@ -38,6 +38,6 @@
   -->
   <!--li class="nav-item"><%= link_to 'Pages', pages_home_page_path, class: 'nav-link' %></li-->
   <% if can? :read, 'Dashboard' %>
-    <li class="nav-item"><%= link_to 'User Dashboard', dashboard_path, class: 'nav-link' %></li>
+    <li class="nav-item"><%= link_to 'User Dashboard', dashboard_path, class: 'nav-link text-uppercase' %></li>
   <% end %>
 </ul>
