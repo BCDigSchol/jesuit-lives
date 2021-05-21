@@ -304,6 +304,21 @@
     }
   }
 
+  // Beta site banner
+  .banner-container {
+    padding: 2rem 0 0 0;
+    display: inline-block;
+
+    .media-middle {
+      font-size:50px;
+    }
+
+    p.banner-text {
+      font-size: 15px;
+    }
+  }
+
+
   /*================================================================================
   *                                  Index
   ==================================================================================*/
