@@ -13,7 +13,7 @@ module BlacklightConfiguration
 
       config.add_show_field SolrIndexer::Fields::TITLE, label: 'Title', link_to_facet: :title_facet
 
-      config.add_show_field SolrIndexer::Fields::STATUS, label: 'Status', link_to_facet: :status_facet
+      config.add_show_field SolrIndexer::Fields::STATUS, label: 'Status at death', link_to_facet: :status_facet
       config.add_show_field SolrIndexer::Fields::ADD_STATUS_INFO, label: 'Additional information about status'
 
       config.add_show_field SolrIndexer::Fields::BIRTH_DATE_DISPLAY, label: 'Date of birth', helper_method: 'link_to_year_search'
@@ -31,7 +31,7 @@ module BlacklightConfiguration
       config.add_show_field SolrIndexer::Fields::ALT_ENTRANCE_DATE_I2_DISPLAY, label: 'Alternate date of entry'
       config.add_show_field SolrIndexer::Fields::ADD_ENTRANCE_DATE_I2_INFO, label: 'Additional information about alternate date of entry'
 
-      config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE, label: 'Place of entry', link_to_facet: :entrance_province_facet
+      config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE, label: 'Entrance province', link_to_facet: :entrance_province_facet
       config.add_show_field SolrIndexer::Fields::ADD_ENTRANCE_PLACE_INFO_I1, label: 'Additional information about place of entry'
       config.add_show_field SolrIndexer::Fields::ENTRANCE_PROVINCE_2, label: 'Second place of entry', link_to_facet: :entrance_province_facet
       config.add_show_field SolrIndexer::Fields::ADD_ENTRANCE_PLACE_INFO_I2, label: 'Additional information about place of entry'
