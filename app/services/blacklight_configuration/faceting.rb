@@ -25,18 +25,19 @@ module BlacklightConfiguration
       #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
       # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
-      config.add_facet_field SolrIndexer::Fields::PLACE_OF_BIRTH_FACET, label: 'Place of Birth', limit: 20, index_range: 'A'..'Z'
-      config.add_facet_field SolrIndexer::Fields::ENTRANCE_PROVINCE_FACET, label: 'Entrance Province', limit: 20, index_range: 'A'..'Z'
-      config.add_facet_field SolrIndexer::Fields::PLACE_OF_DEATH_FACET, label: 'Place of Death', limit: 20, index_range: 'A'..'Z'
-
       config.add_facet_field SolrIndexer::Fields::TITLE_FACET, label: 'Title', limit: 20, index_range: 'A'..'Z'
-      config.add_facet_field SolrIndexer::Fields::STATUS_FACET, label: 'Status', limit: 20, index_range: 'A'..'Z'
+      config.add_facet_field SolrIndexer::Fields::STATUS_FACET, label: 'Status at Death', limit: 20, index_range: 'A'..'Z'
 
       config.add_facet_field SolrIndexer::Fields::BIRTH_DATE_YEAR, label: 'Year of Birth', range: true
-      config.add_facet_field SolrIndexer::Fields::DEATH_DATE_YEAR, label: 'Year of Death', range: true
-      config.add_facet_field SolrIndexer::Fields::VOW_DATE_YEAR, label: 'Year of Vow Taken', range: true
-      config.add_facet_field SolrIndexer::Fields::ENTRANCE_DATE_YEAR, label: 'Year of Entrance', range: true
+      config.add_facet_field SolrIndexer::Fields::PLACE_OF_BIRTH_FACET, label: 'Place of Birth', limit: 20, index_range: 'A'..'Z'
 
+      config.add_facet_field SolrIndexer::Fields::ENTRANCE_DATE_YEAR, label: 'Year of Entrance', range: true
+      config.add_facet_field SolrIndexer::Fields::ENTRANCE_PROVINCE_FACET, label: 'Entrance Province', limit: 20, index_range: 'A'..'Z'
+
+      config.add_facet_field SolrIndexer::Fields::VOW_DATE_YEAR, label: 'Year of Last Vow', range: true
+
+      config.add_facet_field SolrIndexer::Fields::DEATH_DATE_YEAR, label: 'Year of Death', range: true
+      config.add_facet_field SolrIndexer::Fields::PLACE_OF_DEATH_FACET, label: 'Place of Death', limit: 20, index_range: 'A'..'Z'
 
       # Have BL send all facet field names to Solr, which has been the default
       # previously. Simply remove these lines if you'd rather use Solr request
