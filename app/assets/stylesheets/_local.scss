@@ -140,10 +140,10 @@
   ==================================================================================*/
   a {
     color: #337ab7;
-  }
-  a:hover,
-  a:focus {
-    color: #23527c;
+
+    &:hover, &:focus {
+      color: #23527c;
+    }
   }
   .upper {
     text-transform: uppercase;
@@ -262,8 +262,8 @@
   .navbar {
     background-color: #69635f;
     font-size: 15px;
-    
-    a {
+
+    a.nav-link {
         color: #fff;
         &:hover {
             background-color:#000;
@@ -290,54 +290,61 @@
     margin-bottom: 0;
     background-color: inherit;
 
-    .search-navbar-jon {
-
-      .form-wrapper {
-        background-color: rgba(0,0,0,0.65);
-        padding: 25px;
-        padding-bottom: 20px;
+    .search-links {
+      a {
         color: white;
-        font-size: 21px;
+        float: right;
+      }
+    }
+  }
+
+  .search-navbar-jon {
+
+    .form-wrapper {
+      background-color: rgba(0,0,0,0.65);
+      padding: 25px;
+      padding-bottom: 20px;
+      color: white;
+      font-size: 21px;
+    }
+
+    .input-group {
+      #search_field.custom-select {
+        width: 20ch;
+        flex-grow: 0;
+        background-color: #ccc;
       }
 
-      .input-group {
-        #search_field.custom-select {
-          width: 20ch;
-          flex-grow: 0;
-          background-color: #ccc;
-        }
+      .btn-primary {
+        background-color: #337ab7;
+        border-color: #2e6da4;
 
-        .btn-primary {
-          background-color: #337ab7;
-          border-color: #2e6da4;
-
-          &:hover, &:focus {
-            background-color: #286090;
-            border-color: #204d74;
-          }
-        }
-      }
-
-      .search-links {
-        p.search-link {
-          margin-bottom: 0;
-        }
-        a:link {
-          color: white;
-          float: right;
-          padding-top: .5rem;
-          margin-right: 15px;
-          font-size: 18px;
-          text-transform: none;
-
-          &:hover, &:focus {
-            background-color: inherit;
-          }
+        &:hover, &:focus {
+          background-color: #286090;
+          border-color: #204d74;
         }
       }
     }
-}
 
+    .search-links {
+      flex: 1 0 0;
+
+      p.search-link {
+        margin-bottom: 0;
+      }
+      a {
+        float: none;
+        padding-top: .5rem;
+        margin-right: 15px;
+        font-size: 18px;
+        text-transform: none;
+
+        &:hover, &:focus {
+          background-color: inherit;
+        }
+      }
+    }
+  }
 
   /*================================================================================
   *                                  Homepage

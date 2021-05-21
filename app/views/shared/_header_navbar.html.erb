@@ -14,8 +14,12 @@
 <%# Select which search container to use based on if there are search parameters present, or if there is a @document object %>
 <% if (!params[:q].blank? or !params[:f].blank? or !params[:search_field].blank?) || @document %>
   <div class="navbar-search navbar navbar-light bg-light" role="navigation">
-    <div class="<%= container_classes %>">
+    <div class="<%= container_classes %> search-navbar-jon">
       <%= render_search_bar  %>
+      <div class="search-links clearfix">
+        <p id="search-help" class="search-link"><%= link_to 'Help', pages_page_path('tips') %></p>
+        <!--p id="advanced-search" class="search-link"><a href="/advanced">Advanced Search</a></p-->
+      </div>
     </div>
   </div>
 <% else %>
