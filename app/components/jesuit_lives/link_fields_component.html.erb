@@ -5,7 +5,7 @@
   <div class="col-md-9">
     <% if link_present?(SolrIndexer::Fields::PORTAL_URL) %>
       <div class="show-metadata__link">
-        Search in the
+        Search for <span class="show-metadata__search-term">"<%= search_term %>"</span> in the
         <a href="<%= link_for(SolrIndexer::Fields::PORTAL_URL) %>" target="_blank" rel="noopener">Portal to Jesuit
           Studies <%= helpers.icon("box-arrow-up-right") %></a>.
         <span class="sr-only">(opens in a new tab)</span>
@@ -14,7 +14,8 @@
 
     <% if link_present?(SolrIndexer::Fields::GEORGETOWN_URL) %>
       <div class="show-metadata__link">
-        See resources at <a href="<%= link_for(SolrIndexer::Fields::GEORGETOWN_URL) %>" target="_blank" rel="noopener">Georgetown
+        Search for <span class="show-metadata__search-term">"<%= search_term %>"</span>
+        at <a href="<%= link_for(SolrIndexer::Fields::GEORGETOWN_URL) %>" target="_blank" rel="noopener">Georgetown
         University <%= helpers.icon("box-arrow-up-right") %></a>.
         <span class="sr-only">(opens in a new tab)</span>
       </div>

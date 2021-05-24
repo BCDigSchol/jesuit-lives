@@ -59,4 +59,18 @@ class Jesuit < ApplicationRecord
     "https://jesuitportal.bc.edu/?#{params.to_query}"
   end
 
+  def generated_georgetown_url
+    params = {
+      uft8: '✓',
+      'op[]' => '',
+      'q[]' => last_name,
+      limit: '',
+      'field[]' => '',
+      'from_year[]' => '',
+      'to_year[]' => '',
+      commit: 'Search'
+    }
+    "https://findingaids.library.georgetown.edu/search?#{params.to_query}"
+  end
+
 end

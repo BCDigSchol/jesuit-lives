@@ -104,12 +104,13 @@ module SolrIndexer
       add_field(Fields::ADD_ENTRANCE_PLACE_INFO_I1, jesuit.add_entrance_place_info_i1)
       add_field(Fields::ADD_ENTRANCE_PLACE_INFO_I2, jesuit.add_entrance_place_info_i2)
 
-      # Use Portal URL from the database if there is one, otherwise generate
+      # Use Portal and Georgetown URLs from the database if there is one, otherwise generate
       # one automatically.
       portal_url = jesuit.portal_url ? jesuit.portal_url : jesuit.generated_portal_url
+      georgetown_url = jesuit.georgetown_url ? jesuit.georgetown_url : jesuit.generated_georgetown_url
 
       add_field(Fields::PORTAL_URL, portal_url)
-      add_field(Fields::GEORGETOWN_URL, jesuit.georgetown_url)
+      add_field(Fields::GEORGETOWN_URL, georgetown_url)
       add_field(Fields::WEB_RESOURCES, jesuit.web_resources)
 
     end
