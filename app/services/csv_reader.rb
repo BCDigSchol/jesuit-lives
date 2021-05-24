@@ -25,7 +25,9 @@ module CsvReader
       item_count += 1
       import_logger.info("Parsing row ##{item_count}")
       jesuit = build_jesuit_from_csv(row, bar, preset_values)
-      solr_indexer.add(jesuit) if jesuit
+
+      # Add any Jesuit with a name to Solr
+      solr_indexer.add(jesuit) if jesuit&.last_name
     end
 
     # Commit any remaining Jesuits to solr.
