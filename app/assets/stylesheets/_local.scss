@@ -280,6 +280,13 @@
     }
   }
 
+  .navbar.navbar-search {
+    background-color: #fff;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
   #search-navbar {
     width: 100% !important;
     margin-left: 0;
@@ -296,6 +303,7 @@
         a {
           color: white;
           float: right;
+          font-size: 18px;
         }
       }
 
@@ -346,7 +354,7 @@
         float: none;
         padding-top: .5rem;
         margin-right: 15px;
-        font-size: 18px;
+        font-size: 16px;
         text-transform: none;
 
         &:hover, &:focus {
