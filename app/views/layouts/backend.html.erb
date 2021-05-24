@@ -8,7 +8,8 @@
     <!-- Internet Explorer use the highest version available -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Backend | Jesuit Online Necrology</title>
+    <% page_title = @page.title ? @page.title : 'Backend' %>
+    <title><%= page_title  %> | Jesuit Online Necrology</title>
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all" %>
