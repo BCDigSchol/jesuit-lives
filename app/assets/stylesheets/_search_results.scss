@@ -1,4 +1,14 @@
 /** Local style rules for search results display */
+#documents {
+  margin-bottom: 2rem;
+}
+.documents-list {
+  article.document {
+    margin-top: 0;
+    padding: 1rem 0;
+  }
+}
+
 .document {
   .tombstone {
     margin-left: 1.5em;
@@ -12,4 +22,8 @@
 
 .show-metadata__field-group {
   margin-bottom: 1em;
+}
+
+#sortAndPerPage.sort-pagination {
+  margin-bottom: 0;
 }
