@@ -29,6 +29,7 @@ class StaticpagesController < ApplicationController
             render layout: 'blacklight', status: 404
             return false
         end
+        @page_title = @page.title
         @page
     end
 
