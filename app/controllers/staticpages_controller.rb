@@ -1,6 +1,6 @@
 class StaticpagesController < ApplicationController
-    before_action :require_login
-    before_action :authenticate_user!
+    before_action :require_login, only: [:edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:edit, :update, :destroy]
     protect_from_forgery with: :exception
 
     before_action :set_staticpage, only: [:show, :edit, :update, :destroy]
