@@ -33,3 +33,12 @@
     margin-bottom: .5rem;
   }
 }
+
+@media (max-width: 991px) {
+  #sidebar {
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    padding-top: .5rem;
+    margin-bottom: 1rem;
+  }
+}

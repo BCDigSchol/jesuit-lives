@@ -83,9 +83,12 @@
     font-family: OpenSans;
     font-size: 15px;
   }
-  @media (max-width: 768px){
+  @media (max-width: 767px){
     a {
         text-decoration: underline!important;
+    }
+    .brand a {
+      text-decoration: none!important;
     }
   }
   .center-col {
@@ -264,6 +267,31 @@
     background-color: #69635f;
     font-size: 15px;
 
+    .navbar-toggler {
+      background-color: #333;
+      border-color: #777;
+      padding: .25rem;
+
+      .navbar-toggler-icon {
+        background-color: #333;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28 255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      .icon-bar {
+        display: block;
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 1px;
+        background-color: #fff;
+        margin-bottom: 4px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+    }
+
     a.nav-link {
         color: #fff;
         &:hover {
@@ -294,7 +322,7 @@
     background-size: cover;
     background-position: 0 50%;
     height: 400px;
-    padding: 100px 0 0 0;
+    padding: 6.25rem 0 0 0;
     margin-bottom: 0;
     background-color: inherit;
 
@@ -327,7 +355,7 @@
 
     .input-group {
       .custom-select {
-        width: 20ch;
+        width: 15ch;
         flex-grow: 0;
         background-color: #ccc;
       }
@@ -364,6 +392,47 @@
     }
   }
 
+  @media (max-width: 1023px) {
+    .search-navbar-jon {
+      .input-group {
+        .custom-select {
+          width: 12ch;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1199px) {
+    #search-navbar {
+      padding-top: 1.25rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .search-links {
+      padding-top: 1rem;
+    }
+    .topbar ul.navbar-nav {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .topbar ul.navbar-nav {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    header {
+      .brand-backgnd {
+        .header-image {
+          display: none;
+        }
+      }
+    }
+  }
+
   /*================================================================================
   *                                  Homepage
   ==================================================================================*/
@@ -373,6 +442,17 @@
     margin-top: 2rem;
     .header-text {
       font-size: 16px;
+    }
+
+    .image-row {
+      margin-top: 2rem;
+
+      .image-item {
+        a {
+          display:block;
+          text-align: center;
+        }
+      }
     }
   }
 
@@ -387,6 +467,20 @@
 
     p.banner-text {
       font-size: 15px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #getting-started {
+      .image-row{
+        .image-item {
+          margin-bottom: 2rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
   }
 
