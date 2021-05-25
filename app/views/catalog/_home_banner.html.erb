@@ -1,6 +1,6 @@
-<div class="banner-container beta-banner">
+<div class="banner-container beta-banner w-100">
   <div class="media">
-    <div class="alert alert-success row">
+    <div class="alert alert-success row w-100">
       <div class="media">
         <div class="mr-3 beta-banner__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
@@ -11,10 +11,8 @@
           <h4 class="media-heading mt-0">Welcome to the <strong>beta version</strong> of the Jesuit Online Necrology</h4>
           <p class="banner-text">
             <i class="bi bi-tools"></i>
-            Your comments and corrections are welcomed as we continue to modify the database before its formal launch.
-            At that time, we will also release the names of the contributors and of the additional institutional
-            partners collaborating on the project.
-            Please <a href="mailto:jesuitonlinebibliography@bc.edu" class="alert-link">contact the editors</a> with
+            Your comments and corrections are welcomed as we continue to modify the database before its formal launch.<br/>
+            Please <%= link_to 'contact the editors', pages_page_path('contact'), class: "alert-link" %></a> with
             questions.
           </p>
         </div>
