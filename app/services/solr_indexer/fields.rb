@@ -206,4 +206,6 @@ module SolrIndexer::Fields
   GEORGETOWN_URL = "georgetown_url_#{DISPLAY}"
   WEB_RESOURCES = "web_resources_#{DISPLAY}"
 
+  BIOGRAPHICAL_NOTE = "biographical_note_#{DISPLAY}"
+
 end

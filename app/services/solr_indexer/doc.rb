@@ -113,6 +113,8 @@ module SolrIndexer
       add_field(Fields::GEORGETOWN_URL, georgetown_url)
       add_field(Fields::WEB_RESOURCES, jesuit.web_resources)
 
+      add_field(Fields::BIOGRAPHICAL_NOTE, jesuit.biographical_note)
+
     end
 
     # Get the Doc as a hash for use in rsolr.

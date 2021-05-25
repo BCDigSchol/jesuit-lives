@@ -54,6 +54,8 @@ module BlacklightConfiguration
       config.add_show_field SolrIndexer::Fields::GEORGETOWN_URL, label: 'The Georgetown URL is'
       config.add_show_field SolrIndexer::Fields::WEB_RESOURCES, label: 'Other stuff'
 
+      config.add_show_field SolrIndexer::Fields::BIOGRAPHICAL_NOTE, label: 'Biographical note', helper_method: 'allow_html_value'
+
     end
   end
 end

@@ -11,6 +11,10 @@ module ApplicationHelper
     )
   end
 
+  def allow_html_value(options ={})
+    options[:value][0].html_safe
+  end
+
   def icon(icon, options = {})
     icon_path = File.join(Rails.root, "node_modules/bootstrap-icons/icons/#{icon}.svg")
     file = File.read(icon_path)

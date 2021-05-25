@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_27_181758) do
+ActiveRecord::Schema.define(version: 2021_05_25_151418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_181758) do
     t.text "portal_url"
     t.text "georgetown_url"
     t.text "web_resources"
+    t.text "biographical_note"
     t.index ["alt_birth_date_id"], name: "index_jesuits_on_alt_birth_date_id"
     t.index ["alt_death_date_id"], name: "index_jesuits_on_alt_death_date_id"
     t.index ["alt_entrance_date_i1_id"], name: "index_jesuits_on_alt_entrance_date_i1_id"

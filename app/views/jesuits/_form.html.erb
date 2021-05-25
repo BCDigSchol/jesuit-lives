@@ -214,6 +214,13 @@
   <div class="field form-group">
     <%= form.label :web_resources %>
     <%= form.text_area :web_resources, class: "form-control" %>
+    <%= tinymce :pages, selector: "#jesuit_web_resources", skin: 'oxide-dark', :content_css => asset_path("application", type: :stylesheet) %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :biographical_note %>
+    <%= form.text_area :biographical_note, class: "form-control" %>
+    <%= tinymce :pages, selector: "#jesuit_biographical_note", skin: 'oxide-dark', :content_css => asset_path("application", type: :stylesheet) %>
   </div>
 
   <div class="actions">

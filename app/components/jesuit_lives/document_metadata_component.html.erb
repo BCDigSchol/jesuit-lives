@@ -56,3 +56,7 @@
 </div>
 
 <%= render(link_fields_component()) %>
+
+<div class="show-metadata__biographical-note show-metadata__field-group">
+  <%= render(hashed_field_component(SolrIndexer::Fields::BIOGRAPHICAL_NOTE)) %>
+</div>

@@ -135,7 +135,8 @@ class JesuitsController < ApplicationController
       :vow_date_id,
       :portal_url,
       :georgetown_url,
-      :web_resources
+      :web_resources,
+      :biographical_note
     )
   end
 

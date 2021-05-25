@@ -43,5 +43,6 @@ module CsvReader
     PORTAL_URL = 38
     GEORGETOWN_URL = 39
     WEB_RESOURCES = 40
+    BIOGRAPHICAL_NOTE = 41
   end
 end
