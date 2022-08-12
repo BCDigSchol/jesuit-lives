@@ -8,7 +8,7 @@ server "jesuit-lives.lontracanadensis.net", user: "rails", roles: %w{app db web}
 # server "db.example.com", user: "deploy", roles: %w{db}
 #
 set :deploy_to,  "/home/rails/#{fetch :application}"
-set :rails_env, "production"
+set :rails_env, "sandbox"
 
 
 # role-based syntax

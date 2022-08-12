@@ -1,4 +1,4 @@
-<% if Rails.env.production? %>
+<% if Rails.env.sandbox? %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100711792-3"></script>
   <script>
@@ -12,4 +12,3 @@
       gtag('config', 'UA-100711792-6');
   </script>
 <% end %>
-<!-- <%= Rails.env %> -->

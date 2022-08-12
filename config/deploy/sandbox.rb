@@ -3,12 +3,12 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-# server "jesuit-lives.lontracanadensis.net", user: "rails", roles: %w{app db web}
+server "jesuit-lives.lontracanadensis.net", user: "rails", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 #
-# set :deploy_to,  "/home/rails/#{fetch :application}"
-# set :rails_env, "sandbox"
+set :deploy_to,  "/home/rails/#{fetch :application}"
+set :rails_env, "sandbox"
 
 # role-based syntax
 # ==================
