@@ -34,7 +34,7 @@ module JesuitLives
     #
     # @return [String] e.g. '–'
     def separator
-      '–'
+      ' – '
     end
 
     # Format year and place string for presentation in tombstone
