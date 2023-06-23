@@ -1,14 +1,12 @@
 <% if Rails.env.sandbox? %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100711792-3"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JV5MBTGVZS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      function gtag() {
-          dataLayer.push(arguments);
-      }
-
-      gtag('js', new Date());
-      gtag('config', 'UA-100711792-6');
-  </script>
+  gtag('config', 'G-JV5MBTGVZS');
+</script>
 <% end %>
